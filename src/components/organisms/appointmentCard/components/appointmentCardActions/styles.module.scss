@@ -1,0 +1,13 @@
+@import 'src/styles/functions';
+@import 'src/styles/mixins';
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: space(xs);
+
+  position: absolute;
+  top: space(m4-1);
+  @include end(space(m4-1));
+}

@@ -1,0 +1,80 @@
+@import 'src/styles/mixins.scss';
+@import 'src/styles/functions.scss';
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatarContainer {
+  border-radius: 100%;
+  background-color: getColor(var(--theme-secondary-main));
+  color: getColor(var(--theme-primary-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border: 3px solid getColor(var(--theme-border-main));
+  transition: 0.5s all ease;
+}
+
+.avatar:hover {
+  transform: scale(1.3);
+}
+
+.initials {
+  text-align: center;
+  // TODO
+  font-family: Morabba;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.extraSmall {
+  width: 2.75rem;
+  height: 2.75rem;
+  // TODO: use function fontSize and fontWeight
+  font-size: 14px;
+}
+
+.smaller {
+  width: 3.75rem;
+  height: 3.75rem;
+  // TO DO: use function fontSize and fontWeight
+  font-size: 14px;
+}
+
+.smaller {
+  width: 3.75rem;
+  height: 3.75rem;
+  // TO DO: use function fontSize and fontWeight
+  font-size: 14px;
+}
+
+.small {
+  width: 4.5rem;
+  height: 4.5rem;
+  // TODO: use function fontSize and fontWeight
+  font-size: 16px;
+}
+
+.medium {
+  width: 6rem;
+  height: 6rem;
+  // TODO: use function fontSize and fontWeight
+  font-size: 24px;
+}
+
+.large {
+  width: 10rem;
+  height: 10rem;
+  // TODO: use function fontSize and fontWeight
+  font-size: 32px;
+}

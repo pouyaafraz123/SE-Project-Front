@@ -1,0 +1,20 @@
+@use 'src/styles/global-variables.scss' as gb;
+@import 'src/styles/mixins.scss';
+@import 'src/styles/functions.scss';
+
+.selectBoxContainer {
+  position: fixed;
+  z-index: gb.$selectBox-z-index;
+  inset: 0;
+}
+.selectBox {
+  @include shadow(sm);
+  min-width: 10rem;
+}
+.content {
+  min-width: 5rem;
+  max-height: 15rem;
+  display: flex;
+  flex-direction: column;
+  gap: space(xs) 0;
+}

@@ -1,0 +1,8 @@
+@import 'src/styles/functions.scss';
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: space(2m1);
+}

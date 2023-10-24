@@ -1,0 +1,99 @@
+@use 'sass:list';
+
+// #region rounded
+$space-factor: 0.5rem; //8px
+$spacer: (
+  0: calc($space-factor / 2),
+  /*3px*/ xss: calc($space-factor * 0.375),
+  /*4px*/ xs: calc($space-factor / 2),
+  /*6px*/ xs1: calc($space-factor * 0.75),
+  /*8px*/ m1: calc($space-factor * 1),
+  /*(2 * 8px)*/ 2m1: calc($space-factor * 1 * 2),
+  /*(4 * 8px)*/ 4m1: calc($space-factor * 1 * 4),
+  /*10px*/ m2: calc($space-factor * 1.25),
+  /*12px*/ m3: calc($space-factor * 1.5),
+  /*(2 * 12)px*/ 2m3: calc($space-factor * 1.5 * 2),
+  /*14px*/ m4: calc($space-factor * 1.75),
+  /*15px*/ m4-1: calc($space-factor * 1.875),
+  /*18px*/ m5: calc($space-factor * 2.25),
+  /*2 * 18px*/ 2m5: calc($space-factor * 2.25 * 2),
+  /*20px*/ l1: calc($space-factor * 2.5),
+  /*25px*/ l2: calc($space-factor * 3.125),
+  /*30px*/ l3: calc($space-factor * 3.75),
+  /*35px*/ l4: calc($space-factor * 4.375),
+  /*50px*/ l5: calc($space-factor * 6.25),
+  /*80px*/ l6: calc($space-factor * 10)
+);
+// #endregion
+
+// #region rounded
+$radius-factor: 0.5rem; //8px
+$rounded: (
+  /*0*/ none: 0,
+  /*4px*/ xs: calc($radius-factor / 2),
+  /*8px*/ sm: calc($radius-factor * 1),
+  /*16px*/ md: calc($radius-factor * 2),
+  /*28px*/ lg: calc($radius-factor * 3.5),
+  /*200px*/ xlg: calc($radius-factor * 25),
+  full: 100%
+);
+// #endregion
+
+//#region font size
+$font-size-factor: 0.5rem; //8px
+$fontSize: (
+  /*10/16px*/ micro:
+    list.join(calc($font-size-factor * 1.25), calc($font-size-factor * 2)),
+  /*12/20px use as caption*/ xs:
+    list.join(calc($font-size-factor * 1.5), calc($font-size-factor * 2.5)),
+  /*13/20px use as detail*/ sm:
+    list.join(calc($font-size-factor * 1.625), calc($font-size-factor * 2.5)),
+  /*14/20px use as body(default)*/ md:
+    list.join(calc($font-size-factor * 1.75), calc($font-size-factor * 2.5)),
+  /*14/24px*/ md-high:
+    list.join(calc($font-size-factor * 1.75), calc($font-size-factor * 3)),
+  /*16/28px*/ base:
+    list.join(calc($font-size-factor * 2), calc($font-size-factor * 3.5)),
+  /*18/30px. use as h3*/ lg:
+    list.join(calc($font-size-factor * 2.25), calc($font-size-factor * 3.75)),
+  /*20/32px*/ xl:
+    list.join(calc($font-size-factor * 2.5), calc($font-size-factor * 4)),
+  /*24/36px. use as H2*/ 2xl:
+    list.join(calc($font-size-factor * 3), calc($font-size-factor * 4.5)),
+  /*68/90px. use as H1*/ 7xl:
+    list.join(calc($font-size-factor * 8.5), calc($font-size-factor * 11.25))
+);
+//#endregion
+
+$fontWeight: (
+  regular: 400,
+  medium: 500,
+  semi-bold: 600,
+  bold: 700,
+  extra-bold: 800
+);
+
+$colors: (
+  primary-main primary-dark secondary-main success-main success-dark
+    warning-main warning-dark danger-main danger-dark 'black' 'white'
+    primary-text secondary-text secondary-text-light primary-background
+    secondary-background gray-background border-main border-secondary
+    border-dark
+);
+
+$shadow-size-factor: 0.5rem; //8px
+$shadow-size: (
+  /*10px*/ xs: calc($radius-factor * 1.25),
+  /*20px*/ sm: calc($radius-factor * 2.5),
+  /*30px*/ md: calc($radius-factor * 3.75),
+  /*40px*/ lg: calc($radius-factor * 5)
+);
+
+$border-gradient-factor: 15%;
+
+$time: 200ms;
+
+$selectBox-z-index: 100;
+
+$sidebar-expanded-width: 19rem; //300px
+$sidebar-closed-width: 6.25rem; //100px

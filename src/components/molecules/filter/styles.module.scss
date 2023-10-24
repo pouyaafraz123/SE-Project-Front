@@ -1,0 +1,120 @@
+@import 'src/styles/functions';
+@import 'src/styles/mixins';
+@import 'src/styles/global-variables';
+
+.filter {
+  min-width: 9rem;
+  max-width: 10rem;
+  cursor: pointer;
+
+  &__container {
+    position: relative;
+    min-width: 9rem;
+    max-width: 10rem;
+  }
+
+  &__inside {
+    display: flex;
+    flex-direction: column;
+    background-color: getColor(var(--theme-primary-background));
+    border: 1px solid getColor(var(--theme-border-secondary));
+    box-shadow: 0 0 10px 0 getColor(var(--theme-primary-main), 20);
+    border-radius: radius(md);
+    overflow: hidden;
+    width: 15.625rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    top: 3.5rem;
+    transition: all $time ease-out;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &__insideOpen {
+    height: auto;
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  &__allItems {
+    display: flex;
+    flex-direction: column;
+    max-height: 20rem;
+    overflow-y: auto;
+    transition: all $time ease-out;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    transition: all $time ease-out;
+    @include disable-select;
+  }
+
+  &__head {
+    padding: space(l1);
+  }
+
+  &__filterItem {
+    display: flex;
+    flex-direction: column;
+    background-color: getColor(var(--theme-secondary-background));
+    border-top: 1px solid getColor(var(--theme-border-main));
+    transition: all $time ease-out;
+  }
+
+  &__filterItemHead {
+    padding: space(m3) space(l1);
+    background-color: getColor(var(--theme-primary-background));
+    cursor: pointer;
+  }
+
+  &__filterItemsContainer {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid getColor(var(--theme-border-main));
+    transition: all $time ease-out;
+  }
+
+  &__fiterItemContent {
+    padding: space(2m1);
+    transition: all $time ease-out;
+  }
+
+  &__icon {
+    transition: all $time ease-out;
+    [dir='rtl'] & {
+      transform: rotate(90deg);
+    }
+    [dir='ltr'] & {
+      transform: rotate(270deg);
+    }
+  }
+
+  &__iconOpen {
+    [dir='rtl'] & {
+      transform: rotate(0deg);
+    }
+    [dir='ltr'] & {
+      transform: rotate(360deg);
+    }
+  }
+
+  &__pointer {
+    cursor: pointer;
+  }
+}
+
+@keyframes itemAnimation {
+  0% {
+    height: 0;
+  }
+
+  100% {
+    height: auto;
+  }
+}

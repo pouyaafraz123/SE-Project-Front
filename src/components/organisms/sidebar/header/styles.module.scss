@@ -1,0 +1,42 @@
+@use 'src/styles/global-variables.scss' as gb;
+@use '../styles.module.scss' as sidebar;
+@import 'src/styles/functions.scss';
+@import 'src/styles/mixins.scss';
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: space(2m1);
+  padding: 0 sidebar.$padding-x;
+  max-height: 3.75rem;
+  margin-bottom: space(2m5);
+  // &:hover {
+  //   background-color: getThemeColor(primary-main, 5);
+  // }
+}
+.userInfoBox {
+  // cursor: pointer;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.toggleIcon {
+  cursor: pointer;
+  @include border();
+  border-radius: radius(md);
+  transition: border-radius ease 100ms;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  @include end(-1.125rem);
+  z-index: 10;
+  background-color: getThemeColor(primary-background);
+  &:hover {
+    border-radius: radius(xlg);
+  }
+}

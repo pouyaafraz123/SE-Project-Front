@@ -1,0 +1,340 @@
+@use './global-variables.scss' as gb;
+@use 'sass:list';
+
+@mixin disable-select {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+@mixin flipProperty($ltr-property, $rtl-property, $value) {
+  [dir='ltr'] & {
+    #{$ltr-property}: $value;
+  }
+
+  [dir='rtl'] & {
+    #{$rtl-property}: $value;
+  }
+}
+
+@mixin start($value) {
+  @include flipProperty('left', 'right', $value);
+}
+@mixin end($value) {
+  @include flipProperty('right', 'left', $value);
+}
+
+@mixin padding-start($value) {
+  @include flipProperty('padding-left', 'padding-right', $value);
+}
+@mixin padding-end($value) {
+  @include flipProperty('padding-right', 'padding-left', $value);
+}
+
+@mixin margin-start($value) {
+  @include flipProperty('margin-left', 'margin-right', $value);
+}
+@mixin margin-end($value) {
+  @include flipProperty('margin-right', 'margin-left', $value);
+}
+
+@mixin margin-x($value) {
+  margin-left: $value !important;
+  margin-right: $value !important;
+}
+@mixin margin-y($value) {
+  margin-top: $value !important;
+  margin-bottom: $value !important;
+}
+
+@mixin padding-x($value) {
+  padding-left: $value !important;
+  padding-right: $value !important;
+}
+@mixin padding-y($value) {
+  padding-top: $value !important;
+  padding-bottom: $value !important;
+}
+
+// generate spacing classes
+@mixin space-x {
+  @each $name, $value in gb.$spacer {
+    // margin start
+    .ms-#{$name} {
+      @include margin-start($value);
+    }
+    //negative margin start
+    .ms-n-#{$name} {
+      @include margin-start(-($value));
+    }
+    // margin end
+    .me-#{$name} {
+      @include margin-end($value);
+    }
+    //negative margin end
+    .me-n-#{$name} {
+      @include margin-end(-($value));
+    }
+    // margin top
+    .mt-#{$name} {
+      margin-top: $value !important;
+    }
+    //negative margin top
+    .mt-n-#{$name} {
+      margin-top: -$value !important;
+    }
+    // margin bottom
+    .mb-#{$name} {
+      margin-bottom: $value !important;
+    }
+    //negative margin bottom
+    .mb-n-#{$name} {
+      margin-bottom: -$value !important;
+    }
+    // margin x-axis
+    .mx-#{$name} {
+      @include margin-x($value);
+    }
+    //margin y-axis
+    .my-#{$name} {
+      @include margin-y($value);
+    }
+    //margin all
+    .m-#{$name} {
+      margin: $value !important;
+    }
+    // padding start
+    .ps-#{$name} {
+      @include padding-start($value);
+    }
+    //negative padding start
+    .ps-n-#{$name} {
+      @include padding-start(-($value));
+    }
+    // padding end
+    .pe-#{$name} {
+      @include padding-end($value);
+    }
+    //negative padding end
+    .pe-n-#{$name} {
+      @include padding-end(-($value));
+    }
+    // padding top
+    .pt-#{$name} {
+      padding-top: $value !important;
+    }
+    //negative padding top
+    .pt-n-#{$name} {
+      padding-top: -$value !important;
+    }
+    // padding bottom
+    .pb-#{$name} {
+      padding-bottom: $value !important;
+    }
+    //negative padding bottom
+    .pb-n-#{$name} {
+      padding-bottom: -$value !important;
+    }
+    // padding x-axis
+    .px-#{$name} {
+      @include padding-x($value);
+    }
+    //padding y-axis
+    .py-#{$name} {
+      @include padding-y($value);
+    }
+    //padding all
+    .p-#{$name} {
+      padding: $value !important;
+    }
+    .gap-#{$name} {
+      gap: $value !important;
+    }
+  }
+}
+
+// generate rounded classes
+@mixin rounded-x {
+  @each $name, $value in gb.$rounded {
+    .rounded-#{$name} {
+      border-radius: $value !important;
+    }
+    .rounded-top-#{$name} {
+      border-top-right-radius: $value !important;
+      border-top-left-radius: $value !important;
+    }
+    .rounded-bottom-#{$name} {
+      border-bottom-right-radius: $value !important;
+      border-bottom-left-radius: $value !important;
+    }
+    .rounded-right-#{$name} {
+      border-top-right-radius: $value !important;
+      border-bottom-right-radius: $value !important;
+    }
+    .rounded-left-#{$name} {
+      border-top-left-radius: $value !important;
+      border-bottom-left-radius: $value !important;
+    }
+  }
+}
+
+//generate font size with line height classes
+@mixin fontSize-x {
+  @each $name, $value in gb.$fontSize {
+    $size: list.nth($value, 1);
+    $height: list.nth($value, 2);
+    .fs-#{$name} {
+      font-size: $size !important;
+      line-height: $height !important;
+    }
+    .just-fs-#{$name} {
+      font-size: $size !important;
+    }
+  }
+  .fs-inherit {
+    font-size: inherit !important;
+    line-height: inherit !important;
+  }
+  .just-fs-inherit {
+    font-size: inherit !important;
+    line-height: inherit !important;
+  }
+}
+
+//mixin for using font size and line height
+@mixin font-size($value) {
+  $size: list.nth(fontSize($value), 1);
+  $height: list.nth(fontSize($value), 2);
+  font-size: $size;
+  line-height: $height;
+}
+//mixin for using just font size
+@mixin just-font-size($value) {
+  $size: list.nth(fontSize($value), 1);
+  font-size: $size;
+}
+
+//generate font weight classes
+@mixin fontWeight-x {
+  @each $name, $value in gb.$fontWeight {
+    .fw-#{$name} {
+      font-weight: $value !important;
+    }
+  }
+  .fw-inherit {
+    font-weight: inherit !important;
+  }
+}
+
+//generate color, bg-color, border-color classes
+@mixin color-x {
+  @each $name in gb.$colors {
+    .color-#{$name} {
+      &::before {
+        color: rgb(var(--theme-#{$name})) !important;
+      }
+      color: rgb(var(--theme-#{$name})) !important;
+    }
+    .bg-color-#{$name} {
+      background-color: rgb(var(--theme-#{$name})) !important;
+    }
+    .border-color-#{$name} {
+      border-color: rgb(var(--theme-#{$name})) !important;
+    }
+  }
+  .color-inherit {
+    color: inherit !important;
+  }
+  .bg-color-inherit {
+    background-color: inherit !important;
+  }
+  .border-color-inherit {
+    border-color: inherit !important;
+  }
+}
+
+@mixin shadow(
+  $shadow-size: lg,
+  $theme-color-name: border-main,
+  $color-opacity: 20
+) {
+  box-shadow: 0px 0px shadowSize($shadow-size) 0px
+    getThemeColor($theme-color-name, $color-opacity);
+}
+@mixin border($theme-color-name: border-main) {
+  border: 1px solid getThemeColor($theme-color-name);
+}
+@mixin border-and-shadow(
+  $shadow-size: lg,
+  $theme-color-name: border-main,
+  $color-opacity: 20
+) {
+  border: 1px solid getThemeColor($theme-color-name);
+  @include shadow($shadow-size, $theme-color-name, $color-opacity);
+}
+
+@mixin border-gradient($deg, $theme-color) {
+  border-image: linear-gradient(
+      #{$deg}deg,
+      getThemeColor($theme-color, 0) 0%,
+      getThemeColor($theme-color) calc(gb.$border-gradient-factor + 0%),
+      getThemeColor($theme-color) calc(100% - gb.$border-gradient-factor),
+      getThemeColor($theme-color, 0) 100%
+    )
+    1;
+}
+@mixin border-gr-top {
+  border-top: 1px solid;
+  @include border-gradient(90, border-main);
+}
+@mixin border-gr-bottom {
+  border-bottom: 1px solid;
+  @include border-gradient(90, border-main);
+}
+@mixin border-gr-start {
+  border-inline-start: 1px solid;
+  @include border-gradient(0, border-main);
+}
+@mixin border-gr-end {
+  border-inline-end: 1px solid;
+  @include border-gradient(0, border-main);
+}
+
+@mixin svg-color($color) {
+  [data-variant='linear'] > path {
+    stroke: $color;
+  }
+  [data-variant='bold'] > path {
+    stroke: $color;
+  }
+}
+
+@mixin svg {
+  svg {
+    transition: all gb.$time ease-in-out;
+  }
+  svg {
+    path {
+      transition: all gb.$time ease-in-out;
+    }
+  }
+}
+
+@mixin dark-light-gradient($mainColor, $darkColor) {
+  background: linear-gradient(
+    134deg,
+    getColor($darkColor) -0.77%,
+    getColor($mainColor) 99.51%
+  );
+}
+
+@mixin disable-select {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+@mixin transition-all {
+  transition: all gb.$time ease-in-out;
+}

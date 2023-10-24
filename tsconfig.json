@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "incremental": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true,
+
+    // path alias
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@public/*": ["public/*"],
+      "@hook": ["src/hooks/index.ts"],
+      "@utils": ["src/utils/index.ts"],
+      "@constants": ["src/constants/index.ts"],
+      "@stores": ["src/stores/index.ts"],
+      "@pages/*": ["src/pages/*"],
+      "@styles/*": ["src/styles/*"],
+      "@api/*": ["src/api/*"],
+      "@configs": ["src/configs/index.ts"],
+      "@routes/*": ["src/routes/*"],
+      "@components/*": ["src/components/*"],
+      "@decorators": [".storybook/decorators/index.ts"]
+    }
+  },
+  "include": [
+    "src",
+    "./jest-setup.ts",
+    ".storybook/decorators/withPagination.tsx"
+  ],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

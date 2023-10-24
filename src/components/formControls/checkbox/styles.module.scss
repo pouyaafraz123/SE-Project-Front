@@ -1,0 +1,33 @@
+@import 'src/styles/functions.scss';
+@import 'src/styles/mixins.scss';
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: space(m1);
+  @include font-size(md);
+}
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
+  border-radius: radius(sm);
+  background-color: getThemeColor(primary-background);
+  border: 2px solid getThemeColor(border-secondary);
+  &[data-checked='true'] {
+    transition: all ease 150ms;
+    border: 0;
+    background-color: getThemeColor(primary-main);
+  }
+  &[data-disabled='true'] {
+    cursor: default;
+    background-color: getThemeColor(gray-background);
+    border: 2px solid getThemeColor(border-secondary);
+    & path {
+      stroke: getThemeColor(secondary-text);
+    }
+  }
+}

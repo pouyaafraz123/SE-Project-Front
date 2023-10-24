@@ -1,0 +1,23 @@
+@import 'src/styles/functions.scss';
+@import 'src/styles/mixins.scss';
+
+$iconSize: 24px;
+
+.container {
+  position: relative;
+}
+.iconContainer {
+  position: absolute;
+  top: space(xs1);
+  cursor: default;
+  bottom: space(xs1);
+  display: inline-flex;
+  align-items: center;
+  @include end(space(xs));
+  padding: space(xs1);
+}
+.input {
+  &[data-hasicon='true'] {
+    padding-inline-end: calc((2 * space(m1)) + $iconSize);
+  }
+}

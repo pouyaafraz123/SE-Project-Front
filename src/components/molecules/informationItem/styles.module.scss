@@ -1,0 +1,26 @@
+@import 'src/styles/functions';
+
+.informationItem {
+  display: flex;
+  align-items: center;
+  height: 5.625rem;
+  gap: space(2m3);
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  &__details {
+    display: flex;
+    gap: space(xs);
+  }
+
+  &__texts {
+    display: flex;
+    gap: space(xs);
+    align-items: center;
+  }
+}

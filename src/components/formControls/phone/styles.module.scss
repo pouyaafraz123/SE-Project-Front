@@ -1,0 +1,31 @@
+@import 'src/styles/functions.scss';
+
+$codeBoxWidth: 4.25rem;
+
+.container {
+  position: relative;
+  direction: ltr;
+}
+.codeContainer {
+  cursor: pointer;
+  top: space(m1);
+  bottom: space(m1);
+  left: space(m1);
+  position: absolute;
+  display: flex;
+  padding: space(xs) space(m1);
+  align-items: center;
+  gap: space(xs);
+  color: getThemeColor(primary-main);
+  background-color: getThemeColor(primary-main, 5);
+  border-radius: radius(sm);
+  &[data-disabled='true'] {
+    cursor: default;
+  }
+  &[data-readonly='true'] {
+    cursor: default;
+  }
+}
+.phoneInput {
+  padding-left: calc($codeBoxWidth + space(xs) + space(m3));
+}

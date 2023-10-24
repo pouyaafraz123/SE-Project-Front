@@ -1,0 +1,21 @@
+@import 'src/styles/functions';
+
+.sep {
+  background: linear-gradient(
+    to right,
+    getColor(var(--theme-border-main), 0),
+    getColor(var(--theme-border-main)),
+    getColor(var(--theme-border-main)),
+    getColor(var(--theme-border-main), 0)
+  );
+
+  &[data-dir='horizontal'] {
+    height: 1px;
+    width: 100%;
+  }
+
+  &[data-dir='vertical'] {
+    width: 1px;
+    height: 100%;
+  }
+}

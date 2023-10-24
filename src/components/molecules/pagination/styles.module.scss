@@ -1,0 +1,22 @@
+@import 'src/styles/mixins.scss';
+@import 'src/styles/functions.scss';
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.ellipsis {
+  background-color: transparent;
+  color: getColor(var(--theme-primary-text));
+  border: none;
+  min-width: 13px;
+  width: 13px !important;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

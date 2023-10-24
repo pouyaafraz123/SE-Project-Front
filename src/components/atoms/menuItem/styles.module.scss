@@ -1,0 +1,22 @@
+@import 'src/styles/functions.scss';
+
+@mixin selected {
+  background-color: getThemeColor(primary-main, 10);
+}
+
+.item {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: space(xs) space(m1);
+  gap: 0 space(xs);
+  min-width: 3rem;
+  background-color: getThemeColor(primary-background);
+  &:hover {
+    @include selected;
+  }
+}
+.selected {
+  @include selected;
+}

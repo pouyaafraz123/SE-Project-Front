@@ -1,0 +1,71 @@
+@import 'src/styles/functions.scss';
+@import 'src/styles/mixins.scss';
+
+@mixin default {
+  @include border(border-secondary);
+  color: getThemeColor(primary-text);
+  background-color: getThemeColor(primary-background);
+}
+
+@mixin focus-active {
+  outline: none;
+  @include border(border-secondary);
+  @include shadow(xs, primary-main);
+}
+@mixin readOnly {
+  background-color: getThemeColor(secondary-background, 50);
+  box-shadow: none;
+  color: getThemeColor(secondary-text-light);
+  @include border(border-main);
+}
+
+@mixin error {
+  &[data-validation='error'] {
+    @include border-and-shadow(xs, danger-main);
+  }
+}
+
+@mixin disabled {
+  background-color: getThemeColor(gray-background);
+  color: getThemeColor(secondary-text);
+  @include border(border-dark);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: space(m1) space(m3);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  @include font-size(md);
+  min-height: 3rem;
+  border-radius: radius(md);
+  caret-color: getThemeColor(primary-main);
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+
+  &[data-size='small'] {
+    @include font-size(sm);
+    min-height: 2.5rem;
+  }
+
+  @include default;
+
+  @include error;
+
+  &:focus,
+  :active {
+    @include focus-active;
+  }
+  &::placeholder {
+    color: getThemeColor(secondary-text-light);
+  }
+  &:read-only {
+    @include readOnly;
+  }
+  &:disabled {
+    @include disabled;
+  }
+}

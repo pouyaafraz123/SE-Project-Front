@@ -1,0 +1,56 @@
+@import 'normalize';
+@import 'theme';
+@import 'functions';
+@import 'mixins';
+@import 'colors';
+@import 'utils';
+@import 'global-variables';
+@import '../assets/icons/style.css';
+
+html {
+  // window font size default is 16px
+  // rem default size equal to html font size
+  // assign percent to html font size to manipulate rem default size
+  font-size: 100%; // setting 1 rem to 16 px
+}
+
+body {
+  @include font-size(md);
+  font-weight: fontWeight(medium);
+
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  color: getThemeColor(primary-text);
+
+  /* for persian numbers */
+  -moz-font-feature-settings: 'ss01';
+  -webkit-font-feature-settings: 'ss01';
+  font-feature-settings: 'ss01';
+
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+#modalRoot {
+  position: fixed;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  transition: opacity $time ease-in-out;
+}
+
+* {
+  font-family: inherit;
+}

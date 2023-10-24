@@ -1,0 +1,22 @@
+@import '../styles.module.scss';
+
+.select {
+  cursor: pointer;
+  &:read-only {
+    @include default;
+  }
+  @include error;
+
+  &:focus,
+  :active {
+    @include focus-active;
+  }
+  &[data-readonly='true'] {
+    @include readOnly;
+    cursor: default;
+  }
+  &:disabled {
+    @include disabled;
+    cursor: default;
+  }
+}

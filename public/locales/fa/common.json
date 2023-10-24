@@ -1,0 +1,10 @@
+{
+  "pageTitle": {
+    "usersManagement": "مدیریت کاربران"
+  },
+  "notifications": "اعلان ها",
+  "messages": "پیام ها",
+  "mainPage": "صفحه اصلی",
+  "title": "سلام {{name}}، به react خوش آمدید",
+  "userMessagesUnread": "شما {{count}} پیام خوانده نشده دارید."
+}

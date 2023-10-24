@@ -1,0 +1,12 @@
+@import 'src/styles/functions';
+@import 'src/styles/global-variables';
+
+.link {
+  color: getColor(var(--theme-primary-main)) !important;
+  cursor: pointer;
+  transition: all $time ease-in-out;
+
+  &:hover {
+    color: getColor(var(--theme-primary-dark)) !important;
+  }
+}

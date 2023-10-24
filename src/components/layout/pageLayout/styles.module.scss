@@ -1,0 +1,27 @@
+@import 'src/styles/functions.scss';
+
+.page {
+  padding: space(2m5);
+  background-color: getThemeColor(primary-background);
+}
+.header {
+  margin-bottom: calc(2 * space(l1));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.headerAction {
+  display: flex;
+  gap: space(m3);
+}
+.pageTitle {
+  display: flex;
+  flex-direction: column;
+  gap: space(2m1);
+}
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: space(m3);
+  align-items: center;
+}

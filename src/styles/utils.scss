@@ -1,0 +1,128 @@
+@use './mixins.scss' as mx;
+
+@include mx.space-x;
+@include mx.rounded-x;
+@include mx.fontSize-x;
+@include mx.fontWeight-x;
+@include mx.color-x;
+
+// use capitalize to not conflict with bootstrap
+.MS-auto {
+  @include mx.margin-start(auto);
+}
+// use capitalize to not conflict with bootstrap
+.Me-auto {
+  @include mx.margin-end(auto);
+}
+.mx-auto {
+  @include mx.margin-x(auto);
+}
+.my-auto {
+  @include mx.margin-y(auto);
+}
+// use capitalize to not conflict with bootstrap
+.PS-auto {
+  @include mx.padding-start(auto);
+}
+// use capitalize to not conflict with bootstrap
+.Pe-auto {
+  @include mx.padding-end(auto);
+}
+.px-auto {
+  @include mx.padding-x(auto);
+}
+.py-auto {
+  @include mx.padding-y(auto);
+}
+
+.border-gr-top {
+  @include border-gr-top;
+}
+.border-gr-bottom {
+  @include border-gr-bottom;
+}
+.border-gr-start {
+  @include border-gr-start;
+}
+.border-gr-end {
+  @include border-gr-end;
+}
+.border-style-dashed {
+  border-width: 2px !important;
+  border-style: dashed !important;
+}
+.border-style-inherit {
+  border-style: inherit !important;
+}
+.border-style-solid {
+  border-style: solid !important;
+}
+.border-top {
+  border-top: 1px solid getThemeColor(border-main) !important;
+}
+.border-bottom {
+  border-bottom: 1px solid getThemeColor(border-main) !important;
+}
+.border-start {
+  border-inline-start: 1px solid getThemeColor(border-main) !important;
+}
+.border-end {
+  border-inline-end: 1px solid getThemeColor(border-main) !important;
+}
+
+.ff-Morabba {
+  font-family: 'Morabba' !important;
+}
+.ff-dana {
+  font-family: 'dana' !important;
+}
+.ff-inherit {
+  font-family: inherit !important;
+}
+.d-block {
+  display: block !important;
+}
+.d-none {
+  display: none !important;
+}
+.d-flex {
+  display: flex !important;
+}
+.d-flex-column {
+  display: flex !important;
+  flex-direction: column !important;
+}
+.d-inline-flex {
+  display: inline-flex !important;
+}
+.w-100 {
+  width: 100% !important;
+}
+.w-100vh {
+  width: 100vh !important;
+}
+.h-100 {
+  height: 100% !important;
+}
+.h-100vh {
+  height: 100vh !important;
+}
+.text-center {
+  text-align: center !important;
+}
+.justify-content-center {
+  justify-content: center !important;
+}
+.justify-content-between {
+  justify-content: space-between !important;
+}
+.align-items-center {
+  align-items: center;
+}
+.flex-item-center {
+  display: flex !important;
+  align-items: center !important;
+}
+.disable-select {
+  @include disable-select;
+}

@@ -1,0 +1,28 @@
+@import 'src/styles/functions';
+
+.form {
+  margin-inline: 120px;
+}
+
+.box {
+  gap: 28px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: space(l1);
+}
+
+.withLabel {
+  flex: 1 1 0%;
+}
+
+.gridLabel {
+  margin-bottom: space(2m3);
+}
+
+.registerBtn {
+  margin-top: 32px;
+  width: 100%;
+}

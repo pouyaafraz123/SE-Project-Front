@@ -1,0 +1,59 @@
+@use 'src/styles/global-variables.scss' as gb;
+@import 'src/styles/mixins.scss';
+@import 'src/styles/functions.scss';
+
+$padding-x: space(l1);
+@mixin sidebarPadding {
+  padding-inline-start: $padding-x;
+  padding-inline-end: $padding-x;
+}
+
+.sidebar {
+  z-index: 10;
+  padding-top: space(2m5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  @include start(0);
+  display: flex;
+  flex-direction: column;
+  transition: width gb.$time ease;
+  width: gb.$sidebar-expanded-width;
+  border-inline-end: 1px solid getThemeColor(border-main);
+  background-color: getThemeColor(secondary-background);
+  &__close {
+    width: gb.$sidebar-closed-width;
+  }
+}
+
+.mainContainer {
+  width: 100%;
+  position: relative;
+  transition: padding gb.$time ease;
+  padding-inline-start: gb.$sidebar-expanded-width;
+
+  &__close {
+    padding-inline-start: gb.$sidebar-closed-width;
+  }
+}
+.sidebarMenu {
+  display: flex;
+  flex-direction: column;
+  gap: space(xs);
+}
+.sidebarMenuContainer {
+  overflow-y: auto;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  gap: space(2m3);
+  padding-bottom: space(2m5);
+}
+.sidebarMenuTitle {
+  @include sidebarPadding;
+  margin-bottom: space(2m1);
+}
+
+.danger {
+  color: getThemeColor(danger-main) !important;
+}

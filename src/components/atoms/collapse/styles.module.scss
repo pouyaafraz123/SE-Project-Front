@@ -1,0 +1,7 @@
+.collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition-timing-function: ease;
+  transition-duration: 200ms;
+  transition-property: max-height;
+}

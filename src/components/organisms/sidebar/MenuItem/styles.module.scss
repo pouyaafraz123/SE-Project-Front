@@ -1,0 +1,78 @@
+@import '../styles.module.scss';
+@import 'src/styles/functions.scss';
+@import 'src/styles/mixins.scss';
+
+.container {
+  width: 100%;
+  min-height: 3rem;
+  max-height: 3rem;
+  cursor: pointer;
+  gap: space(m1);
+  display: flex;
+  align-items: center;
+  @include sidebarPadding();
+
+  &:hover {
+    background-color: getThemeColor(primary-main, 5);
+    .before {
+      height: 21px;
+    }
+  }
+}
+.childItemContainer {
+  margin-bottom: space(xs);
+}
+.childItem {
+  padding: 0 space(l5) !important;
+}
+.line {
+  height: 3rem;
+  margin-inline-end: -0.71875rem;
+}
+.firstLine {
+  margin-top: auto;
+  height: 1.5rem;
+}
+.lastLine {
+  height: 1.5rem;
+  margin-bottom: auto;
+}
+.space {
+  height: space(xs) !important;
+}
+.isSelected {
+  color: getThemeColor(primary-main);
+  .before {
+    background-color: getThemeColor(primary-main);
+    height: 6px !important;
+  }
+}
+
+.before {
+  transition: height ease 400ms;
+  width: 6px;
+  height: 6px;
+  border-radius: radius(xlg);
+  background-color: getThemeColor(gray-background);
+}
+
+.secondaryBefore {
+  background-color: getThemeColor(secondary-main);
+}
+
+.arrow-icon {
+  margin-inline-start: auto;
+  transition: all ease 200ms;
+}
+.rotateIcon {
+  [dir='rtl'] & {
+    transform: rotate(90deg);
+  }
+  [dir='ltr'] & {
+    transform: rotate(-90deg);
+  }
+}
+
+.childItemIsSelected {
+  background-color: getThemeColor(primary-main, 5);
+}

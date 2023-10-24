@@ -1,0 +1,70 @@
+@import 'src/styles/mixins.scss';
+@import 'src/styles/functions.scss';
+@import '../styles.module.scss';
+
+.hiddenBox {
+  overflow-x: hidden;
+  transition: visibility 100ms ease;
+}
+.hide {
+  visibility: hidden;
+}
+.row {
+  margin-top: space(xs);
+  padding-top: space(xs);
+  padding-bottom: space(xs);
+  @include sidebarPadding();
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.colorSchemaContainer {
+  display: flex;
+  justify-content: center;
+  gap: space(m1);
+  flex-wrap: wrap;
+}
+.colorSchemaCircle {
+  cursor: pointer;
+  display: inline-flex;
+  padding: 2px;
+  border-radius: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: getThemeColor(primary-background);
+}
+.selectedSchema {
+  border: 2px solid getThemeColor(primary-text);
+}
+.colorSchema {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 100%;
+
+  &[data-color='gold'] {
+    background: linear-gradient(134deg, #aa880e 10%, #eec01a 100%);
+  }
+  &[data-color='royal'] {
+    background: linear-gradient(134deg, #07659a 10%, #1ea3cd 100%);
+  }
+  &[data-color='bondi'] {
+    background: linear-gradient(134deg, #015d67 10%, #00acb1 100%);
+  }
+}
+.centering {
+  display: flex;
+  justify-content: center !important;
+  // padding-inline-start: space(l3) !important;
+}
+
+.icon {
+  display: inline-flex;
+  cursor: pointer;
+  border-radius: radius(xs);
+  color: getThemeColor(border-secondary);
+  padding: space(xs) space(m1);
+}
+.selectedMode {
+  background-color: getThemeColor(primary-main, 10);
+  color: getThemeColor(primary-main);
+}

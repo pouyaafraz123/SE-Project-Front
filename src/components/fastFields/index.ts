@@ -1,0 +1,5 @@
+export { FastInput } from './fastInput/fastInput'
+export { FastSelect } from './fastSelect/fastSelect'
+export { FastComplete } from './fastSelect/fastComplete'
+export { FastPhone } from './fastPhone/fastPhone'
+export { FastDate } from './datePicker/fastDate'

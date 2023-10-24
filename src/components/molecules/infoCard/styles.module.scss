@@ -1,0 +1,87 @@
+@import 'src/styles/functions';
+@import 'src/styles/mixins';
+@import 'src/styles/global-variables';
+
+@mixin cardColor($mainColor, $darkColor) {
+  @include dark-light-gradient($mainColor, $darkColor);
+
+  .infoCard__icon {
+    background-color: getColor($mainColor);
+  }
+}
+
+.infoCard {
+  height: 5rem;
+  flex-grow: 1;
+  max-width: 17rem;
+  min-width: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: radius(lg);
+  padding: space(m3);
+  gap: space(m4);
+
+  &[data-color='primary'] {
+    @include cardColor(var(--theme-primary-main), var(--theme-primary-dark));
+  }
+  &[data-color='success'] {
+    @include cardColor(var(--theme-success-main), var(--theme-success-dark));
+  }
+  &[data-color='warning'] {
+    @include cardColor(var(--theme-warning-main), var(--theme-warning-dark));
+  }
+  &[data-color='danger'] {
+    @include cardColor(var(--theme-danger-main), var(--theme-danger-dark));
+  }
+  &[data-color='royal-blue'] {
+    @include cardColor(var(--color-royal-blue), var(--color-torea-bay));
+  }
+  &[data-color='bondi-blue'] {
+    @include cardColor(var(--color-bondy-blue), var(--color-blue-stone));
+  }
+
+  &__iconContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: transparent;
+    border-radius: radius(md);
+    background-image: linear-gradient(
+      45deg,
+      transparent,
+      getColor(var(--theme-white)),
+      transparent
+    );
+    padding: 1px;
+  }
+
+  &__icon {
+    display: flex;
+    flex: 0 0 auto;
+    width: 3.5rem;
+    height: 3.5rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: radius(md);
+    @include svg;
+    @include svg-color(getColor(var(--theme-white)));
+    color: getColor(var(--theme-white));
+  }
+
+  &:hover &__icon {
+    border-radius: radius(xlg);
+  }
+
+  &:hover &__iconContainer {
+    border-radius: radius(xlg);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1 0 0;
+    justify-content: space-between;
+  }
+}

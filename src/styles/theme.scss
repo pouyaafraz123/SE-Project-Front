@@ -1,0 +1,56 @@
+:root {
+  --theme-primary-main: var(--rgb-bondy-blue);
+  --theme-primary-dark: var(--rgb-blue-stone);
+  --theme-secondary-main: var(--rgb-tea-green);
+  --theme-success-main: var(--rgb-lima);
+  --theme-success-dark: var(--rgb-christi);
+  --theme-warning-main: var(--rgb-amber);
+  --theme-warning-dark: var(--rgb-gold-tips);
+  --theme-danger-main: var(--rgb-sunset-orange);
+  --theme-danger-dark: var(--rgb-alizarin-crimson);
+  --theme-black: var(--rgb-black);
+  --theme-white: var(--rgb-white);
+  --theme-primary-background: var(--rgb-white);
+  --theme-secondary-background: var(--rgb-aqua-haze);
+  --theme-gray-background: var(--rgb-geysar);
+  --theme-primary-text: var(--rgb-ebony-clay);
+  --theme-secondary-text: var(--rgb-gumbo);
+  --theme-secondary-text-light: var(--rgb-shadow-green);
+  --theme-border-main: var(--rgb-geysar);
+  --theme-border-secondary: var(--rgb-shadow-green);
+  --theme-border-dark: var(--rgb-gumbo);
+}
+
+[data-theme='bondi-light'] {
+  --theme-primary-main: var(--rgb-bondy-blue);
+  --theme-primary-dark: var(--rgb-blue-stone);
+  --theme-primary-background: var(--rgb-white);
+  --theme-secondary-background: var(--rgb-aqua-haze);
+}
+
+[data-theme='royal-light'] {
+  --theme-primary-main: var(--rgb-royal-blue);
+  --theme-primary-dark: var(--rgb-torea-bay);
+  --theme-primary-background: var(--rgb-white);
+  --theme-secondary-background: var(--rgb-aqua-haze);
+}
+
+[data-theme='gold-light'] {
+  --theme-primary-main: var(--rgb-amber);
+  --theme-primary-dark: var(--rgb-gold-tips);
+}
+
+[data-theme='bondi-dark'] {
+  --theme-primary-main: var(--rgb-bondy-blue);
+  --theme-primary-dark: var(--rgb-blue-stone);
+}
+
+[data-theme='royal-dark'] {
+  --theme-primary-main: var(--rgb-royal-blue);
+  --theme-primary-dark: var(--rgb-torea-bay);
+}
+
+[data-theme='gold-dark'] {
+  --theme-primary-main: var(--rgb-amber);
+  --theme-primary-dark: var(--rgb-gold-tips);
+}

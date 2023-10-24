@@ -1,0 +1,67 @@
+@import 'src/styles/functions.scss';
+
+.box {
+  position: relative;
+  display: flex;
+  width: fit-content;
+
+  .label {
+    position: absolute;
+    z-index: 9999999;
+    left: 50%;
+    bottom: -13px;
+    transform: translate(-50%, 100%);
+    background-color: getColor(var(--color-ebony-clay));
+    color: getColor(var(--color-white));
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    visibility: hidden;
+    cursor: default;
+    user-select: none;
+    width: 0;
+    //height: 0;// TODO BEHAVIOR MUST CHECK
+  }
+
+  .right {
+    transform: translate(-80%, 100%);
+  }
+
+  .left {
+    transform: translate(-20%, 100%);
+  }
+
+  .icon {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: -3px;
+    left: 50%;
+  }
+
+  &:hover .label {
+    opacity: 1;
+    visibility: visible;
+    width: unset;
+    //height: unset;
+  }
+  .rightIcon {
+    left: 80%;
+  }
+  .leftIcon {
+    left: 20%;
+  }
+}
+
+.triangle {
+  width: 20px;
+  height: 15px;
+  background-color: getColor(
+    var(--color-ebony-clay)
+  ); /* Adjust the height and color of the triangle */
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}

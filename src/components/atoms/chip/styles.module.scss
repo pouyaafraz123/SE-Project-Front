@@ -1,0 +1,61 @@
+@import 'src/styles/functions.scss';
+
+.chip {
+  border-radius: radius(xs);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: space(xs) space(m1);
+  // TODO : typography
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: space(xs);
+}
+
+.chipContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.secondaryChip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: radius(xs);
+  background: #caf0c1;
+  flex-shrink: 0;
+  padding: space(xs) space(m1);
+  cursor: pointer;
+  color: #015d67;
+  // TODO : typography
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.hidden {
+  display: none;
+}
+
+.arrowContainer {
+  padding: 4px;
+  background: #caf0c1;
+  color: #015d67;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+}

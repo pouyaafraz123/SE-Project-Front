@@ -1,0 +1,65 @@
+import { FormikProps } from 'formik'
+import { Input } from '@components/formControls/index'
+import { ParseKeys } from 'i18next'
+import { useTranslation } from 'react-i18next'
+import { iconNameType, IconProps } from '@components/atoms/icons'
+import { Field } from '@/components/fastFields/field/field'
+import { Extends } from '@/utils'
+
+type types = Extends<
+  ParseKeys<'form'>,
+  | 'firstName'
+  | 'lastName'
+  | 'hfName'
+  | 'postalCode'
+  | 'website'
+  | 'email'
+  | 'address'
+>
+
+const iconMap: { [key in types]: iconNameType | IconProps } = {
+  firstName: 'user-rounded',
+  lastName: 'user-rounded',
+  hfName: 'hospital',
+  postalCode: 'mailbox',
+  website: 'global',
+  email: 'letter',
+  address: { name: 'routing', type: 'bold' }
+}
+
+interface IProps<T> {
+  name: keyof T
+  title?: ParseKeys<'form'>
+  type: types
+  disabled?: boolean
+  placeholder?: string
+  dependents?: (keyof T)[]
+  dependencies?: (keyof T)[]
+  formik: FormikProps<T>
+  icon?: iconNameType | IconProps
+  readonly?: boolean
+}
+
+export function FastInput<T>(props: IProps<T>) {
+  const { t } = useTranslation('form')
+  const title = props.title || props.type
+  const placeholder = props.placeholder || t(title)
+  const name = props.name
+  const { values, setFieldValue, errors, touched, handleBlur } = props.formik
+  const value = values[name] as string
+
+  const icon = props.icon || iconMap[props.type]
+  return (
+    <Field name={name} title={title} formik={props.formik} icon={icon}>
+      <Input
+        placeholder={placeholder}
+        id={name.toString()}
+        onChange={(val) => setFieldValue(name.toString(), val)}
+        onBlur={handleBlur}
+        value={value}
+        validation={touched[name] && errors[name] ? 'error' : undefined}
+        readOnly={props.readonly}
+      />
+    </Field>
+  )
+}

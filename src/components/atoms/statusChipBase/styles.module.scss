@@ -1,0 +1,49 @@
+@import 'src/styles/functions';
+@import 'src/styles/mixins';
+
+.chip {
+  border-radius: radius(xs);
+  padding: space(xs) space(xs1);
+  flex: 0 0 auto;
+
+  &[data-color='primary'] {
+    @include dark-light-gradient(
+      var(--theme-primary-main),
+      var(--theme-primary-dark)
+    );
+  }
+  &[data-color='success'] {
+    @include dark-light-gradient(
+      var(--theme-success-main),
+      var(--theme-success-dark)
+    );
+  }
+  &[data-color='warning'] {
+    @include dark-light-gradient(
+      var(--theme-warning-main),
+      var(--theme-warning-dark)
+    );
+  }
+  &[data-color='danger'] {
+    @include dark-light-gradient(
+      var(--theme-danger-main),
+      var(--theme-danger-dark)
+    );
+  }
+  &[data-color='royal-blue'] {
+    @include dark-light-gradient(
+      var(--color-royal-blue),
+      var(--color-torea-bay)
+    );
+  }
+  &[data-color='bondi-blue'] {
+    @include dark-light-gradient(
+      var(--color-bondy-blue),
+      var(--color-blue-stone)
+    );
+  }
+
+  &[data-disabled='true'] {
+    opacity: 0.1;
+  }
+}

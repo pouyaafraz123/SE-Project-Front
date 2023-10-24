@@ -1,0 +1,61 @@
+{
+  "privacy": "حریم خصوصی",
+  "helpCenter": "مرکز راهنما",
+  "editProfile": "ویرایش پروفایل",
+  "changePassword": "تغییر رمز عبور",
+  "language": "زبان",
+  "notificationSettings": "تنظیمات اعلان ها",
+  "logout": "خروج",
+  "dashboard": "صفحه اصلی",
+  "healthcareFacility": "مدیریت تسهیلات درمانی",
+  "robotManagement": {
+    "title": "مدیریت ربات",
+    "registerRobot": "ثبت ربات",
+    "registerDevice": "ثبت دستگاه پزشکی",
+    "createRobot": "ایجاد ربات"
+  },
+  "assignRobot": {
+    "title": "تخصیص ربات",
+    "assignToHF": "اختصاص به مرکز بهداشتی و درمانی",
+    "assignToDoctor": "اختصاص به دکتر"
+  },
+  "userManagement": {
+    "title": "مدیریت کاربر",
+    "users": "مدیریت کاربران",
+    "localAdmins": "مدیریت مدیران داخلی",
+    "doctors": "مدیریت پزشکان",
+    "staffs": "مدیریت کارکنان",
+    "patients": "مدیریت بیماران"
+  },
+  "financialManagement": {
+    "title": "مدیریت مالی",
+    "ruleDefinition": "تعریف قوانین مالی",
+    "paymentMethod": "تعریف روش پرداخت",
+    "accountingReport": "گزارش های حسابداری",
+    "patientWallet": "کیف پول بیمار",
+    "createAds": "ایجاد تبلیغات"
+  },
+  "AppointmentManagement": {
+    "title": "مدیریت نوبت دهی",
+    "appointmentTimesList": "لیست وقت های ملاقات",
+    "pastVisitSummaryNotes": "یادداشت خلاصه بازدید های گذشته"
+  },
+  "reportGeneration": {
+    "title": "تولید گزارش",
+    "user": "کاربر",
+    "robotUsage": "استفاده از ربات",
+    "appointments": "وقت های ملاقات",
+    "financial": "مالی"
+  },
+  "MenuTitle": {
+    "mainMenu": "منوی اصلی",
+    "account": "تنظیمات حساب",
+    "appearance": "تنظیمات ظاهر و رنگ ها",
+    "privacy": "پشتیبانی و حریم خصوصی"
+  },
+  "common": {
+    "welcome": "خوش آمدید!",
+    "colorSchema": "رنگ ها",
+    "opticalMode": "حات نوری"
+  }
+}

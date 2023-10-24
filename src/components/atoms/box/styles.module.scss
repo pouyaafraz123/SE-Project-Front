@@ -1,0 +1,10 @@
+@import 'src/styles/functions.scss';
+@import 'src/styles/mixins.scss';
+
+.border {
+  border-width: 1px;
+  border-style: solid;
+}
+.shadow {
+  @include shadow(lg, border-main);
+}

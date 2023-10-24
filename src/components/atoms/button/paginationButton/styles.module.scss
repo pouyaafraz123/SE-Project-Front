@@ -1,0 +1,42 @@
+@import 'src/styles/mixins.scss';
+@import 'src/styles/functions.scss';
+
+.defaultButton {
+  display: flex;
+  min-width: 2.5rem;
+  height: 2.5rem !important;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  color: getColor(var(--theme-primary-text));
+  //TODO: typography
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  height: 1.25rem;
+  flex-shrink: 0;
+  align-self: stretch;
+  padding: space(m1) space(m3);
+  border-radius: radius(md);
+  border: 1px solid getColor(var(--theme-border-main));
+  background: getColor(var(--theme-white));
+}
+
+.activeButton {
+  background: getColor(var(--theme-primary-main));
+  border: 1px solid getColor(var(--theme-primary-main));
+  color: getColor(var(--theme-white));
+  color: var(--colors-white, #fff);
+  // TODO: typography
+  text-align: center;
+  font-weight: 600;
+}
+
+.disabledButton {
+  border: 1px solid getColor(var(--theme-border-secondary));
+  background: getColor(var(--theme-secondary-background));
+  border: 1px solid getColor(var(--theme-border-secondary));
+  // color shadow green is not the border color in this case
+  color: getColor(var(--theme-border-secondary));
+}

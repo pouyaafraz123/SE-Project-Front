@@ -1,0 +1,76 @@
+@use './global-variables.scss' as gv;
+@use 'sass:map';
+
+@function space($name) {
+  @return map.get(gv.$spacer, $name);
+}
+
+@function radius($name) {
+  @return map.get(gv.$rounded, $name);
+}
+
+@function fontSize($name) {
+  @return map.get(gv.$fontSize, $name);
+}
+
+@function fontWeight($name) {
+  @return map.get(gv.$fontWeight, $name);
+}
+
+@function shadowSize($name) {
+  @return map.get(gv.$shadow-size, $name);
+}
+
+// function to replace string with other value
+@function str-replace($string, $search, $replace) {
+  $index: str-index($string, $search);
+
+  @if $index {
+    $before: str-slice($string, 1, $index - 1);
+    $after: str-slice($string, $index + str-length($search));
+
+    @return #{$before}#{$replace}#{$after};
+  } @else {
+    @return $string; // If the substring is not found, return the original string.
+  }
+}
+
+@function extract-var($text) {
+  // Find the start and end indexes of 'var(' and ')'
+  $start: str-index($text, 'var(');
+  $end: str-index($text, ')');
+
+  // If both 'var(' and ')' are found
+  @if $start and $end {
+    // Extract the value between 'var(' and ')' and trim whitespace
+    $varValue: str-slice($text, $start + 3, $end);
+    $varValue: str-slice($varValue, 2, -2);
+    @return $varValue;
+  }
+
+  // If 'var(' and ')' are not found, return the original text
+  @return $text;
+}
+
+@function transform-custom-property($property-name) {
+  // Replace 'color-' with 'rgb-' in the property name
+  $new-property-name: str-replace($property-name, '--color', '--rgb');
+  @return $new-property-name;
+}
+
+// create color with opacity from color name
+@function getColor($name, $opacity: 100) {
+  // Check if $name is "transparent" and return transparent
+  @if $name == transparent {
+    @return transparent;
+  }
+
+  $opacity: calc($opacity / 100);
+  $color: extract-var(transform-custom-property($name));
+  @return rgba(var(#{$color}), $opacity);
+}
+
+// create color with opacity from color name(add --theme- to the start of color name)
+@function getThemeColor($name, $opacity: 100) {
+  @return getColor(--theme-#{$name}, $opacity);
+}

@@ -1,0 +1,61 @@
+{
+  "privacy": "Privacy",
+  "helpCenter": "Help Center",
+  "editProfile": "Edit Profile",
+  "changePassword": "Change Password",
+  "language": "Language",
+  "notificationSettings": "Notification Settings",
+  "logout": "Logout",
+  "dashboard": "Dashboard",
+  "healthcareFacility": "Healthcare Facility",
+  "robotManagement": {
+    "title": "Robot Management",
+    "registerRobot": "Register Robot",
+    "registerDevice": "Register Medical Device",
+    "createRobot": "Create Robot"
+  },
+  "assignRobot": {
+    "title": "Robot Assignment",
+    "assignToHF": "Assign to Healthcare Facility",
+    "assignToDoctor": "Assign to Doctor"
+  },
+  "userManagement": {
+    "title": "User Management",
+    "users": "Users",
+    "localAdmins": "Local Admins",
+    "doctors": "Doctors",
+    "staffs": "Staffs",
+    "patients": "Patients"
+  },
+  "financialManagement": {
+    "title": "Financial Management",
+    "ruleDefinition": "Rule Definition",
+    "paymentMethod": "Payment Method",
+    "accountingReport": "Accounting Report",
+    "patientWallet": "patient wallet",
+    "createAds": "Create Ads"
+  },
+  "AppointmentManagement": {
+    "title": "Appointment Management",
+    "appointmentTimesList": "Appointment Times List",
+    "pastVisitSummaryNotes": "Past visit Summary Notes"
+  },
+  "reportGeneration": {
+    "title": "Report Generation",
+    "user": "User",
+    "robotUsage": "Robot Usage",
+    "appointments": "Appointment",
+    "financial": "Financial"
+  },
+  "MenuTitle": {
+    "mainMenu": "Main Menu",
+    "account": "Account Setting",
+    "appearance": "Appearance Setting",
+    "privacy": "Support and privacy"
+  },
+  "common": {
+    "welcome": "welcome!",
+    "colorSchema": "Colors",
+    "opticalMode": "Style"
+  }
+}

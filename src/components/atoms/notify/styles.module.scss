@@ -1,0 +1,60 @@
+@import 'src/styles/functions';
+
+.notif {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: space(xs);
+
+  &__head {
+    display: flex;
+    gap: space(xs);
+  }
+
+  &__contents {
+    display: flex;
+    flex-direction: column;
+    gap: space(xs);
+  }
+
+  &__icon {
+    display: block;
+  }
+}
+
+:global .toastBody {
+  border-radius: radius(md) !important;
+  padding: space(m3) space(2m3) !important;
+  background-color: transparent !important;
+}
+
+:global .toast {
+  border-radius: radius(md) !important;
+  padding: 0 !important;
+  background-color: transparent !important;
+  backdrop-filter: blur(5px);
+}
+
+:global .toastBodyInfo {
+  background-color: getColor(var(--theme-primary-main), 50) !important;
+  border: 2px solid getColor(var(--theme-primary-main)) !important;
+  box-shadow: 0 0 10px 0 getColor(var(--theme-primary-main), 20) !important;
+}
+
+:global .toastBodyWarning {
+  background-color: getColor(var(--theme-warning-main), 50) !important;
+  border: 2px solid getColor(var(--theme-warning-main)) !important;
+  box-shadow: 0 0 10px 0 getColor(var(--theme-warning-main), 20) !important;
+}
+
+:global .toastBodyError {
+  background-color: getColor(var(--theme-danger-main), 50) !important;
+  border: 2px solid getColor(var(--theme-danger-main)) !important;
+  box-shadow: 0 0 10px 0 getColor(var(--theme-danger-main), 20) !important;
+}
+
+:global .toastBodySuccess {
+  background-color: getColor(var(--theme-success-main), 50) !important;
+  border: 2px solid getColor(var(--theme-success-main)) !important;
+  box-shadow: 0 0 10px 0 getColor(var(--theme-success-main), 20) !important;
+}

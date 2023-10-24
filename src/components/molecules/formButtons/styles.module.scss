@@ -1,0 +1,14 @@
+@import 'src/styles/functions';
+
+.formButtons {
+  display: flex;
+  gap: space(m2);
+}
+
+.w100 {
+  width: 100%;
+}
+
+.grow {
+  flex-grow: 1;
+}

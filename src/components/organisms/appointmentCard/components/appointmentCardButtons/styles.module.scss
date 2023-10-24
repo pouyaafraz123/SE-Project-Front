@@ -1,0 +1,8 @@
+@import 'src/styles/functions';
+
+.appointmentButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: space(m3);
+}

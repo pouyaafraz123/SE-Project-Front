@@ -1,0 +1,35 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15.625rem, 1fr));
+  row-gap: 1.875rem;
+  column-gap: 1.25rem;
+}
+.gridFlowDense {
+  grid-auto-flow: dense;
+}
+.bigColumn {
+  // TODO CHECK THIS AFTER PAGE ARE COMPLETE
+  /* If the screen is larger than 605px */
+  @media (min-width: 605px) {
+    grid-column: auto/span 2;
+  }
+}
+.startFromNextRow {
+  grid-column-start: 1;
+}
+.fullWidthColumn {
+  // TODO CHECK THIS AFTER PAGE ARE COMPLETE
+  margin: 1.875rem 0;
+  width: 100%;
+}
+.gap20 {
+  gap: 1.25rem;
+}
+.gridButton {
+  display: flex;
+  align-items: flex-end;
+
+  button {
+    height: 3rem !important;
+  }
+}

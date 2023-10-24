@@ -1,0 +1,18 @@
+@import 'src/styles/functions';
+@import 'src/styles/mixins';
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: space(l1) space(m2);
+  align-items: center;
+  padding: space(l4) space(l1);
+  @include padding-end(calc(6 * space(l1)));
+
+  background-image: url('src/assets/images/medical-texture.svg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  flex-wrap: wrap;
+}
