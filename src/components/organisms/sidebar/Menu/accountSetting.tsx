@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { SidebarMenuItem } from '../MenuItem'
 import { SidebarMenu } from '../sidebarMenu'
-import classes from '../styles.module.scss'
+import { LogoutMenuItem } from './logout'
 
 export function AccountSetting() {
   const { t } = useTranslation('sidebar')
@@ -9,21 +9,20 @@ export function AccountSetting() {
     <SidebarMenu name={t('MenuTitle.account')}>
       <SidebarMenuItem
         iconName='user-check'
-        items={{ name: 'editProfile', path: '' }}
+        name='editProfile'
+        items={{ path: 'edit-profile' }}
       />
       <SidebarMenuItem
         iconName='lock-password'
-        items={{ name: 'changePassword', path: '' }}
+        name='changePassword'
+        items={{ path: 'change-password' }}
       />
       <SidebarMenuItem
         iconName='global'
-        items={{ name: 'language', path: '' }}
+        name='language'
+        items={{ path: 'language' }}
       />
-      <SidebarMenuItem
-        className={classes.danger}
-        iconName='logout'
-        items={{ name: 'logout', path: '' }}
-      />
+      <LogoutMenuItem />
     </SidebarMenu>
   )
 }

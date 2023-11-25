@@ -27,6 +27,7 @@ export function FastDate<T>(props: IProps<T>) {
       title={props.title}
       formik={props.formik}
       icon={icon}
+      datepicker
     >
       <DatePicker
         placeholder={placeholder}

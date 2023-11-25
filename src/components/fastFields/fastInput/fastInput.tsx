@@ -1,5 +1,5 @@
 import { FormikProps } from 'formik'
-import { Input } from '@components/formControls/index'
+import { Input } from '@components/formControls'
 import { ParseKeys } from 'i18next'
 import { useTranslation } from 'react-i18next'
 import { iconNameType, IconProps } from '@components/atoms/icons'
@@ -15,6 +15,16 @@ type types = Extends<
   | 'website'
   | 'email'
   | 'address'
+  | 'licenseNumber'
+  | 'nationalCode'
+  | 'patientFileNumber'
+  | 'staffId'
+  | 'search'
+  | 'duaration'
+  | 'price'
+  | 'percentage'
+  | 'illnessName'
+  | 'reason'
 >
 
 const iconMap: { [key in types]: iconNameType | IconProps } = {
@@ -24,7 +34,17 @@ const iconMap: { [key in types]: iconNameType | IconProps } = {
   postalCode: 'mailbox',
   website: 'global',
   email: 'letter',
-  address: { name: 'routing', type: 'bold' }
+  licenseNumber: 'medal-ribbon-star',
+  address: { name: 'routing', type: 'bold' },
+  nationalCode: 'card',
+  patientFileNumber: 'clipboard',
+  staffId: 'user-rounded',
+  search: 'magnifer',
+  duaration: 'add-square',
+  percentage: 'add-square',
+  price: 'dollar-minimalistic',
+  illnessName: 'pills',
+  reason: 'dropper-minimalistic'
 }
 
 interface IProps<T> {
@@ -38,6 +58,7 @@ interface IProps<T> {
   formik: FormikProps<T>
   icon?: iconNameType | IconProps
   readonly?: boolean
+  onChange?: (val: string) => void
 }
 
 export function FastInput<T>(props: IProps<T>) {
@@ -54,7 +75,10 @@ export function FastInput<T>(props: IProps<T>) {
       <Input
         placeholder={placeholder}
         id={name.toString()}
-        onChange={(val) => setFieldValue(name.toString(), val)}
+        onChange={(val) => {
+          props?.onChange?.(val)
+          setFieldValue(name.toString(), val)
+        }}
         onBlur={handleBlur}
         value={value}
         validation={touched[name] && errors[name] ? 'error' : undefined}

@@ -4,86 +4,66 @@ import persian_fa from 'react-date-object/locales/persian_fa'
 import arabic from 'react-date-object/calendars/arabic'
 import arabic_ar from 'react-date-object/locales/arabic_ar'
 import persian_en from 'react-date-object/locales/persian_en'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import DateObject from 'react-date-object'
 import { Input } from '@components/formControls'
 import transition from 'react-element-popper/animations/transition'
 import opacity from 'react-element-popper/animations/opacity'
-import { Filter, useFilterParam } from '@components/molecules/filter'
-
-const filterOptions = [
-  {
-    key: '1',
-    title: 'عنوان',
-    options: [
-      { key: '1', value: 'عنوان' },
-      { key: '2', value: 'عنوان' },
-      { key: '3', value: 'عنوان' },
-      { key: '4', value: 'عنوان' },
-      { key: '5', value: 'عنوان' },
-      { key: '6', value: 'عنوان' },
-      { key: '7', value: 'عنوان' }
-    ]
-  },
-  {
-    key: '2',
-    title: 'عنوان',
-    options: [
-      { key: '6', value: 'عنوان' },
-      { key: '7', value: 'عنوان' }
-    ]
-  },
-  {
-    key: '3',
-    title: 'عنوان',
-    options: [
-      { key: '1', value: 'عنوان' },
-      { key: '2', value: 'عنوان' },
-      { key: '3', value: 'عنوان' },
-      { key: '4', value: 'عنوان' },
-      { key: '5', value: 'عنوان' },
-      { key: '6', value: 'عنوان' },
-      { key: '7', value: 'عنوان' },
-      { key: '8', value: 'عنوان' }
-    ]
-  },
-  {
-    key: '4',
-    title: 'عنوان',
-    options: [
-      { key: '1', value: 'عنوان' },
-      { key: '2', value: 'عنوان' },
-      { key: '3', value: 'عنوان' },
-      { key: '4', value: 'عنوان' },
-      { key: '5', value: 'عنوان' },
-      { key: '6', value: 'عنوان' },
-      { key: '7', value: 'عنوان' },
-      { key: '8', value: 'عنوان' },
-      { key: '9', value: 'عنوان' },
-      { key: '10', value: 'عنوان' },
-      { key: '11', value: 'عنوان' },
-      { key: '12', value: 'عنوان' },
-      { key: '13', value: 'عنوان' }
-    ]
-  }
-]
 export function DatePickerPage() {
-  const { filterProps, filterValues } = useFilterParam(filterOptions)
-
-  useEffect(() => {
-    console.log(filterValues)
-  }, [filterValues])
+  const [date, setDate] = useState(new Date())
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh'
-      }}
-    >
-      <Filter {...filterProps} />
+    <div>
+      {/*Global Calendar*/}
+      <DatePicker
+        render={<Input />}
+        animations={[opacity(), transition({ from: 35, duration: 800 })]}
+        value={date}
+        onChange={(e) => {
+          if (e instanceof DateObject) {
+            setDate(e?.toDate())
+          }
+        }}
+      />
+      {/*Farsi Persian Shamsi Calendar*/}
+      <DatePicker
+        animations={[opacity(), transition({ from: 35, duration: 800 })]}
+        render={<Input />}
+        value={date}
+        onChange={(e) => {
+          if (e instanceof DateObject) {
+            setDate(e?.toDate())
+          }
+        }}
+        calendar={persian}
+        locale={persian_fa}
+      />
+      {/*Arabic Calendar*/}
+      <DatePicker
+        animations={[opacity(), transition({ from: 35, duration: 800 })]}
+        render={<Input />}
+        value={date}
+        onChange={(e) => {
+          if (e instanceof DateObject) {
+            setDate(e?.toDate())
+          }
+        }}
+        calendar={arabic}
+        locale={arabic_ar}
+      />
+      {/*English Shamsi Calendar */}
+      <DatePicker
+        animations={[opacity(), transition({ from: 35, duration: 800 })]}
+        render={<Input />}
+        value={date}
+        onChange={(e) => {
+          if (e instanceof DateObject) {
+            setDate(e?.toDate())
+          }
+        }}
+        calendar={persian}
+        locale={persian_en}
+      />
     </div>
   )
 }

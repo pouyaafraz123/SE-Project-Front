@@ -1,14 +1,14 @@
-import { FocusEvent, useRef, useState } from 'react'
+import { FocusEvent, KeyboardEvent, useRef } from 'react'
 import clsx from 'clsx'
 import { Input } from '..'
 import { SelectProps } from './types'
 import classes from './styles.module.scss'
 import { ArrowDownIcon } from './arrowDownIcon'
-import { IOption } from '@/components/molecules/selectBox/types'
 import {
   getSelectBoxPosition,
   selectBoxFn
 } from '@/components/molecules/selectBox'
+import { IOption } from '@/interfaces'
 
 export function Select(props: SelectProps) {
   const {
@@ -18,16 +18,15 @@ export function Select(props: SelectProps) {
     options,
     className,
     onFocus,
+    onKeyDown,
     ...rest
   } = props
-  const [selected, setSelected] = useState<IOption>(value)
   const inputRef = useRef<HTMLInputElement>(null)
 
   function focusHandler(event: FocusEvent<HTMLInputElement, Element>) {
     if (!readOnly) {
       selectBoxFn.show({
         onSelect(item) {
-          setSelected({ key: item.key, value: item.value })
           onChange?.(item)
         },
         options: options,
@@ -37,14 +36,23 @@ export function Select(props: SelectProps) {
     onFocus?.(event)
   }
 
+  function keyDownHandler(e: KeyboardEvent<HTMLInputElement>) {
+    if (e.key === 'Tab') {
+      selectBoxFn.close()
+    }
+    onKeyDown?.(e)
+  }
+
   return (
     <Input
       ref={inputRef}
       {...rest}
       className={clsx([classes.select, className])}
       data-readonly={readOnly}
-      value={selected.value}
+      value={value.value}
       onFocus={focusHandler}
+      autoComplete='off'
+      onKeyDown={(e) => keyDownHandler(e)}
       readOnly
       icon={ArrowDownIcon}
     />

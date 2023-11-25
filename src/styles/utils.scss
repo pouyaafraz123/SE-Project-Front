@@ -47,16 +47,7 @@
 .border-gr-end {
   @include border-gr-end;
 }
-.border-style-dashed {
-  border-width: 2px !important;
-  border-style: dashed !important;
-}
-.border-style-inherit {
-  border-style: inherit !important;
-}
-.border-style-solid {
-  border-style: solid !important;
-}
+
 .border-top {
   border-top: 1px solid getThemeColor(border-main) !important;
 }
@@ -69,7 +60,16 @@
 .border-end {
   border-inline-end: 1px solid getThemeColor(border-main) !important;
 }
-
+.border-style-dashed {
+  border-width: 2px !important;
+  border-style: dashed !important;
+}
+.border-style-inherit {
+  border-style: inherit !important;
+}
+.border-style-solid {
+  border-style: solid !important;
+}
 .ff-Morabba {
   font-family: 'Morabba' !important;
 }
@@ -91,6 +91,9 @@
 .d-flex-column {
   display: flex !important;
   flex-direction: column !important;
+}
+.flex-wrap {
+  flex-wrap: wrap !important;
 }
 .d-inline-flex {
   display: inline-flex !important;
@@ -125,4 +128,7 @@
 }
 .disable-select {
   @include disable-select;
+}
+.position-relative {
+  position: relative !important;
 }

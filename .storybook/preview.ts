@@ -3,7 +3,13 @@ import '@/i18n/i18n'
 import '../src/styles/main.css'
 import './useTheme'
 import './useMock'
-import { withUIStore, withRouter, withQuery, withToast } from './decorators'
+import {
+  withUIStore,
+  withRouter,
+  withQuery,
+  withToast,
+  WithModalContainer
+} from './decorators'
 import { ThemeMode } from '../src/theme'
 import { withSelectBoxContainer } from './decorators/withSelectBoxContainer'
 
@@ -23,6 +29,7 @@ const preview: Preview = {
     }
   },
   decorators: [
+    WithModalContainer,
     withSelectBoxContainer,
     withUIStore,
     withRouter,

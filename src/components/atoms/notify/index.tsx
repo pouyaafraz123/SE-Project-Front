@@ -71,10 +71,10 @@ const success = (msg: TNotifMessage) => {
  * @returns Promise - The promise that resolves when the notification is closed.
  */
 const promise = (props: TPromiseNotifProps) => {
-  const { promise, resolvedMessage, rejectMessage, pendingMessage } = props
+  const { promise, pendingMessage, resolvedMessage, rejectMessage } = props
 
   return toast.promise(promise, {
-    success: {
+    success: resolvedMessage && {
       render: <SuccessNotify msg={resolvedMessage} />,
       bodyClassName: clsx('toastBody', 'toastBodySuccess'),
       className: clsx('toast')

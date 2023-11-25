@@ -91,6 +91,13 @@ export const typographies: typographyType = {
     fontWeight: 'inherit',
     tag: 'span'
   },
+  formSectionHeader: {
+    color: 'secondary-text',
+    fontSize: 'base',
+    fontWeight: 'medium',
+    tag: 'p',
+    fontFamily: 'Morabba'
+  },
   subtitle1: {
     color: 'primary-text',
     fontWeight: 'semi-bold',

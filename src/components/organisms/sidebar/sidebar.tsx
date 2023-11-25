@@ -8,9 +8,10 @@ import {
   AppearanceSettings
 } from './Menu'
 import { SideBarHeader } from './header'
+import { IHeaderProps } from './types'
 import { useSidebarStore } from '.'
 
-export function Sidebar(props: PropsWithChildren<unknown>) {
+export function Sidebar(props: PropsWithChildren<{ header: IHeaderProps }>) {
   const { children } = props
   const isOpen = useSidebarStore((state) => state.isOpen)
   return (
@@ -21,7 +22,7 @@ export function Sidebar(props: PropsWithChildren<unknown>) {
           !isOpen ? classes.sidebar__close : ''
         ])}
       >
-        <SideBarHeader />
+        <SideBarHeader {...props.header} />
         <div className={classes.sidebarMenuContainer}>
           <MainMenuItems />
           <PrivacyItems />

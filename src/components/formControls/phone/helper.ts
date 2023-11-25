@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react'
 import { IPhoneNumber } from '.'
-import { IOption } from '@/components/molecules/selectBox/types'
+import { IOption } from '@/interfaces'
 
 export function findAndSetTheCode(
   countries: IOption[],

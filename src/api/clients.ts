@@ -2,6 +2,9 @@ import axios from 'axios'
 import { QueryClient } from '@tanstack/react-query'
 import { axiosConfig, reactQueryConfig } from '@configs'
 
-export const axiosClient = axios.create(axiosConfig)
+const axiosClient = axios.create(axiosConfig)
+// axios.interceptors.response.use(undefined, (error) => {})
 
-export const queryClient = new QueryClient(reactQueryConfig)
+const queryClient = new QueryClient(reactQueryConfig)
+
+export { axiosClient, queryClient }

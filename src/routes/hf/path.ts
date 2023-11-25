@@ -1,24 +1,30 @@
-import { useParams } from '@utils'
 import { generatePath } from '@routes/generatePath'
+import { useParams } from '@hooks'
 
 const hfViewRoute = '/healthcare-facility/view/:id'
 const hfEditRoute = '/healthcare-facility/edit/:id'
+const hfCreateRoute = '/healthcare-facility/create'
 export const path = {
   hfList: {
     route: '/healthcare-facility',
-    link: () => path.hfList.route,
-    useParams: () => useParams(['page', 'per_page'])
+    link: () => path.hfList.route
   },
   hfView: {
     route: hfViewRoute,
-    link: (id: number) => generatePath(hfViewRoute, { id })
+    link: (id: string) => generatePath(hfViewRoute, { id })
   },
   hfEdit: {
     route: hfEditRoute,
-    link: (id: number) => generatePath(hfEditRoute, { id })
+    link: (id: string) => generatePath(hfEditRoute, { id })
   },
   hfCreate: {
-    route: '/healthcare-facility/create',
-    link: () => path.hfCreate.route
+    route: hfCreateRoute,
+    link: (parrentId?: string) =>
+      generatePath(
+        hfCreateRoute,
+        undefined,
+        parrentId ? { parrentId: parrentId } : {}
+      ),
+    useParams: () => useParams(['parrentId'])
   }
 }

@@ -4,6 +4,7 @@ import { RotateLoader } from '@components/atoms/rotateLoader'
 import { Typography } from '@components/atoms/typography'
 import { mergeProps } from '@utils'
 import { VButtonVariants } from '@components/atoms/button/variant.tsx'
+import { useNavigate } from 'react-router-dom'
 import { generateButtonClassname, IButtonProps } from './index.ts'
 import classes from './styles.module.scss'
 
@@ -34,13 +35,18 @@ export const Button = forwardRef<HTMLButtonElement, IButtonProps>(
       rootAttributes,
       onClick,
       onSubmit,
-      children
+      children,
+      linkTo
     } = mergedProps
 
     // Generate class names based on size and rounded props
     const generatedClass = useMemo(() => {
       return generateButtonClassname(size, rounded)
     }, [rounded, size])
+
+    const navigate = useNavigate()
+
+    const _onClick = linkTo ? () => navigate(linkTo) : onClick
 
     return (
       <button
@@ -49,7 +55,7 @@ export const Button = forwardRef<HTMLButtonElement, IButtonProps>(
         data-variant={variant}
         disabled={disabled || isLoading}
         className={clsx(generatedClass, classes.button, className)}
-        onClick={onClick}
+        onClick={_onClick}
         onSubmit={onSubmit}
         {...{ ref, type, name, ...rootAttributes }}
       >

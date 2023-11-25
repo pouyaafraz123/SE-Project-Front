@@ -10,7 +10,7 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),
       '@public': path.resolve(__dirname, './public'),
-      '@hook': path.resolve(__dirname, './src/hook/index.ts'),
+      '@hooks': path.resolve(__dirname, './src/hooks/index.ts'),
       '@utils': path.resolve(__dirname, './src/utils/index.ts'),
       '@constants': path.resolve(__dirname, './src/constants/index.ts'),
       '@stores': path.resolve(__dirname, './src/stores/index.ts'),

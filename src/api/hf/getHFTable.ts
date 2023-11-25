@@ -1,19 +1,27 @@
-import { AxiosFn, AxiosError, IResponse, WithPagination } from '@api/types'
+import {
+  AxiosFn,
+  AxiosError,
+  IResponse,
+  WithPagination,
+  WithStats,
+  IPaginationParams,
+  ISearchParams
+} from '@api/types'
 import { createQuery } from 'react-query-kit'
 import { IHealthFacilityTable } from './types'
 import { axiosClient } from '@/api/clients'
 
 const key = 'hfTable'
-type Response = IResponse<WithPagination<IHealthFacilityTable>>
-export type Variables = { page: number; per_page: number }
+type Response = IResponse<WithStats<WithPagination<IHealthFacilityTable>>>
+export type Variables = IPaginationParams & ISearchParams
 
 // TODO add table filters
 export const getHFTable: AxiosFn<Variables, Response> = async (
-  { page, per_page },
+  params,
   signal
 ) => {
   const { data } = await axiosClient.get('/facilities', {
-    params: { per_page, page },
+    params,
     signal
   })
   return data
@@ -24,7 +32,6 @@ export const useHFTable = createQuery<Response, Variables, AxiosError>({
   queryFn: ({ queryKey: [_primaryKey, variables], signal }) =>
     getHFTable(variables, signal),
   retry(_failureCount, error) {
-    if (error.code == AxiosError.ERR_BAD_REQUEST) return false
-    return true
+    return error.code != AxiosError.ERR_BAD_REQUEST
   }
 })

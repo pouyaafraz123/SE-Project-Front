@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
+import { ColumnDef } from '@tanstack/react-table'
 import { columnDef } from './temporary folder/columns'
 import data from './temporary folder/data.json'
 import { Table } from '@/components/organisms/table'
@@ -19,14 +20,7 @@ type Story = StoryObj<typeof meta>
 
 export const ListOfUsers: Story = {
   args: {
-    columnDef: columnDef,
-    dataJSON: data,
-    pagination: (
-      <Pagination
-        totalPages={50}
-        currentPage={1}
-        onPageChange={(page) => console.log(page)}
-      />
-    )
+    columnDef: columnDef as ColumnDef<unknown, unknown>[],
+    dataJSON: data
   }
 }

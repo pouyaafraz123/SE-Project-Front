@@ -9,7 +9,8 @@ const Meta = {
   },
   tags: ['autodocs'],
   args: {
-    title: 'pageTitle.usersManagement'
+    title: 'pageTitle.usersManagement',
+    breadcrumbs: [{ name: 'pageTitle.main', link: '/' }]
   }
 } satisfies StoryMeta<typeof PageLayout>
 

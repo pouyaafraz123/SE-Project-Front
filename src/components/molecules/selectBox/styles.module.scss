@@ -12,9 +12,30 @@
   min-width: 10rem;
 }
 .content {
+  overflow-y: auto;
   min-width: 5rem;
   max-height: 15rem;
   display: flex;
   flex-direction: column;
   gap: space(xs) 0;
+  padding: 0 space(m3);
+}
+.box {
+  animation-name: dropdownScale;
+  animation-duration: 125ms;
+  animation-timing-function: ease;
+  animation-delay: 0ms;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  transform-origin: top center;
+}
+@keyframes dropdownScale {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
 }

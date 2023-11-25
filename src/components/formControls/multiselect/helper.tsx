@@ -1,5 +1,5 @@
 import { Checkbox } from '..'
-import { IOption } from '@/components/molecules/selectBox/types'
+import { IOption } from '@/interfaces'
 
 export function isSelected(selectedOptions: IOption[], option: IOption) {
   const foundIndex = selectedOptions.findIndex(

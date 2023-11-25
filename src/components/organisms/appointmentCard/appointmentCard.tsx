@@ -17,18 +17,34 @@ import classes from './styles.module.scss'
  * @param {IAppointmentCardTopProps} props.data - Data for rendering the top section of the appointment card.
  * @returns AppointmentCard The rendered AppointmentCard component.
  */
-export function AppointmentCard({ status, data }: IAppointmentCardProps) {
+export function AppointmentCard({
+  data,
+  actions,
+  status,
+  canCancel,
+  canJoin,
+  variant,
+  canWriteAddendum,
+  canWriteSummary
+}: IAppointmentCardProps) {
   return (
     <CardContainer boxProps={{ radius: 'lg', px: '0', py: '0' }}>
       <div className={clsx(classes.appointmentCard)}>
         {/* Display actions for the appointment card */}
-        <AppointmentCardActions />
+        <AppointmentCardActions {...actions} variant={variant} />
         {/* Display the top section of the appointment card */}
         <AppointmentCardTop {...data} />
         {/* Display a separator */}
         <Separator />
         {/* Display the bottom section of the appointment card */}
-        <AppointmentCardBottom status={status} />
+        <AppointmentCardBottom
+          status={status}
+          canCancel={canCancel}
+          canJoin={canJoin}
+          variant={variant}
+          canWriteSummary={canWriteSummary}
+          canWriteAddendum={canWriteAddendum}
+        />
       </div>
     </CardContainer>
   )

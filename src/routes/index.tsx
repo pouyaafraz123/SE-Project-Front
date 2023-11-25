@@ -1,26 +1,57 @@
 import { createBrowserRouter, RouteObject } from 'react-router-dom'
 
-import { Layout } from '@pages/Layout'
 import { ErrorPage } from '@pages/errorPage/index'
 import App from '../App'
 
 import { testRoutes } from './testRoutes/testRoutes'
 import { hfRoutes } from './hf/hfRoutes'
+import { usersRoutes } from './userManagement/usersRoutes'
+import { financialRoutes } from './financial/financialRoutes'
+import { loginLoader, protectedLoader } from './authLoaders'
+import { path } from './path'
+import { useUIStore } from '@/stores'
+
+const routes = [...hfRoutes, ...usersRoutes, ...financialRoutes]
+
+function attachLoader() {
+  for (const route of routes) {
+    const _loader = route.loader
+    // route.loader = (props) => {
+    //   const auth = protectedLoader(props)
+    //   if (auth !== null) return auth
+    //   console.log('hello')
+    //   return _loader ? _loader(props) : null
+    // }
+  }
+  return routes
+}
 
 const withLayout: RouteObject[] = [
   {
     path: '/',
-    element: <App />
+    element: <App />,
+    loader: () => {
+      useUIStore.getState().setPage('pageTitle.main', [])
+      return {}
+    }
   },
   ...testRoutes,
-  ...hfRoutes
+  ...routes
 ]
 
 export const router = createBrowserRouter([
   {
-    element: <Layout />,
+    lazy: () => import('@pages/Layout'),
     children: [...withLayout],
+    loader: protectedLoader,
     errorElement: <ErrorPage /> // fullscreen error page
     // if a child doesn't provide an errorElement, it will default to this one
+  },
+  {
+    path: '/test/login', // TODO remove in production
+    lazy: () => import('@pages/testPage/Login'),
+    loader: loginLoader
   }
 ])
+
+export { path }

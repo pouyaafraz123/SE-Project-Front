@@ -1,15 +1,14 @@
 import { ReactNode } from 'react'
+import { IStatsKeys } from '@/interfaces'
 
 export type TInfoCardVariant =
-  | 'user-main'
-  | 'user-success'
-  | 'user-warning'
-  | 'user-danger'
+  | IStatsKeys
   | 'appointment-main'
   | 'appointment-success'
   | 'appointment-warning'
   | 'appointment-danger'
   | 'appointment-pending'
+  | 'default'
 
 /** Type representing different colors for InfoCard. */
 export type TInfoCardColor =

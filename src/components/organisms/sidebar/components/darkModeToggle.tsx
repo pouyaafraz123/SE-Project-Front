@@ -7,7 +7,7 @@ import { useUIStore } from '@/stores'
 import { ThemeMode, isDarkMode } from '@/theme'
 
 export function DarkModeToggle() {
-  const { setTheme, theme } = useUIStore()
+  const { setTheme, theme, changeLocale } = useUIStore()
   const { isOpen } = useSidebarStore()
   const isDark = isDarkMode(theme)
 
@@ -25,6 +25,7 @@ export function DarkModeToggle() {
       default:
         break
     }
+    changeLocale('en') //TODO: remove later
   }
   function setLightTheme() {
     switch (theme) {
@@ -40,6 +41,7 @@ export function DarkModeToggle() {
       default:
         break
     }
+    changeLocale('fa') //TODO: remove later
   }
 
   return (

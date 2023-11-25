@@ -8,11 +8,13 @@ export function PrivacyItems() {
     <SidebarMenu name={t('MenuTitle.privacy')}>
       <SidebarMenuItem
         iconName='shield-keyhole'
-        items={{ name: 'privacy', path: 'privacy' }}
+        name='privacy'
+        items={{ path: 'privacy' }}
       />
       <SidebarMenuItem
         iconName='help'
-        items={{ name: 'helpCenter', path: 'help' }}
+        name='helpCenter'
+        items={{ path: 'help' }}
       />
     </SidebarMenu>
   )

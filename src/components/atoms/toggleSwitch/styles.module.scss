@@ -1,3 +1,5 @@
+@import 'src/styles/functions.scss';
+
 .toggleSwitch {
   display: flex;
   align-items: center;
@@ -39,4 +41,12 @@
 .toggleSwitch input[type='checkbox']:checked + .switch {
   background-color: #00acb1;
   border: 1px solid #00acb1;
+}
+.toggleSwitch input[type='checkbox']:disabled + .switch {
+  background-color: getThemeColor(gray-background);
+  border-color: getThemeColor(gray-background);
+  color: getThemeColor(secondary-text);
+}
+.toggleSwitch input[type='checkbox']:disabled + .switch::before {
+  background-color: getThemeColor(secondary-text);
 }

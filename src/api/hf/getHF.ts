@@ -6,7 +6,7 @@ import { axiosClient } from '@/api/clients'
 
 const key = 'hf'
 type Response = IResponse<IHealthFacility>
-type Variables = { id: number }
+type Variables = { id: string }
 
 // TODO add table filters
 export const getHF: AxiosFn<Variables, Response> = async (params, signal) => {
@@ -22,9 +22,5 @@ export const getHF: AxiosFn<Variables, Response> = async (params, signal) => {
 export const useHF = createQuery<Response, Variables, AxiosError>({
   primaryKey: key,
   queryFn: ({ queryKey: [_primaryKey, variables], signal }) =>
-    getHF(variables, signal),
-  retry(_failureCount, error) {
-    if (error.code == AxiosError.ERR_BAD_REQUEST) return false
-    return true
-  }
+    getHF(variables, signal)
 })

@@ -6,7 +6,7 @@ const meta = {
   title: 'Forms/TestForm',
   component: TestForm,
   parameters: {
-    layout: 'fullscreen'
+    layout: 'padded'
   },
   args: {
     mode: 'create'
@@ -22,6 +22,13 @@ export const Default: Story = {
 }
 
 const initialValues: IFormValues = {
+  doctorCountry: { key: '1', value: '' },
+  doctorState: { key: '1', value: '' },
+  doctorCity: { key: '1', value: '' },
+  doctorSpeciality: { key: '1', value: '' },
+  doctor: { key: '2', value: 'سید امیرحسین باحجب جعفریان اصل تبریزی' },
+  hfType: { key: '1', value: '' },
+  hf: { key: '', value: '' },
   firstName: 'وحید',
   lastName: 'جهاندار',
   gender: { key: '1', value: 'مرد' },
@@ -32,7 +39,14 @@ const initialValues: IFormValues = {
   country: { key: '1', value: 'آذربایجان شرقی' },
   state: { key: '1', value: 'تبریز' },
   phone: { code: '+1', number: '9990001234' },
-  date: new Date('2010/7/8')
+  date: new Date('2010/7/8'),
+  countryMulti: [
+    { key: '1', value: 'گوارش' },
+    { key: '2', value: 'گوارش' },
+    { key: '3', value: 'گوارش' }
+  ],
+  time: '06:00',
+  radioGender: 'male'
 }
 
 export const Readonly: Story = {

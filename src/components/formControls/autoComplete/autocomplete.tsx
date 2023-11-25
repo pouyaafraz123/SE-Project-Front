@@ -1,4 +1,4 @@
-import { FocusEvent, useEffect, useRef, useState } from 'react'
+import { FocusEvent, KeyboardEvent, useEffect, useRef, useState } from 'react'
 import { AutoCompleteProps } from './types'
 import classes from './styles.module.scss'
 import { SearchInput } from '@/components/formControls/searchInput'
@@ -17,13 +17,13 @@ export function AutoComplete(props: AutoCompleteProps) {
     disabled,
     onBlur,
     onFocus,
+    onKeyDown,
     ...rest
   } = props
 
   const inputRef = useRef<HTMLInputElement>(null)
 
   const [searchValue, setSearchValue] = useState(value.value)
-  const [selectedItem, setSelectedItem] = useState(value)
   const [isInputIsFocused, setIsInputIsFocused] = useState(false)
 
   // show the selectBox on input focus
@@ -31,12 +31,12 @@ export function AutoComplete(props: AutoCompleteProps) {
     if (!readOnly && !disabled) {
       selectBoxFn.show({
         onSelect(item) {
-          setSelectedItem(item)
+          // setSelectedItem(item)
           onChange?.(item)
         },
         options: options,
         refElementPosition: getSelectBoxPosition(inputRef.current),
-        filterValue: selectedItem.value
+        filterValue: value.value
       })
     }
     setIsInputIsFocused(true)
@@ -46,7 +46,7 @@ export function AutoComplete(props: AutoCompleteProps) {
   // filtering the option after the user finishes typing
   function searchInputChangeHandler(value: string) {
     if (value === '') {
-      setSelectedItem({ key: '', value: '' })
+      onChange?.({ key: '', value: '' })
     }
     selectBoxFn.filter(value)
   }
@@ -56,14 +56,21 @@ export function AutoComplete(props: AutoCompleteProps) {
    * So we write below useEffect to update the search input value.
    */
   useEffect(() => {
-    setSearchValue(selectedItem.value)
-  }, [selectedItem.value])
+    setSearchValue(value.value)
+  }, [value.value])
 
   // set the search input value to the last selected item
   function blurHandler(event: FocusEvent<HTMLInputElement, Element>) {
-    setSearchValue(selectedItem.value)
+    setSearchValue(value.value)
     setIsInputIsFocused(false)
     onBlur?.(event)
+  }
+
+  function keyDownHandler(e: KeyboardEvent<HTMLInputElement>) {
+    if (e.key === 'Tab') {
+      selectBoxFn.close()
+    }
+    onKeyDown?.(e)
   }
 
   return (
@@ -76,14 +83,14 @@ export function AutoComplete(props: AutoCompleteProps) {
         onBlur={blurHandler}
         onDebouncedValueChange={searchInputChangeHandler}
         readOnly={readOnly}
+        onKeyDown={(e) => keyDownHandler(e)}
         disabled={disabled}
+        autoComplete='off'
         {...rest}
       />
-      {selectedItem.value && !isInputIsFocused && !readOnly && !disabled && (
+      {value.value && !isInputIsFocused && !readOnly && !disabled && (
         <div onClick={() => inputRef.current?.focus()}>
-          <Typography className={classes.textBox}>
-            {selectedItem.value}
-          </Typography>
+          <Typography className={classes.textBox}>{value.value}</Typography>
         </div>
       )}
     </div>

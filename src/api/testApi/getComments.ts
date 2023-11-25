@@ -23,9 +23,5 @@ export const getComments: AxiosFn<Variables, Comment[]> = async (
 export const useComments = createQuery<Response, Variables, AxiosError>({
   primaryKey: key,
   queryFn: ({ queryKey: [_primaryKey, variables], signal }) =>
-    getComments(variables, signal),
-  retry(_failureCount, error) {
-    if (error.code == AxiosError.ERR_BAD_REQUEST) return false
-    return true
-  }
+    getComments(variables, signal)
 })

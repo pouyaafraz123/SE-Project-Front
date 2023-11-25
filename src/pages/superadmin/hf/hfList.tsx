@@ -1,30 +1,37 @@
-import { HFList } from '@components/templates/hf/hfList/hfList'
 import { useHFTable } from '@api/hf/getHFTable'
-import { path } from '@routes/hf/path'
-import { isDefinedNonZero } from '@utils'
+import { Page } from '@components/atoms/page'
+import { useTableParams } from '@components/organisms/pageTable'
+import { HFTable } from '@/templates/hf/hfList'
+import { Statistics } from '@/components/organisms/statistics'
 
 export function Component() {
-  const params = path.hfList.useParams()
-  const page = isDefinedNonZero(params.values.page) || 1
-  const pageSize = isDefinedNonZero(params.values.per_page) || 10 // TODO default value???
+  const { paginationValues, searchValue, filterValues, tableProps } =
+    useTableParams({})
+  const { currentPage, resultsPerPage } = paginationValues
 
-  function onPagination(page: number, pageSize: number) {
-    params.set({ page: page.toString(), per_page: pageSize.toString() })
-  }
-  const { data, isLoading } = useHFTable({
-    variables: { page, per_page: pageSize },
+  const { data, isLoading, isFetching } = useHFTable({
+    variables: {
+      page: currentPage,
+      per_page: resultsPerPage,
+      filter: searchValue,
+      ...filterValues
+    },
     keepPreviousData: true
   })
 
   if (isLoading || !data) return null
+  const stats = data.data.statistics
 
   return (
-    <HFList
-      data={data.data.list}
-      page={page}
-      pageSize={pageSize}
-      onPagination={onPagination}
-      totalPages={data.data.total / pageSize}
-    />
+    <Page>
+      <Statistics data={stats} />
+      <HFTable
+        data={data.data.page.list}
+        total={data.data.page.total}
+        isLoading={isLoading}
+        isFetching={isFetching}
+        tableParamProps={tableProps}
+      />
+    </Page>
   )
 }

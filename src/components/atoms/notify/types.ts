@@ -1,5 +1,6 @@
 import { ReactNode } from 'react'
 import { color } from '@constants'
+import { IResponse } from '@/api/types'
 
 /**
  * Type representing different notification types.
@@ -9,10 +10,12 @@ export type TNotifType = 'info' | 'warning' | 'danger' | 'success' | 'promise'
 /**
  * Type representing a notification message with a title and text.
  */
-export type TNotifMessage = {
-  title: string
-  text: string
-}
+export type TNotifMessage =
+  | {
+      title?: string
+      text: string
+    }
+  | string
 
 /**
  * Props for displaying a notification message.
@@ -34,9 +37,9 @@ export interface TNotifProps {
  */
 export interface TPromiseNotifProps {
   pendingMessage: TNotifMessage
-  resolvedMessage: TNotifMessage
+  resolvedMessage?: TNotifMessage
   rejectMessage?: TNotifMessage
-  promise: Promise<any>
+  promise: Promise<IResponse<unknown> | void>
 }
 
 /**

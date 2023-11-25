@@ -76,7 +76,11 @@ export const Modal = memo<IModalProps>((props) => {
 
   const modalBody = (
     <div
-      className={clsx(classes.modalContainer, backdrop && classes.backdrop)}
+      className={clsx(
+        classes.modalContainer,
+        backdrop && classes.backdrop,
+        !(open || localOpen) && classes.displayNone
+      )}
       onClick={() => {
         if (onClose) {
           onClose()

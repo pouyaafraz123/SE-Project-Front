@@ -2,6 +2,8 @@
 @import 'src/styles/mixins';
 @import 'src/styles/global-variables';
 
+$time: 100ms;
+
 @mixin cardColor($mainColor, $darkColor) {
   @include dark-light-gradient($mainColor, $darkColor);
 
@@ -13,7 +15,6 @@
 .infoCard {
   height: 5rem;
   flex-grow: 1;
-  max-width: 17rem;
   min-width: 15rem;
   display: flex;
   align-items: center;
@@ -42,6 +43,7 @@
   }
 
   &__iconContainer {
+    transition: all ease $time;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,6 +59,7 @@
   }
 
   &__icon {
+    transition: border-radius ease $time;
     display: flex;
     flex: 0 0 auto;
     width: 3.5rem;

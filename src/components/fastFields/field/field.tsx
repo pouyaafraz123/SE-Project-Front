@@ -13,6 +13,7 @@ interface Props<T> {
   titleProps?: TypographyProps
   formik: FormikProps<T>
   icon?: iconNameType | IconProps
+  datepicker?: boolean
 }
 
 export function Field<T>(props: Props<T>) {
@@ -29,17 +30,51 @@ export function Field<T>(props: Props<T>) {
 
   // TODO style error, icon, label
   return (
-    <div>
-      <label>
-        <div className={classes.label}>
-          {icon}
-          <Typography fontSize='md-high' {...props.titleProps}>
-            {t(props.title)}
-          </Typography>
-        </div>
-        {props.children}
-        {touch && error ? <div>{error.toString()}</div> : null}
-      </label>
+    <div className={classes.container}>
+      {!props.datepicker && (
+        <label>
+          <div className={classes.label}>
+            {icon}
+            <Typography fontSize='md-high' {...props.titleProps}>
+              {t(props.title)}
+            </Typography>
+          </div>
+          {props.children}
+          {touch && error ? (
+            <Typography
+              color='danger-dark'
+              fontSize='sm'
+              className={classes.error}
+            >
+              {error.toString()}
+            </Typography>
+          ) : null}
+        </label>
+      )}
+      {props.datepicker && (
+        <>
+          <label htmlFor={props.name as string}>
+            <div className={classes.label}>
+              {icon}
+              <Typography fontSize='md-high' {...props.titleProps}>
+                {t(props.title)}
+              </Typography>
+            </div>
+          </label>
+          {props.children}
+          <label htmlFor={props.name as string}>
+            {touch && error ? (
+              <Typography
+                color='danger-dark'
+                fontSize='sm'
+                className={classes.error}
+              >
+                {error.toString()}
+              </Typography>
+            ) : null}
+          </label>
+        </>
+      )}
     </div>
   )
 }

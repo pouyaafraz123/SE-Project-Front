@@ -1,23 +1,39 @@
 import { create } from 'zustand'
-import { devtools, subscribeWithSelector } from 'zustand/middleware'
+import { devtools, persist, subscribeWithSelector } from 'zustand/middleware'
+import { IRole } from '@/interfaces'
 
 interface UserState {
   isAuthenticated: boolean
-  login: () => void
+  login: (token: string) => void
   logout: () => void
+  role: IRole
+  token: string
 }
+
 // TODO: where to store user login? localstorage or cookie???
 export const useUserStore = create<UserState>()(
   subscribeWithSelector(
-    devtools(
-      (set) => ({
-        isAuthenticated: true,
-        login: () => set({ isAuthenticated: true }, false, 'user/login'),
-        logout: () => set({ isAuthenticated: false }, false, 'user/logout')
-      }),
+    persist(
+      devtools(
+        (set) => ({
+          isAuthenticated: true,
+          login: (token: string) =>
+            set({ isAuthenticated: true, token }, false, 'user/login'),
+          logout: () => set({ isAuthenticated: false }, false, 'user/logout'),
+          role: import.meta.env.VITE_PANEL,
+          token: import.meta.env.VITE_API_TOKEN
+        }),
+        {
+          enabled: !import.meta.env.PROD,
+          name: 'userStore'
+        }
+      ),
       {
-        enabled: !import.meta.env.PROD,
-        name: 'userStore'
+        name: 'userState',
+        partialize: (state) => ({
+          role: state.role,
+          token: state.token
+        })
       }
     )
   )

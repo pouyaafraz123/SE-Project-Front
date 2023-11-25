@@ -5,7 +5,7 @@ const meta = {
   title: 'Organisms/Card/AppointmentCard',
   component: AppointmentCard,
   parameters: {
-    layout: 'fullscreen'
+    layout: 'padded'
   },
   decorators: [
     (Story) => (
@@ -16,7 +16,7 @@ const meta = {
   ],
   tags: ['autodocs'],
   args: {
-    status: 'pending',
+    id: 2,
     data: {
       appointmentInfo: {
         id: 'b8e4f1c',
@@ -39,6 +39,17 @@ const meta = {
         link: '/doctor/view-profile/1',
         details: { degree: 'تحصیلات پزشک', speciality: 'تخصص' }
       }
+    },
+    variant: 'appointment',
+    status: 'pending',
+    canCancel: true,
+    canJoin: true,
+    actions: {
+      canView: true,
+      canEdit: true,
+      canReschedule: true,
+      canPrint: true,
+      canDownload: true
     }
   }
 } satisfies Meta<typeof AppointmentCard>

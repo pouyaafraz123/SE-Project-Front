@@ -2,13 +2,20 @@ import type { Meta as StoryMeta, StoryObj } from '@storybook/react'
 import { Sidebar, sidebarFn } from './index'
 import { Typography } from '@/components/atoms/typography'
 import { Button } from '@/components/atoms/button'
-import { superAdminItems } from '@/constants/sidebarItems'
+import { sidebarItems } from '@/constants/sidebarItems'
 
 const Meta = {
   title: 'Organisms/Sidebar',
   component: Sidebar,
   parameters: {
     layout: 'fullscreen'
+  },
+  args: {
+    header: {
+      firstName: 'ناصر',
+      lastName: 'محمدی',
+      hfName: 'بیمارستان الغدیر'
+    }
   }
   // tags: ['autodocs']
 } satisfies StoryMeta<typeof Sidebar>
@@ -27,7 +34,10 @@ function ChildrenDiv() {
   const { setItems } = sidebarFn
   return (
     <div>
-      <Button mode='default' onClick={() => setItems(superAdminItems)}>
+      <Button
+        mode='default'
+        onClick={() => setItems(sidebarItems['super-admin'])}
+      >
         Set Super AdminItems
       </Button>
     </div>

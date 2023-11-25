@@ -223,4 +223,8 @@
       flex-direction: row-reverse;
     }
   }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 }

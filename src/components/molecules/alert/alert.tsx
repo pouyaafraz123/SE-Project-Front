@@ -100,7 +100,7 @@ export function Alert(props: TAlertProps) {
         <div className={clsx(classes.alert__contents)}>
           <Typography variant={'h5'} color={'primary-main'}>
             <div className={clsx(classes.alert__head)}>
-              <div>{icon}</div>
+              <div className='d-inline-flex'>{icon}</div>
               <div>{title}</div>
             </div>
           </Typography>

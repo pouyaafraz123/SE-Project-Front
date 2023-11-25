@@ -1,5 +1,6 @@
-import { IFormValues } from '@components/templates/hf/hfForm/schema'
 import { IHealthFacility, IHealthFacilityDTO } from '@api/hf'
+import { toPhone } from '@utils'
+import { IFormValues } from '@/templates/hf/hfForm/hfFormSchema'
 
 export const map = {
   fromAPI: (data: IHealthFacility): IFormValues => {
@@ -15,15 +16,21 @@ export const map = {
       ContactFirstName: data.contact_first_name,
       ContactLastName: data.contact_last_name,
       Address: data.address,
-      Phone: data.phone,
-      Fax: data.fax
+      Phone: toPhone(data.phone),
+      Fax: toPhone(data.fax),
+      timezone: data.timezone,
+      HFDepartments: data.departments,
+      day: { key: '', value: '' },
+      endTime: '',
+      startTime: '',
+      operationTimesLists: [] //TODO: fill later
     }
   },
-  toAPI: (data: IFormValues): IHealthFacilityDTO => {
+  toAPI: (data: IFormValues, parent_id: string | null): IHealthFacilityDTO => {
     return {
-      type: String(data.HFType.value),
+      type: String(data.HFType.key),
       name: data.HFName,
-      city_id: Number(data.City.key),
+      city_id: data.City.key,
       postal_code: data.PostalCode,
       phone: `${data.Phone.code}-${data.Phone.number}`,
       fax: `${data.Fax.code}-${data.Fax.number}`,
@@ -32,7 +39,12 @@ export const map = {
       contact_first_name: data.ContactFirstName,
       contact_last_name: data.ContactLastName,
       address: data.Address,
-      departments: []
+      departments:
+        data.HFDepartments?.map((value) => {
+          return value.key
+        }) || [],
+      timezone_id: String(data.timezone.key),
+      parent_id
     }
   }
 }

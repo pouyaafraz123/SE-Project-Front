@@ -55,6 +55,8 @@ export interface ICommonButtonProps extends PropsWithChildren {
   onSubmit?: FormEventHandler<HTMLButtonElement>
   size?: TButtonSize
   iconDir?: TButtonIconDir
+  type?: TButtonType
+  linkTo?: string
 }
 
 /**

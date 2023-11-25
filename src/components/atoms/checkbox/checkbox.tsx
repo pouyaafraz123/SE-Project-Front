@@ -1,9 +1,9 @@
 import { ICheckboxProps } from '@components/atoms/checkbox/types.ts'
 import { forwardRef, useMemo, useState } from 'react'
 import { Typography } from '@components/atoms/typography'
-import { Icon, TickLinear } from '@components/atoms/icons'
 import clsx from 'clsx'
 import classes from './styles.module.scss'
+import { Icon } from '@/components/atoms/icons'
 
 export const Checkbox = forwardRef<HTMLInputElement, ICheckboxProps>(
   function Checkbox(props, ref) {
@@ -40,7 +40,9 @@ export const Checkbox = forwardRef<HTMLInputElement, ICheckboxProps>(
               disabled && classes.checkbox__boxDisabled
             )}
           >
-            {inputValue && !disabled && <TickLinear />}
+            {inputValue && !disabled && (
+              <Icon type='linear' name='tick' color='white' />
+            )}
           </div>
           <Typography variant={'caption1'} color={'primary-text'}>
             {title}

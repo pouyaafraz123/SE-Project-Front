@@ -8,6 +8,7 @@
 
   &__head {
     display: flex;
+    align-items: center;
     gap: space(xs);
   }
 
@@ -18,43 +19,58 @@
   }
 
   &__icon {
-    display: block;
+    display: inline-flex;
   }
 }
 
 :global .toastBody {
   border-radius: radius(md) !important;
   padding: space(m3) space(2m3) !important;
-  background-color: transparent !important;
+}
+
+:global .Toastify__toast-body {
+  margin: 0 0 !important ;
 }
 
 :global .toast {
   border-radius: radius(md) !important;
   padding: 0 !important;
-  background-color: transparent !important;
   backdrop-filter: blur(5px);
+  background: getThemeColor(primary-background) !important;
 }
 
 :global .toastBodyInfo {
-  background-color: getColor(var(--theme-primary-main), 50) !important;
+  background: getThemeColor(primary-main, 5) !important;
   border: 2px solid getColor(var(--theme-primary-main)) !important;
   box-shadow: 0 0 10px 0 getColor(var(--theme-primary-main), 20) !important;
 }
+:global .Toastify__progress-bar--info {
+  background: getThemeColor(primary-main) !important;
+}
 
 :global .toastBodyWarning {
-  background-color: getColor(var(--theme-warning-main), 50) !important;
+  background: getThemeColor(warning-main, 5) !important;
   border: 2px solid getColor(var(--theme-warning-main)) !important;
   box-shadow: 0 0 10px 0 getColor(var(--theme-warning-main), 20) !important;
 }
+:global .Toastify__progress-bar--warning {
+  background: getThemeColor(warning-main) !important;
+}
 
 :global .toastBodyError {
-  background-color: getColor(var(--theme-danger-main), 50) !important;
+  background: getThemeColor(danger-main, 5) !important;
   border: 2px solid getColor(var(--theme-danger-main)) !important;
   box-shadow: 0 0 10px 0 getColor(var(--theme-danger-main), 20) !important;
 }
+:global .Toastify__progress-bar--error {
+  background: getThemeColor(danger-main) !important;
+}
 
 :global .toastBodySuccess {
-  background-color: getColor(var(--theme-success-main), 50) !important;
+  background: getThemeColor(success-main, 5) !important;
   border: 2px solid getColor(var(--theme-success-main)) !important;
   box-shadow: 0 0 10px 0 getColor(var(--theme-success-main), 20) !important;
+}
+:global .Toastify__progress-bar--success {
+  background: getThemeColor(success-main) !important;
 }

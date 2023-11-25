@@ -8,10 +8,19 @@ export const iconMap: { [key in OptType]: iconNameType | IconProps } = {
   state: 'streets-map-point',
   city: 'map-point',
   gender: { name: 'men', type: 'broken' },
-  hfType: 'hospital'
+  hfType: 'hospital',
+  hfDepartments: 'hospital',
+  timezone: 'add-square', // TODO icon?
+  speciality: 'medal-star-square',
+  subSpeciality: 'medal-star-square',
+  language: 'dialog',
+  languageSkills: 'chat-round-check',
+  doctorDegree: 'square-academic-cap',
+  hfDepartment: 'buildings',
+  visitType: 'monitor-camera',
+  days: 'calendar'
 }
 
-// TODO dropdown values are always key,value??
 // this will work with input, dropdowns
 // add more checks for new components if needed
 function getKey(value: unknown): string {
@@ -47,8 +56,50 @@ export function queryParams<T>(
         state_id: props.stateId || getKey(values[props.stateField!])
       }
       break
+    case 'hfDepartment':
+      vars = {
+        OptionsType: 'hfDepartment',
+        hfName_id: props.hfNameId || getKey(values[props.hfNameField!])
+      }
+      break
     case 'hfType':
       vars = { OptionsType: 'hfType' }
+      break
+    case 'hfDepartments':
+      vars = { OptionsType: 'hfDepartments' }
+      break
+    case 'speciality':
+      vars = { OptionsType: 'speciality' }
+      break
+    case 'days':
+      vars = { OptionsType: 'days' }
+      break
+    case 'subSpeciality':
+      vars = {
+        OptionsType: 'subSpeciality',
+        speciality_id:
+          props.specialityId || getKey(values[props.specialityField!])
+      }
+      break
+    case 'language':
+      vars = { OptionsType: 'language' }
+      break
+    case 'languageSkills':
+      vars = { OptionsType: 'languageSkills' }
+      break
+    case 'doctorDegree':
+      vars = { OptionsType: 'doctorDegree' }
+      break
+    case 'timezone':
+      vars = {
+        OptionsType: 'timezone',
+        country_id: props.countryId || getKey(values[props.countryField!])
+      }
+      break
+    case 'visitType':
+      vars = {
+        OptionsType: 'visitType'
+      }
       break
   }
   return vars

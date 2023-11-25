@@ -23,5 +23,8 @@ export const colors: { [key: string]: string } = {
   pending: '#FEC101',
   'follow-up-visit': '#7209B7',
   'first-visit': '#D0288D',
+  yes: '#61D215',
+  no: '#E32322',
+  nodata: '#ECB814',
   default: '#D0288D'
 }

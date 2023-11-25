@@ -10,4 +10,5 @@ export interface FormControlProps<T extends HTMLElement, U>
   disabled?: boolean
   value?: U
   size?: IFormControlSize
+  autoComplete?: 'off' | 'on'
 }

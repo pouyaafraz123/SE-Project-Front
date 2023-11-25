@@ -1,11 +1,13 @@
 import clsx from 'clsx'
-import { Ref, forwardRef } from 'react'
+import { KeyboardEvent, Ref, forwardRef } from 'react'
 import { BounceLoader } from 'react-spinners'
+import { useTranslation } from 'react-i18next'
 import formClasses from '../styles.module.scss'
 import classes from './styles.module.scss'
 import { IconRendererProps, InputProps } from './types'
 import { Icon } from '@/components/atoms/icons'
 import { Tooltip } from '@/components/atoms/tooltip'
+import { selectBoxFn } from '@/components/molecules/selectBox'
 
 export const Input = forwardRef(function Input(
   props: InputProps,
@@ -65,13 +67,14 @@ export const Input = forwardRef(function Input(
 })
 
 function IconRenderer(props: IconRendererProps) {
+  const { t } = useTranslation('form')
   const { icon, isError, isLoading } = props
   if (isLoading) {
     return <BounceLoader size={20} color={'#29A9E14D'} loading={true} />
   }
   if (isError) {
     return (
-      <Tooltip text='خطایی رخ داده'>
+      <Tooltip text={t('errorOcurred')}>
         <Icon name='danger' color='danger-main' type='bold' />
       </Tooltip>
     )

@@ -1,31 +1,26 @@
 import { useTranslation } from 'react-i18next'
 import { HiddenBox } from '../components/hiddenBox'
 import { sidebarFn } from '..'
+import { IHeaderProps } from '../types'
 import classes from './styles.module.scss'
 import { Avatar } from '@/components/atoms/avatar'
 import { Typography } from '@/components/atoms/typography'
 import { Icon } from '@/components/atoms/icons'
 
-const userInfo = {
-  firstName: 'ناصر',
-  lastName: 'محمدی',
-  hospital: 'بیمارستان الغدیر'
-}
-
-export function SideBarHeader() {
+export function SideBarHeader(props: IHeaderProps) {
   const { t } = useTranslation('sidebar')
   return (
     <div className={classes.container}>
-      <Avatar size='smaller' userInfo={userInfo} />
+      <Avatar size='smaller' userInfo={props} />
       <HiddenBox className={classes.userInfoBox}>
         <div>
           <Typography fontSize='md' fontWeight='semi-bold'>
-            <Typography variant='inherit'>{`${userInfo.firstName} ${userInfo.lastName}`}</Typography>
+            <Typography variant='inherit'>{`${props.firstName} ${props.lastName}`}</Typography>
             <Typography variant='inherit' fontSize='xs' fontWeight='regular'>
               {t('common.welcome')}
             </Typography>
           </Typography>
-          <Typography variant='caption2'>{userInfo.hospital}</Typography>
+          <Typography variant='caption2'>{props.hfName}</Typography>
         </div>
         {/* <Icon
           name='arrow-down'

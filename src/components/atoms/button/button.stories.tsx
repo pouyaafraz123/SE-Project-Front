@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import '@styles/main.css'
-import { FigmaLinear } from '@components/icons'
+import { Icon } from '@components/atoms/icons'
 import { Button } from '@/components/atoms/button'
 
 const meta = {
@@ -28,7 +28,11 @@ export const DefaultButton: Story = {
 export const IconButton: Story = {
   render: (args) => (
     <div>
-      <Button {...args} label={'Lorem Ipsum'} icon={<FigmaLinear />} />
+      <Button
+        {...args}
+        label={'Lorem Ipsum'}
+        icon={<Icon type='linear' name='figma' />}
+      />
     </div>
   )
 }

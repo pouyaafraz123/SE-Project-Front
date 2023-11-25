@@ -2,6 +2,7 @@
 @import 'src/styles/mixins.scss';
 
 $iconSize: 24px;
+$padding-end: calc((2 * space(m1)) + $iconSize);
 
 .container {
   position: relative;
@@ -18,6 +19,6 @@ $iconSize: 24px;
 }
 .input {
   &[data-hasicon='true'] {
-    padding-inline-end: calc((2 * space(m1)) + $iconSize);
+    padding-inline-end: $padding-end;
   }
 }

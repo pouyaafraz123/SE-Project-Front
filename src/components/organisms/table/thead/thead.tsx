@@ -1,14 +1,20 @@
 import {
   useReactTable,
   flexRender,
-  getCoreRowModel
+  getCoreRowModel,
+  RowData
 } from '@tanstack/react-table'
+import { ITableChildProps } from '@components/organisms/table/types.ts'
+import { useTranslation } from 'react-i18next'
 import styles from '../styles.module.scss'
-import { useTableContext } from '../tableContext'
 
-export function Thead() {
-  const { table } = useTableContext()
-  const tableInstance = useReactTable({
+export function Thead<TData extends RowData>({
+  table,
+  showRow
+}: ITableChildProps<TData>) {
+  const { t } = useTranslation('common')
+
+  const tableInstance = useReactTable<TData>({
     columns: table.columnDef,
     data: table.dataJSON,
     getCoreRowModel: getCoreRowModel()
@@ -16,13 +22,14 @@ export function Thead() {
 
   return (
     <thead className={styles.thead}>
-      {tableInstance.getHeaderGroups().map((headerEl) => {
+      {tableInstance?.getHeaderGroups()?.map((headerEl, index) => {
         return (
-          <tr key={headerEl.id}>
-            {headerEl.headers.map((columnEl) => {
+          <tr key={headerEl.id + 'index' + index}>
+            {showRow && <th>{t('row')}</th>}
+            {headerEl.headers.map((columnEl, index2) => {
               return (
                 <th
-                  key={columnEl.id}
+                  key={columnEl.id + 'index2' + index2}
                   colSpan={columnEl.colSpan}
                   className={styles.th}
                 >

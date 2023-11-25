@@ -14,7 +14,6 @@ export function AlertContainer(props: PropsWithChildren) {
 
   return (
     <>
-      {children}
       {/* Render the Alert component with the alertProps from the store */}
       <Alert {...alertProps} />
     </>

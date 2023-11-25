@@ -21,11 +21,18 @@ export function FormButtons({
   submitTitle,
   cancelTitle,
   onCancel,
-  fullWidth
+  fullWidth,
+  buttonGroupClassName
 }: IFormButtonsProps) {
   return (
     // Render a div containing form buttons with optional full-width styling.
-    <div className={clsx(classes.formButtons, fullWidth && classes.w100)}>
+    <div
+      className={clsx(
+        classes.formButtons,
+        buttonGroupClassName,
+        fullWidth && classes.w100
+      )}
+    >
       {/* Render the cancel button with optional full-width styling. */}
       <Button
         mode={'cancel'}

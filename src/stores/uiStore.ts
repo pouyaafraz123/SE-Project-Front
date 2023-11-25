@@ -7,7 +7,9 @@ import {
   TAlertProps,
   TShowAlertParams
 } from '@components/molecules/alert'
+import { ParseKeys } from 'i18next'
 import { ThemeMode } from '@/theme'
+import { IBreadcrumbs } from '@/interfaces'
 
 interface UIState {
   locale: localeType
@@ -16,6 +18,9 @@ interface UIState {
   setTheme: (value: ThemeMode) => void
   alertProps: TAlertProps
   showAlert: (props: TAlertProps) => void
+  pageTitle: ParseKeys<'common'>
+  breadcrumbs: IBreadcrumbs
+  setPage: (pageTitle: ParseKeys<'common'>, breadcrumps?: IBreadcrumbs) => void
 }
 
 // partialized items are stored in localStorge
@@ -29,7 +34,13 @@ export const useUIStore = create<UIState>()(
           theme: ThemeMode.BONDI_LIGHT,
           setTheme: (value) => set({ theme: value }),
           alertProps: ALERT_DEFAULT_PROPS,
-          showAlert: (value) => set({ alertProps: value })
+          showAlert: (value) => set({ alertProps: value }),
+          pageTitle: 'pageTitle.usersManagement',
+          breadcrumbs: [],
+          setPage: (pageTitle, breadcrumps) => {
+            set({ pageTitle })
+            breadcrumps && set({ breadcrumbs: breadcrumps })
+          }
         }),
         {
           enabled: !import.meta.env.PROD,

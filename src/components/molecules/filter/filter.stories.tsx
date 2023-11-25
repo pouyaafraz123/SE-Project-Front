@@ -1,13 +1,14 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { Filter } from '@components/molecules/filter/filter.tsx'
 import { useEffect, useState } from 'react'
-import { IFilterValue } from '@components/molecules/filter/types.ts'
+import { IFilter, IFilterValue } from '@components/molecules/filter/types.ts'
 import { useFilterParam } from '@components/molecules/filter/hooks.ts'
 
-const filterOptions = [
+const filterOptions: IFilter[] = [
   {
     key: '1',
     title: 'عنوان',
+    variant: 'basic',
     options: [
       { key: '1', value: 'عنوان' },
       { key: '2', value: 'عنوان' },
@@ -21,6 +22,7 @@ const filterOptions = [
   {
     key: '2',
     title: 'عنوان',
+    variant: 'basic',
     options: [
       { key: '6', value: 'عنوان' },
       { key: '7', value: 'عنوان' }
@@ -29,6 +31,7 @@ const filterOptions = [
   {
     key: '3',
     title: 'عنوان',
+    variant: 'basic',
     options: [
       { key: '1', value: 'عنوان' },
       { key: '2', value: 'عنوان' },
@@ -43,6 +46,7 @@ const filterOptions = [
   {
     key: '4',
     title: 'عنوان',
+    variant: 'basic',
     options: [
       { key: '1', value: 'عنوان' },
       { key: '2', value: 'عنوان' },

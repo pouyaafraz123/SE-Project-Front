@@ -8,7 +8,7 @@ const meta = {
   title: 'Molecules/Alert',
   component: Alert,
   parameters: {
-    layout: 'fullscreen'
+    layout: 'padded'
   },
   tags: ['autodocs'],
   args: { open: false, type: 'information', title: '' }

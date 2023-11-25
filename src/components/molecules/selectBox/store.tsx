@@ -1,12 +1,13 @@
 import { create } from 'zustand'
 import { devtools, subscribeWithSelector } from 'zustand/middleware'
-import { IOption, ISelectBoxFn, SelectBoxStoreProps } from './types'
+import { ISelectBoxFn, SelectBoxStoreProps } from './types'
+import { IOption } from '@/interfaces'
 
 function getFilteredOptions(
   filterValue: string | undefined,
-  options: IOption[]
+  options: IOption[] | undefined
 ) {
-  if (filterValue && filterValue.trim() !== '')
+  if (filterValue && filterValue.trim() !== '' && options)
     return options.filter((item) => item.value.includes(filterValue))
 
   return options
@@ -25,7 +26,8 @@ const initialValues: SelectBoxStoreProps = {
     x: 0,
     y: 0
   },
-  closeOnItemSelection: true
+  closeOnItemSelection: true,
+  customElements: undefined
 }
 
 export const useSelectBoxStore = create<SelectBoxStoreProps & ISelectBoxFn>()(
@@ -54,6 +56,20 @@ export const useSelectBoxStore = create<SelectBoxStoreProps & ISelectBoxFn>()(
             renderItem: renderItem,
             closeOnItemSelection: closeOnItemSelection
           })
+        },
+        showCustomElement(props) {
+          const { customElements, refElementPosition, closeOnItemSelection } =
+            props
+
+          set({
+            isOpen: true,
+            refElementPosition: refElementPosition,
+            closeOnItemSelection: closeOnItemSelection,
+            customElements: customElements
+          })
+        },
+        rerenderCustomItems(customElement) {
+          set({ customElements: customElement })
         },
         rerenderItems(renderItem) {
           set({ renderItem: renderItem })
@@ -86,11 +102,13 @@ export const useSelectBoxStore = create<SelectBoxStoreProps & ISelectBoxFn>()(
 
 const selectBoxFn: ISelectBoxFn = {
   show: useSelectBoxStore.getState().show,
+  showCustomElement: useSelectBoxStore.getState().showCustomElement,
   close: useSelectBoxStore.getState().close,
   filter: useSelectBoxStore.getState().filter,
   select: useSelectBoxStore.getState().select,
   selectDown: useSelectBoxStore.getState().selectDown,
   selectUp: useSelectBoxStore.getState().selectUp,
-  rerenderItems: useSelectBoxStore.getState().rerenderItems
+  rerenderItems: useSelectBoxStore.getState().rerenderItems,
+  rerenderCustomItems: useSelectBoxStore.getState().rerenderCustomItems
 }
 export { selectBoxFn }

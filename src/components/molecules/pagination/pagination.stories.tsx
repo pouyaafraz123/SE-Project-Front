@@ -17,20 +17,23 @@ type Story = StoryObj<typeof meta>
 export const Initial: Story = {
   args: {
     currentPage: 1,
-    totalPages: 50
+    totalPages: 50,
+    perPage: 10
   }
 }
 
 export const Middle: Story = {
   args: {
     currentPage: 40,
-    totalPages: 50
+    totalPages: 50,
+    perPage: 10
   }
 }
 
 export const Final: Story = {
   args: {
     currentPage: 50,
-    totalPages: 50
+    totalPages: 50,
+    perPage: 10
   }
 }

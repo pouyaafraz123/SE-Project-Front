@@ -1,5 +1,5 @@
 import { FormControlProps } from '..'
-import { IOption } from '@/components/molecules/selectBox/types'
+import { IOption } from '@/interfaces'
 
 export interface AutoCompleteProps
   extends FormControlProps<HTMLInputElement, IOption> {

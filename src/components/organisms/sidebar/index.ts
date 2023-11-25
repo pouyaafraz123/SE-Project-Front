@@ -1,3 +1,3 @@
 export { sidebarFn, useSidebarStore } from './sidebarStore'
 export * from './sidebar'
-export type { IMenuItem, ISidebarItems } from './types'
+export type { IChildItem, ISidebarItems } from './types'

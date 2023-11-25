@@ -1,5 +1,6 @@
-import { Ref, forwardRef } from 'react'
-import { IOption, SelectBoxProps } from './types'
+import { Ref, forwardRef, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
+import { SelectBoxProps } from './types'
 import classes from './styles.module.scss'
 import { SearchInputWithState } from './searchInput'
 import { Box } from '@/components/atoms/box'
@@ -19,42 +20,66 @@ export const SelectBox = forwardRef(function SelectBox(
     renderItem,
     selectedItemIndex,
     width,
+    customElements,
     x,
-    y
+    y,
+    anchor,
+    boxClassName
   } = props
 
-  function optionClickHandler(item: IOption, index: number) {
-    onSelect?.(item, index)
-  }
+  const { t } = useTranslation('common')
 
   return (
     <Box
-      px='m3'
+      px='0'
       py='2m1'
       radius='md'
       ref={ref}
       style={{
-        left: x,
+        left:
+          (document.dir === 'ltr' && anchor === 'start') ||
+          (document.dir === 'rtl' && anchor === 'end') ||
+          anchor === 'center'
+            ? x
+            : 'unset',
+        right:
+          (document.dir === 'rtl' && anchor === 'start') ||
+          (document.dir === 'ltr' && anchor === 'end')
+            ? x
+            : 'unset',
         top: y,
-        width: `${width}px`,
-        position: 'absolute',
-        overflowY: 'auto'
+        width: width + 'px',
+        minWidth: 'fit-content',
+        position: 'absolute'
+        // overflowY: 'auto'
       }}
+      className={boxClassName}
     >
       {onFilter && hasSearch && (
-        <SearchInputWithState
-          onDebouncedValueChange={onFilter}
-          className='mb-m3'
-        />
+        <div className='px-m3'>
+          <SearchInputWithState
+            onDebouncedValueChange={onFilter}
+            className='mb-m3'
+          />
+        </div>
       )}
-      <div className={classes.content}>
-        {options.length === 0 && (
+      <div
+        className={classes.content}
+        onClick={() => {
+          if (customElements) {
+            //close the select box
+            onSelect({ key: '', value: '' }, 0)
+          }
+        }}
+      >
+        {customElements}
+        {options.length === 0 && customElements === undefined && (
           <Typography variant='caption1' center>
-            موردی یافت نشد!
+            {t('nodata')}
           </Typography>
         )}
         {options.map((item, index) => (
-          <div key={index} onClick={() => optionClickHandler(item, index)}>
+          <div key={index} onClick={() => onSelect(item, index)}>
             {renderItem ? (
               renderItem(item)
             ) : (

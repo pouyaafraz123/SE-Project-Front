@@ -3,7 +3,7 @@
 // #region rounded
 $space-factor: 0.5rem; //8px
 $spacer: (
-  0: calc($space-factor / 2),
+  0: 0,
   /*3px*/ xss: calc($space-factor * 0.375),
   /*4px*/ xs: calc($space-factor / 2),
   /*6px*/ xs1: calc($space-factor * 0.75),
@@ -18,6 +18,7 @@ $spacer: (
   /*18px*/ m5: calc($space-factor * 2.25),
   /*2 * 18px*/ 2m5: calc($space-factor * 2.25 * 2),
   /*20px*/ l1: calc($space-factor * 2.5),
+  /*2 * 20px*/ 2l1: calc($space-factor * 2.5 * 2),
   /*25px*/ l2: calc($space-factor * 3.125),
   /*30px*/ l3: calc($space-factor * 3.75),
   /*35px*/ l4: calc($space-factor * 4.375),

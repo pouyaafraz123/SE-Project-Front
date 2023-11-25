@@ -1,20 +1,19 @@
 import { ISidebarItems } from '..'
-import { IMenuItem, ISidebarItemsItem } from '../types'
+import { IChildItem } from '../types'
 
-export interface SidebarMenuItemProps extends ISidebarItems {
+export type SidebarMenuItemProps = {
   className?: string
-}
+} & ISidebarItems
 
 export type BeforeProps = {
   isSecondary?: boolean
 }
 
-export type ILinkProducerProps = {
-  items: ISidebarItemsItem
-}
-
-export interface SidebarChildItemProps extends IMenuItem {
+export interface SidebarChildItemProps extends IChildItem {
   parentName: string
   index: number
+  /**
+   * total number of child items of menu item
+   */
   total: number | undefined
 }

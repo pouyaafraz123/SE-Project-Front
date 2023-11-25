@@ -1,4 +1,5 @@
 import { createColumnHelper, ColumnDef } from '@tanstack/react-table'
+import { ReactNode } from 'react'
 import styles from './styles.module.scss'
 import { Avatar } from '@/components/atoms/avatar'
 import { ToggleSwitch } from '@/components/atoms/toggleSwitch'
@@ -16,7 +17,10 @@ interface data {
 }
 
 const columnHelper = createColumnHelper<data>()
-export const columnDef = [
+export const columnDef: ColumnDef<
+  data,
+  string & object & string[] & boolean
+>[] = [
   columnHelper.display({
     header: 'ردیف',
     id: 'row',
@@ -59,7 +63,9 @@ export const columnDef = [
   }),
   columnHelper.accessor('activation', {
     header: 'فعال‌سازی',
-    cell: (props) => <ToggleSwitch value={props.getValue()} />
+    cell: (props) => (
+      <ToggleSwitch checked={props.getValue()} onChange={() => {}} />
+    )
   }),
   columnHelper.display({
     header: 'تغییر رمز عبور',

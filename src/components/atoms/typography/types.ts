@@ -27,6 +27,7 @@ type variantNames =
   | 'subtitle3'
   | 'badge'
   | 'appointment-status'
+  | 'formSectionHeader'
   | 'inherit'
 
 type tagType = 'span' | 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'

@@ -4,7 +4,15 @@ import { FormControlProps } from '..'
 export interface InputProps
   extends FormControlProps<HTMLInputElement, string>,
     IconRendererProps {
-  type?: 'email' | 'number' | 'password' | 'tel' | 'text' | 'search'
+  type?:
+    | 'email'
+    | 'number'
+    | 'password'
+    | 'tel'
+    | 'text'
+    | 'search'
+    | 'time'
+    | 'time'
 }
 export type IconRendererProps = {
   icon?: ReactNode | (() => JSX.Element)

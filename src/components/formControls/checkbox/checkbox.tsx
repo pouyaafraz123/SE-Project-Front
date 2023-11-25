@@ -1,8 +1,8 @@
 import { useRef } from 'react'
+import { Icon } from '@components/atoms/icons'
 import classes from './styles.module.scss'
 import { CheckboxProps } from '.'
 import { Typography } from '@/components/atoms/typography'
-import { Tick } from '@/components/icons'
 
 export function Checkbox(props: CheckboxProps) {
   const { disabled, checked, label, onChange, ...rest } = props
@@ -21,7 +21,7 @@ export function Checkbox(props: CheckboxProps) {
         data-disabled={disabled}
         data-checked={checked}
       >
-        {checked && <Tick />}
+        {checked && <Icon name='tick' type='linear' color='white' />}
       </div>
       <Typography>{label}</Typography>
     </label>

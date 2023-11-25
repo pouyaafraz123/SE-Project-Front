@@ -4,7 +4,7 @@ import { useOptions } from '@api/dropdowns'
 import { IProps } from './types'
 import { queryParams, iconMap } from './helper'
 import { Field } from '@/components/fastFields/field/field'
-import { IOption } from '@/components/molecules/selectBox/types'
+import { IOption } from '@/interfaces'
 
 export function FastSelect<T>(props: IProps<T>) {
   const params = queryParams(props.formik, props)
@@ -23,8 +23,8 @@ export function FastSelect<T>(props: IProps<T>) {
     props.type !== 'gender'
       ? queryOptions
       : [
-          { key: 1, value: 'مرد' },
-          { key: 2, value: 'زن' }
+          { key: 'male', value: 'مرد' },
+          { key: 'female', value: 'زن' }
         ]
   const disabled =
     props.disabled || (props.type !== 'gender' && isLoading && !props.readonly)

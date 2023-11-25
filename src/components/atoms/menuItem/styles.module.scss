@@ -12,6 +12,7 @@
   padding: space(xs) space(m1);
   gap: 0 space(xs);
   min-width: 3rem;
+  border-radius: radius(xs);
   background-color: getThemeColor(primary-background);
   &:hover {
     @include selected;

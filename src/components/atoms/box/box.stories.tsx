@@ -5,7 +5,7 @@ const Meta = {
   title: 'Atoms/Box',
   component: Box,
   parameters: {
-    layout: 'fullscreen'
+    layout: 'padded'
   },
   tags: ['autodocs'],
   args: {

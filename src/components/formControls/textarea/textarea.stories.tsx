@@ -5,7 +5,7 @@ const Meta = {
   title: 'formControl/TextArea',
   component: Textarea,
   parameters: {
-    layout: 'fullscreen'
+    layout: 'padded'
   },
   tags: ['autodocs'],
   args: {

@@ -36,4 +36,9 @@ export interface IFormButtonsProps {
    * @type {boolean}
    */
   fullWidth?: boolean
+  /**
+   * classes for the div that group the buttons
+   * @type {string}
+   */
+  buttonGroupClassName?: string
 }

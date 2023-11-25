@@ -4,6 +4,7 @@ import {
   TInformationAlertVariantProps
 } from '@components/molecules/alert/types.ts'
 import { Button } from '@components/atoms/button'
+import { useTranslation } from 'react-i18next'
 
 /**
  * Buttons for an information alert.
@@ -17,6 +18,7 @@ export function InformationAlertButtons(
   props: TAlertButtonsType<TInformationAlertVariantProps>
 ) {
   const { closeTitle, onBeforeClose, onClose } = props
+  const { t } = useTranslation('common')
 
   return (
     <>
@@ -29,7 +31,7 @@ export function InformationAlertButtons(
           onClose()
         }}
       >
-        {closeTitle || 'Close'}
+        {closeTitle || t('close')}
       </Button>
     </>
   )
@@ -49,6 +51,7 @@ export function ActionAlertButtons(
   props: TAlertButtonsType<TActionAlertVariantProps>
 ) {
   const { onClose, onCancel, cancelTitle, approveTitle, onApprove } = props
+  const { t } = useTranslation('common')
 
   return (
     <>
@@ -61,7 +64,7 @@ export function ActionAlertButtons(
           onClose()
         }}
       >
-        {cancelTitle || 'Cancel'}
+        {cancelTitle || t('cancel')}
       </Button>
       <Button
         mode={'main'}
@@ -72,7 +75,7 @@ export function ActionAlertButtons(
           onClose()
         }}
       >
-        {approveTitle || 'Approve'}
+        {approveTitle || t('approve')}
       </Button>
     </>
   )
@@ -92,7 +95,7 @@ export function DeleteAlertButtons(
   props: TAlertButtonsType<TActionAlertVariantProps>
 ) {
   const { onClose, onCancel, cancelTitle, approveTitle, onApprove } = props
-
+  const { t } = useTranslation('common')
   return (
     <>
       <Button
@@ -104,7 +107,7 @@ export function DeleteAlertButtons(
           onClose()
         }}
       >
-        {cancelTitle || 'Cancel'}
+        {cancelTitle || t('cancel')}
       </Button>
       <Button
         mode={'danger-secondary'}
@@ -115,7 +118,7 @@ export function DeleteAlertButtons(
           onClose()
         }}
       >
-        {approveTitle || 'Delete'}
+        {approveTitle || t('delete')}
       </Button>
     </>
   )

@@ -4,7 +4,7 @@ import { AutoComplete } from '@components/formControls/autoComplete'
 import { IProps } from './types'
 import { queryParams, iconMap } from './helper'
 import { Field } from '@/components/fastFields/field/field'
-import { IOption } from '@/components/molecules/selectBox/types'
+import { IOption } from '@/interfaces'
 
 export function FastComplete<T>(props: IProps<T>) {
   const params = queryParams(props.formik, props)

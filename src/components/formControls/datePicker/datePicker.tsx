@@ -12,6 +12,7 @@ import { DatePickerProps } from './types'
 export function DatePicker(props: DatePickerProps) {
   const { value, onChange, readOnly, disabled, date, placeholder, ...rest } =
     props
+
   const { i18n } = useTranslation()
   const lng = i18n.language as localeType
   let calender, locale

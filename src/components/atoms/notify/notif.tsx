@@ -1,4 +1,5 @@
 import {
+  TNotifMessage,
   TNotifMessageProps,
   TNotifProps
 } from '@components/atoms/notify/types.ts'
@@ -7,6 +8,13 @@ import clsx from 'clsx'
 import { Typography } from '@components/atoms/typography'
 import classes from './styles.module.scss'
 
+function extractMsg(msg: TNotifMessage | string) {
+  if (typeof msg === 'object') {
+    return { title: msg.title, text: msg.text }
+  }
+  return { title: '', text: msg }
+}
+
 /**
  * Displays a notification with a specified type and message.
  * @param {TNotifProps} props - Notification properties.
@@ -14,19 +22,19 @@ import classes from './styles.module.scss'
  */
 export function Notif(props: TNotifProps) {
   /**
+   * The message content of the notification.
+   */
+  const { msg } = props
+
+  /**
    * The title of the notification
    */
-  const { title, text } = props.msg
+  const { title, text } = extractMsg(msg)
 
   /**
    * The type of the notification (e.g., 'info', 'warning', 'danger', 'success', 'promise').
    */
   const { type } = props
-
-  /**
-   * The message content of the notification.
-   */
-  const { msg } = props
 
   /**
    * The icon and color for the notification based on its type.

@@ -1,7 +1,13 @@
+@import 'src/styles/functions.scss';
+
+.container {
+  margin-top: space(4m1);
+  margin-bottom: space(4m1);
+}
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15.625rem, 1fr));
-  row-gap: 1.875rem;
+  grid-template-columns: repeat(auto-fill, minmax(16.875rem, 1fr));
+  row-gap: 1.75rem;
   column-gap: 1.25rem;
 }
 .gridFlowDense {
@@ -18,9 +24,8 @@
   grid-column-start: 1;
 }
 .fullWidthColumn {
-  // TODO CHECK THIS AFTER PAGE ARE COMPLETE
-  margin: 1.875rem 0;
-  width: 100%;
+  grid-column-start: 1;
+  grid-column-end: -1;
 }
 .gap20 {
   gap: 1.25rem;

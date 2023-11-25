@@ -1,7 +1,14 @@
-import { FormikConfig, FormikProps } from 'formik'
-import { z, toFormikSchema } from '@utils'
+import { FormikConfig } from 'formik'
+import { toFormikSchema, z } from '@utils'
 
 export interface IFormValues {
+  doctorCountry: { key: string; value: string }
+  doctorState: { key: string; value: string }
+  doctorCity: { key: string; value: string }
+  doctorSpeciality: { key: string; value: string }
+  doctor: { key: string; value: string }
+  hfType: { key: string; value: string }
+  hf: { key: string; value: string }
   firstName: string
   lastName: string
   gender: { key: string; value: string }
@@ -13,16 +20,28 @@ export interface IFormValues {
   state: { key: string; value: string }
   phone: { code: string; number: string }
   date?: Date
+  countryMulti: { key: string; value: string }[]
+  time: string
+  radioGender: 'male' | 'female'
 }
 
 const schema = z.object({
   firstName: z.string(), // default message
   lastName: z.string(),
-  countryOfLicense: z.dropdown()
+  countryOfLicense: z.dropdown(),
+  country: z.dropdown(),
+  time: z.string()
 })
 
 export const formConfig: FormikConfig<IFormValues> = {
   initialValues: {
+    doctorCountry: { key: '', value: '' },
+    doctorState: { key: '', value: '' },
+    doctorCity: { key: '', value: '' },
+    doctorSpeciality: { key: '', value: '' },
+    doctor: { key: '', value: '' },
+    hfType: { key: '', value: '' },
+    hf: { key: '', value: '' },
     firstName: '',
     lastName: '',
     gender: { key: '', value: '' },
@@ -33,7 +52,10 @@ export const formConfig: FormikConfig<IFormValues> = {
     country: { key: '', value: '' },
     state: { key: '', value: '' },
     phone: { code: '', number: '' },
-    date: undefined
+    date: undefined,
+    countryMulti: [],
+    time: '',
+    radioGender: 'male'
   },
   validationSchema: toFormikSchema(schema),
   validateOnChange: true,

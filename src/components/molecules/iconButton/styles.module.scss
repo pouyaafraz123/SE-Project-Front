@@ -24,6 +24,8 @@
   }
 
   &[data-transparent='true'] {
+    width: 2.275rem;
+    height: 2.275rem;
     background-color: getColor(transparent);
     border: 1px solid getColor(transparent);
     @include svg-color(getColor(var(--theme-primary-text)));

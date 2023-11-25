@@ -8,10 +8,10 @@ import 'swiper/css'
 import { ISwiperProps } from '@components/atoms/swiper/types.ts'
 import { useMemo } from 'react'
 import './styles.module.scss'
+import { useTranslation } from 'react-i18next'
 
 export function Swiper({ children }: ISwiperProps) {
-  const dir = document.dir
-
+  const { i18n } = useTranslation()
   const items = useMemo(() => {
     if (Array.isArray(children)) {
       return children
@@ -21,7 +21,6 @@ export function Swiper({ children }: ISwiperProps) {
 
   return (
     <SwiperComponent
-      dir={document.dir === 'rtl' ? 'rtl' : 'ltr'} //TODO ADD DIR
       style={{ width: '100%' }}
       freeMode={true}
       spaceBetween={20}

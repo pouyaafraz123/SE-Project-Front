@@ -1,21 +1,17 @@
 import { PropsWithChildren } from 'react'
 import { Link } from 'react-router-dom'
 import { sidebarFn } from '..'
-import { ILinkProducerProps } from './types'
+import { TPath } from '../types'
 
-export function LinkProducer(props: PropsWithChildren<ILinkProducerProps>) {
-  const { items, children } = props
+export function LinkProducer(props: PropsWithChildren<Partial<TPath>>) {
+  const { path, children } = props
 
   function clickHandler() {
     sidebarFn.setSelectedParentName('')
   }
-  if (!items.child) {
+  if (path) {
     return (
-      <Link
-        to={items.path || ''}
-        style={{ color: 'inherit' }}
-        onClick={clickHandler}
-      >
+      <Link to={path} style={{ color: 'inherit' }} onClick={clickHandler}>
         {children}
       </Link>
     )

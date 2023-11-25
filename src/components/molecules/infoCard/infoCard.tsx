@@ -18,7 +18,8 @@ import { Typography } from '@/components/atoms/typography'
  * @returns InfoCard The rendered InfoCard component.
  */
 export function InfoCard(props: IInfoCardProps) {
-  const variantProps = VInfoCardVariant[props?.variant]
+  let variantProps = VInfoCardVariant[props?.variant]
+  if (!variantProps) variantProps = VInfoCardVariant.default
   const { title, icon, color, value } = mergeProps(variantProps, props)
 
   return (

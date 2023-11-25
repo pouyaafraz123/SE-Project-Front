@@ -14,8 +14,9 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const defaultToggleSwitch: Story = {
+export const DefaultToggleSwitch: Story = {
   args: {
-    value: true
+    checked: true,
+    onChange(value) {}
   }
 }

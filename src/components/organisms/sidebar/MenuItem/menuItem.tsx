@@ -15,7 +15,7 @@ import { Icon } from '@/components/atoms/icons'
 import { Collapse } from '@/components/atoms/collapse'
 
 export function SidebarMenuItem(props: SidebarMenuItemProps) {
-  const { iconName, items, className } = props
+  const { iconName, items, name, className } = props
   const { t } = useTranslation('sidebar')
   const { isOpen, open, selectedChildParentName } = useSidebarStore(
     (state) => ({
@@ -26,7 +26,7 @@ export function SidebarMenuItem(props: SidebarMenuItemProps) {
   )
 
   const pathMatch = useMatch(items.path || '') && Boolean(items.path)
-  const childPathMatches = items.name === selectedChildParentName
+  const childPathMatches = name === selectedChildParentName
 
   const isSelected = items.child ? childPathMatches : pathMatch
 
@@ -44,7 +44,7 @@ export function SidebarMenuItem(props: SidebarMenuItemProps) {
   }
 
   return (
-    <LinkProducer items={items}>
+    <LinkProducer path={items.path}>
       <Centring
         className={clsx([
           className,
@@ -65,7 +65,7 @@ export function SidebarMenuItem(props: SidebarMenuItemProps) {
           style={{ overflowY: 'hidden' }}
         >
           <Typography fontSize='sm' color='inherit'>
-            {t(items.name)}
+            {t(name)}
           </Typography>
           {items.child && (
             <Icon
@@ -97,7 +97,7 @@ export function SidebarMenuItem(props: SidebarMenuItemProps) {
                 key={index}
                 name={item.name}
                 path={item.path}
-                parentName={items.name}
+                parentName={name}
                 index={index}
                 total={items.child?.length}
               />

@@ -1,5 +1,7 @@
 import clsx from 'clsx'
 import { Button } from '@components/atoms/button'
+import { IAppointmentCardButtonProps } from '@components/organisms/appointmentCard/components/appointmentCardButtons/types.ts'
+import { useTranslation } from 'react-i18next'
 import classes from './styles.module.scss'
 
 /**
@@ -7,13 +9,18 @@ import classes from './styles.module.scss'
  *
  * @returns AppointmentCardButtons The rendered AppointmentCardButtons component.
  */
-export function AppointmentCardButtons() {
+export function AppointmentCardButtons({
+  canCancel = true,
+  canJoin = true
+}: IAppointmentCardButtonProps) {
+  const { t } = useTranslation('common')
+
   return (
     <div className={clsx(classes.appointmentButtons)}>
       {/* Button to cancel the appointment */}
-      <Button mode={'danger-main'} label={'لغو ویزیت'} />
+      {canCancel && <Button mode={'danger-main'} label={t('cancel_visit')} />}
       {/* Button to join a video call */}
-      <Button mode={'main'} label={'پیوستن به تماس تصویری'} />
+      {canJoin && <Button mode={'main'} label={t('join_video_visit')} />}
     </div>
   )
 }

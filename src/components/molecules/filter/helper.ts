@@ -4,7 +4,7 @@ import {
   TFilterOption,
   TFilterValueOption
 } from '@components/molecules/filter/types.ts'
-import { IOption } from '@components/molecules/selectBox/types.ts'
+import { IOption } from '@/interfaces'
 
 export const handleClickFilterOption = (
   index: number,
@@ -198,40 +198,57 @@ export function queryParamsToNestedJson(queryParams: string) {
   return result
 }
 
-export const filterToObjectMap = (
-  options: IFilter[],
-  values: IFilterValue[]
+export const filterToObjectMap = <
+  Options extends IFilter[],
+  Values extends IFilterValue[]
+>(
+  options: Options,
+  values: Values
 ) => {
-  const object: {
-    [key: string]: string[] | undefined | Date | number[] | string | IOption
-  } = {}
+  type VariantMap = {
+    basic: string[]
+    timespan: { from: Date | undefined; to: Date | undefined }
+    cost: { costFrom: string | undefined; costTo: string | undefined }
+    dropdown?: { dropdown?: IOption | undefined }
+  }
+
+  type Key =
+    | keyof Options[number]['key']
+    | 'from'
+    | 'to'
+    | 'costFrom'
+    | 'costTo'
+    | 'dropdown'
+
+  type Result = Record<Key, VariantMap[Options[number]['variant']]>
+
+  const object: Partial<Result> = {}
+
   options?.forEach((option, index) => {
+    const key = option?.key as Key
     const value = values[index]
 
     const isValueExist = value?.values && value?.values?.length > 0
 
     if (!option?.variant || option?.variant === 'basic')
       if (isValueExist) {
-        object[value?.key] = value?.values?.map((v) => v?.key)
-        console.log('object', object)
+        object[key] = value?.values?.map((v) => v?.key) as any
       }
 
     if (option?.variant === 'timespan')
       if (isValueExist) {
-        object['from'] = value?.values[1]?.from
-        object['to'] = value?.values[1]?.to
+        object['from'] = value?.values[1]?.from as any
+        object['to'] = value?.values[1]?.to as any
       }
 
     if (option?.variant === 'cost')
       if (isValueExist) {
-        object['costFrom'] = value?.values[1]?.costFrom
-        object['costTo'] = value?.values[1]?.costTo
+        object['costFrom'] = value?.values[1]?.costFrom as any
+        object['costTo'] = value?.values[1]?.costTo as any
       }
 
     if (option?.variant === 'dropdown')
-      if (isValueExist) object['dropdown'] = value?.values[1]?.dropdown
-
-    console.log(value?.values?.map((v) => v?.key))
+      if (isValueExist) object['dropdown'] = value?.values[1]?.dropdown as any
   })
 
   return object

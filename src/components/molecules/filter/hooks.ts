@@ -31,7 +31,7 @@ const FILTER_TIME = 800
  * @param onChange a function to call when the debounced value has changed.
  */
 export const useFilterParam = (
-  options: IFilter[],
+  options: IFilter[] | undefined,
   index?: string | number,
   onChange?: (value: URLSearchParams) => void
 ) => {
@@ -105,15 +105,19 @@ export const useFilterParam = (
     }
   }, [filterParam])
 
-  const filterProps: IFilterProps = {
-    onFilterSelect: changeHandler,
-    index,
-    options,
-    value
-  }
+  const filterProps: IFilterProps | undefined = options
+    ? {
+        onFilterSelect: changeHandler,
+        index,
+        options,
+        value
+      }
+    : undefined
 
   return {
     filterProps,
-    filterValues: filterToObjectMap(options, debouncedValue)
+    filterValues: options
+      ? filterToObjectMap<typeof options, typeof value>(options, debouncedValue)
+      : {}
   }
 }

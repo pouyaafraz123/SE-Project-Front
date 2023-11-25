@@ -1,5 +1,5 @@
-import { IOption } from '@components/molecules/selectBox/types.ts'
 import { IProps, OptType } from '@components/fastFields/fastSelect/types.ts'
+import { IOption } from '@/interfaces'
 
 export type TFilterVariants = 'basic' | 'timespan' | 'cost' | 'dropdown'
 
@@ -7,7 +7,7 @@ export interface IFilter {
   key: string
   title: string
   options: TFilterOption[]
-  variant?: TFilterVariants
+  variant: TFilterVariants
   dropdownType?: OptType //TODO FIX TYPING
 }
 

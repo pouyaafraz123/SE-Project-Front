@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
+import { Icon } from '@components/atoms/icons'
 import { InfoCard } from '@/components/molecules/infoCard/infoCard.tsx'
-import { FigmaLinear } from '@/components/icons'
 
 const meta = {
   title: 'Molecules/InfoCard',
@@ -10,11 +10,11 @@ const meta = {
   },
   tags: ['autodocs'],
   args: {
-    icon: <FigmaLinear />,
+    icon: <Icon name='figma' type='linear' />,
     color: 'success',
     value: 1233,
     title: 'لیست ملاقات ها',
-    variant: 'user-main'
+    variant: 'user-all'
   }
 } satisfies Meta<typeof InfoCard>
 

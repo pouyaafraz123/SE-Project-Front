@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { FigmaLinear } from '@/components/icons'
+import { Icon } from '@components/atoms/icons'
 import { IconButton } from '@/components/molecules/iconButton'
 
 const meta = {
@@ -9,7 +9,7 @@ const meta = {
     layout: 'centered'
   },
   tags: ['autodocs'],
-  args: { label: 'Lorem Ipsum', icon: <FigmaLinear /> }
+  args: { label: 'Lorem Ipsum', icon: <Icon name='figma' type='linear' /> }
 } satisfies Meta<typeof IconButton>
 
 export default meta

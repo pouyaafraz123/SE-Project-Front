@@ -4,7 +4,7 @@ import { Input } from '@components/formControls'
 import { Typography } from '@components/atoms/typography'
 import { IFilterProps } from '@components/molecules/filter/types.ts'
 import { FilterSelect } from '@components/molecules/filter/components/filterSelect'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   clearAllFilters,
   normalizeFilterValues
@@ -41,12 +41,16 @@ export function Filter(props: IFilterProps) {
       className={clsx(classes.filter__container, containerClassname)}
       onClick={(e) => e.stopPropagation()}
     >
+      <label className={clsx(classes.filter__label)}>
+        <Icon name={'filter'} />
+        <Typography fontSize='md-high'>فیلتر</Typography>
+      </label>
       <Input
-        readOnly
         placeholder={'فیلتر'}
         icon={<Icon name={'arrow-down'} color={'primary-main'} />}
         className={clsx(classes.filter)}
         onClick={() => setOpen(true)}
+        value={''}
       />
       <div
         className={clsx(

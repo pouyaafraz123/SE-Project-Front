@@ -10,12 +10,12 @@ const Meta = {
   tags: ['autodocs'],
   args: {
     options: [
-      { key: 1, value: 'مرد' },
-      { key: 2, value: 'زن' },
-      { key: 3, value: 'سایر' }
+      { key: '1', value: 'مرد' },
+      { key: '2', value: 'زن' },
+      { key: '3', value: 'سایر' }
     ],
     placeholder: 'انتخاب کنید',
-    value: { key: 1, value: 'مرد' }
+    value: { key: '1', value: 'مرد' }
   }
 } satisfies StoryMeta<typeof Select>
 

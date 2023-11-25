@@ -6,8 +6,20 @@ import { useArgs } from '@storybook/preview-api'
  */
 export function WithPagination(Story: StoryFn, context: StoryContext) {
   const [args, setArgs] = useArgs()
-  context.args.onPagination = (page: number, pageSize: number) => {
-    setArgs({ page, pageSize })
+  // @ts-expect-error no typings in here
+  context.args.tableParamProps.pagination.onPageChange = (page: number) => {
+    const tableParamProps = args.tableParamProps
+    tableParamProps.pagination.page = page
+    setArgs({ tableParamProps })
+  }
+
+  // @ts-expect-error no typings in here
+  context.args.tableParamProps.pagination.onResultPerPageChange = (
+    per_page: number
+  ) => {
+    const tableParamProps = args.tableParamProps
+    tableParamProps.pagination.per_page = per_page
+    setArgs({ tableParamProps })
   }
   return <Story />
 }

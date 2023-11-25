@@ -12,6 +12,7 @@ export function MainMenuItems() {
         <SidebarMenuItem
           key={index}
           iconName={item.iconName}
+          name={item.name}
           items={item.items}
         />
       ))}

@@ -3,14 +3,23 @@
 @import 'src/styles/global-variables';
 
 .filter {
-  min-width: 9rem;
-  max-width: 10rem;
   cursor: pointer;
+  width: 15.625rem;
+  caret-color: transparent !important;
+
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: space(xs);
+  }
 
   &__container {
     position: relative;
-    min-width: 9rem;
-    max-width: 10rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    flex-shrink: 0;
+    z-index: 100;
   }
 
   &__inside {
@@ -25,7 +34,7 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%) translateY(20px);
-    top: 3.5rem;
+    top: 5rem;
     transition: all $time ease-out;
     visibility: hidden;
     opacity: 0;

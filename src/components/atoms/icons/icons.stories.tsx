@@ -11,7 +11,7 @@ const Meta = {
   title: 'Atoms/Icon',
   component: Icon,
   parameters: {
-    layout: 'fullscreen'
+    layout: 'padded'
   },
   tags: ['autodocs'],
   args: {

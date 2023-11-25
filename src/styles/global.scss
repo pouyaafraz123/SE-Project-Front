@@ -12,6 +12,7 @@ html {
   // rem default size equal to html font size
   // assign percent to html font size to manipulate rem default size
   font-size: 100%; // setting 1 rem to 16 px
+  overflow: auto;
 }
 
 body {
@@ -53,4 +54,9 @@ body {
 
 * {
   font-family: inherit;
+}
+
+.rmdp-container {
+  //dataPicker
+  display: block !important;
 }
