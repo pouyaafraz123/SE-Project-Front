@@ -1,0 +1,29 @@
+@use '../input//styles.module.scss' as inputStyle;
+@import 'src/styles/functions.scss';
+@import 'src/styles/mixins.scss';
+
+.inputText {
+  color: transparent !important;
+}
+
+.container {
+  position: relative;
+}
+.textBoxContainer {
+  position: absolute;
+  top: space(xs1);
+  bottom: space(xs1);
+  display: flex;
+  align-items: center;
+  @include start(space(m3));
+  @include end(inputStyle.$padding-end);
+  width: 100%;
+  gap: space(xs);
+  cursor: pointer;
+}
+.textBox {
+  //   cursor: text;
+  border-radius: radius(sm);
+  padding: space(xs1);
+  background-color: getThemeColor(gray-background);
+}

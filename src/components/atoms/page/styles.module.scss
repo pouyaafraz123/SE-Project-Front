@@ -1,0 +1,8 @@
+@import 'src/styles/functions';
+
+.page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: space(2l1);
+}

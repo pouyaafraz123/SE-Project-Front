@@ -1,0 +1,18 @@
+@import 'src/styles/functions.scss';
+@import 'src/styles/mixins.scss';
+
+.btnContainer {
+  display: flex;
+  margin-top: space(4m1);
+  gap: space(m3);
+}
+
+.btn {
+  flex: 1;
+}
+
+.editBtn {
+  position: fixed;
+  bottom: space(m5);
+  left: space(m5);
+}

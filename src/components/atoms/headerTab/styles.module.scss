@@ -1,0 +1,37 @@
+@import 'src/styles/functions';
+@import 'src/styles/mixins';
+@import 'src/styles/global-variables';
+
+.headerTab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  color: getColor(var(--theme-secondary-text));
+
+  padding: space(2m1) space(m1);
+  cursor: pointer;
+  @include disable-select;
+
+  &:hover {
+    background-color: getColor(var(--theme-primary-main), 5);
+    color: getColor(var(--theme-primary-main));
+  }
+
+  &__isSelected {
+    color: getColor(var(--theme-primary-main));
+    border-bottom: 2px solid getColor(var(--theme-primary-main));
+  }
+}
+
+.transition {
+  transition: all $time ease-in-out;
+}
+
+.normal {
+  width: 9.375rem;
+}
+
+.small {
+  width: 6.25rem;
+}

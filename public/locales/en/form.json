@@ -1,0 +1,10 @@
+{
+  "roles": "Roles",
+  "userId": "User ID",
+  "fullName": "Full Name",
+  "status": "Status",
+  "activeStatus": "Active",
+  "inactiveStatus": "Inactive",
+  "isPendingStatus": "Awaiting Confirmation",
+  "changePassword": "Change Password"
+}

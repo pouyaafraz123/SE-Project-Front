@@ -1,0 +1,37 @@
+@import 'src/styles/functions.scss';
+@import 'src/styles/mixins.scss';
+
+@mixin border-bottom-inherit {
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 space(l1) !important;
+  min-height: 60px;
+  background-color: getThemeColor(secondary-background);
+  border-radius: inherit;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.iconGroup {
+  display: flex;
+  gap: space(xs);
+}
+.children-container {
+  display: flex;
+  padding: space(2m1);
+  flex-direction: column;
+  gap: space(2m3);
+  @include border-bottom-inherit();
+}
+.table {
+  overflow: hidden;
+  border-radius: inherit;
+}
+.table-container {
+  @include border-bottom-inherit();
+}

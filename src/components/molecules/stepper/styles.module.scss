@@ -1,0 +1,15 @@
+@import 'src/styles/functions.scss';
+
+.stepper-container {
+  padding: space(xs) 0;
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: space(2m1);
+  // justify-content: space-around;
+}
+.s {
+  margin-top: 24px;
+  height: 2px;
+  width: 100%;
+  background-color: black;
+}

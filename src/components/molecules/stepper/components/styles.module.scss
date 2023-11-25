@@ -1,0 +1,55 @@
+@import 'src/styles/functions.scss';
+@import 'src/styles/mixins.scss';
+
+$size: 3rem;
+
+.step-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // gap: space(m3);
+  min-width: 140px;
+  flex: 1;
+}
+.step-container:not(:last-child):after {
+  content: '';
+  height: 1px;
+  background-color: getThemeColor(border-main);
+  width: 100%;
+  order: -1;
+  position: relative;
+  top: calc($size / 2);
+  @include start(50%);
+}
+.passed-container:not(:last-child)::after {
+  background-color: getThemeColor(primary-main);
+}
+.step {
+  z-index: 1;
+  margin-bottom: space(m3);
+  cursor: pointer;
+  display: flex;
+  width: $size;
+  height: $size;
+  justify-content: center;
+  align-items: center;
+  border-radius: radius(xlg);
+  border: 1px solid getThemeColor(border-main);
+  background: getThemeColor(white);
+}
+
+.passed-step {
+  border-color: getThemeColor(primary-main);
+  background: getThemeColor(primary-main);
+  p {
+    color: getThemeColor(white) !important;
+  }
+}
+
+.current-step {
+  p {
+    color: getThemeColor(primary-main) !important;
+  }
+  background: getThemeColor(white);
+  border-color: getThemeColor(primary-main);
+}

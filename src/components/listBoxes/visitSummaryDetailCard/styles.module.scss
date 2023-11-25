@@ -1,0 +1,8 @@
+@import 'src/styles/functions.scss';
+
+.confirmation-container {
+  display: flex;
+  align-items: center;
+  gap: space(m3);
+  flex-wrap: wrap;
+}
