@@ -1,0 +1,59 @@
+@import 'src/styles/functions';
+@import 'src/styles/mixins';
+
+.banner {
+  display: flex;
+  height: 14rem;
+  min-width: 16rem;
+  border-radius: radius(lg);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  // TODO CHECK BEHAVIOR
+
+  &__imageContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: radius(lg);
+    background-position: center;
+    background-size: cover;
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover &__imageContainer {
+    filter: blur(10px);
+  }
+  &__backdrop {
+    border-radius: radius(lg);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  &:hover &__text {
+    animation: animation 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes animation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+    font-size: fontSize(2xl);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

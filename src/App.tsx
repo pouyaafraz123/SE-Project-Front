@@ -2,6 +2,7 @@ import { Typography } from '@components/atoms/typography'
 import { Link } from '@components/atoms/link'
 import { Separator } from './components/atoms/separator'
 import { path } from '@/routes'
+import { CategoryBanner } from '@components/atoms/categoryBanner'
 
 function App() {
   return (

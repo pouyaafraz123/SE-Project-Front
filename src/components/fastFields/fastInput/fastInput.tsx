@@ -25,6 +25,7 @@ type types = Extends<
   | 'percentage'
   | 'illnessName'
   | 'reason'
+  | 'username'
 >
 
 const iconMap: { [key in types]: iconNameType | IconProps } = {
@@ -44,7 +45,8 @@ const iconMap: { [key in types]: iconNameType | IconProps } = {
   percentage: 'add-square',
   price: 'dollar-minimalistic',
   illnessName: 'pills',
-  reason: 'dropper-minimalistic'
+  reason: 'dropper-minimalistic',
+  username: 'user-rounded'
 }
 
 interface IProps<T> {

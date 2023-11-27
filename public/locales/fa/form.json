@@ -199,5 +199,13 @@
   "reason": "علت",
   "date": "تاریخ",
   "hospitalizationHistory": "تاریخچه بستری",
-  "hospitalizationQuestionText": "آیا تا به حال در بیمارستان بستری شده اید؟"
+  "hospitalizationQuestionText": "آیا تا به حال در بیمارستان بستری شده اید؟",
+  "username": "نام کاربری",
+  "login": "ورود",
+  "password": "رمز عبور",
+  "loginSideTitle": "تازه واردید؟",
+  "loginSideText": "ثبت نام کنید و تعداد زیادی فرصت جدید کشف کنید!",
+  "signup": "ثبت نام",
+  "signupSideTitle": "یکی از ما هستید؟",
+  "signupSideText": "اگر از قبل حساب دارید وارد شوید دلمان برایتان تنگ شده"
 }
