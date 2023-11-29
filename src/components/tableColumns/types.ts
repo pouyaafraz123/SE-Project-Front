@@ -1,8 +1,5 @@
 import { ParseKeys } from 'i18next'
-import { IProps as IUpdateBalanceProps } from '@components/modals/updateWalletBalance/types'
 import { IOption, Status } from '@/interfaces'
-import { IChangeUserStatusEndpoint } from '@/api/userManagement/users'
-import { IResponse } from '@/api/types'
 
 export type ChangePasswordProps = {
   path: string
@@ -44,7 +41,6 @@ export type actionButtonProps = {
    * بازیابی رمز عبور
    */
   passwordRecoveryProps?: ILink
-  updateBalanceProps?: IUpdateBalanceProps
 }
 export type PhoneCellProps = {
   phoneNumber: string
@@ -55,7 +51,4 @@ export type ActivationProps = {
   userId: string
   status: IOption<Status>
   isLoading?: boolean
-  changeUserStatusMutate: (
-    data: IChangeUserStatusEndpoint
-  ) => Promise<IResponse<unknown>>
 }

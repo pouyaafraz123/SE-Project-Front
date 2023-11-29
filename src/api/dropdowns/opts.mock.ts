@@ -1,4 +1,4 @@
-import { rest, RequestHandler } from 'msw'
+import { RequestHandler, rest } from 'msw'
 import { Options } from './types'
 
 const getData = (data: unknown) => {
@@ -56,6 +56,14 @@ export const handlers: RequestHandler[] = [
     const data: Options = [
       { key: '1', value: 'بیمارستان' },
       { key: '2', value: 'کلینیک' }
+    ]
+    return res(ctx.status(200), ctx.delay(1000), ctx.json(getData(data)))
+  }),
+  rest.get(baseURL + '/dropdown/medicine-type', (_req, res, ctx) => {
+    const data: Options = [
+      { key: '1', value: 'قرص' },
+      { key: '2', value: 'تزریق' },
+      { key: '3', value: 'سرم' }
     ]
     return res(ctx.status(200), ctx.delay(1000), ctx.json(getData(data)))
   }),

@@ -1,6 +1,4 @@
 import { TPageTableParamProps } from '@components/organisms/pageTable'
-import { IChangeUserStatusEndpoint } from '@/api/userManagement/users'
-import { IResponse } from '@/api/types'
 
 export interface ITable<T> {
   data: T[]
@@ -30,14 +28,3 @@ export interface IStats {
   name: string
   value: number
 }
-
-export type IChangeUserStatusProps = {
-  isLoading: boolean
-  mutateFn: (data: IChangeUserStatusEndpoint) => Promise<IResponse<unknown>>
-}
-
-export type IUpdateBalanceMutationFn = (data: {
-  id: string
-  amount: string
-  type: 'deposit' | 'withdraw'
-}) => Promise<IResponse<unknown>>

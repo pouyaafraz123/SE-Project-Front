@@ -1,5 +1,0 @@
-export * from './types'
-export * from './data.mock'
-export * from './doctorList'
-export * from './createDoctor'
-export * from './getDoctor'

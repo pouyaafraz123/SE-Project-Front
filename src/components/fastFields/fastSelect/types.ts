@@ -1,7 +1,7 @@
 import { ParseKeys } from 'i18next'
 import { FormikProps } from 'formik'
 import { OptionsType } from '@/api/dropdowns'
-import { IconProps, iconNameType } from '@/components/atoms/icons'
+import { iconNameType, IconProps } from '@/components/atoms/icons'
 
 export type OptType = OptionsType | 'gender'
 export type IProps<T> = {
@@ -90,18 +90,6 @@ interface IDaysProps {
 
 export type DropdownTypeProps<T> =
   | IGenderProps
-  | ISpecialityProps
-  | ISubSpecialityProps<T>
   | ICountryProps
   | IStateProps<T>
   | ICityProps<T>
-  | IHFDepartmentProps<T>
-  | IHFTypeProps
-  | ILanguageProps
-  | IDoctorDegreeProps
-  | ILanguageSkillProps
-  | IHFDepartmentsProps
-  | ITimezoneProps<T>
-  | IDoctorSpecialityProps
-  | IVisitTypeProps
-  | IDaysProps

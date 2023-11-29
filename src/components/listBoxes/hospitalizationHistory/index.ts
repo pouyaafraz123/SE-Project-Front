@@ -1,5 +1,0 @@
-export * from './types.ts'
-export * from './columns.tsx'
-export * from './hospitalizationHistory.tsx'
-export * from './hospitalizationHistoryBox.tsx'
-export * from './selectHospitalization.tsx'

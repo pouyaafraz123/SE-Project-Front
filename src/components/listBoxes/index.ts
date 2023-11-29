@@ -1,6 +1,1 @@
-export * from './languages'
-export * from './doctor'
-export * from './hf'
-export * from './OperationTimes'
-export * from './financialRule'
-export * from './visitSummaryDetailCard'
+export {}

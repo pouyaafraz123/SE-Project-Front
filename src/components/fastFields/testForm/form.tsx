@@ -92,12 +92,7 @@ export function TestForm(props: IProps) {
               specialityField='doctorSpeciality'
             />
           </Grid.Column>
-          <FastSelect
-            {...getProps}
-            title='hfType'
-            name='hfType'
-            type='hfType'
-          />
+
           <FastInfiniteSearch
             {...getProps}
             name='hf'

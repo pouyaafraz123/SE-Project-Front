@@ -10,7 +10,7 @@ export const userAccess: { [key in IRole]: string[] } = {
   ],
   'local-admin': ['/'],
   cmo: ['/'],
-  doctor: ['/', path.hf.hfList.route],
+  doctor: ['/'],
   staff: ['/'],
   patient: ['/']
 }

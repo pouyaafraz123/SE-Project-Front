@@ -6,8 +6,6 @@ import {
   selectBoxFn
 } from '@components/molecules/selectBox'
 import LinkMenuItem from './linkMenuItem'
-import { ButtonMenuItem } from './buttonMenuItem'
-import { UpdateBalanceMenuItem } from './modalCaller/updateBalance'
 import { actionButtonProps } from '.'
 
 export function ActionButton(props: actionButtonProps) {
@@ -15,7 +13,6 @@ export function ActionButton(props: actionButtonProps) {
     addBranchProps,
     passwordRecoveryProps,
     sendMessageProps,
-    updateBalanceProps,
     showExperiments
   } = props
   const buttonRef = useRef(null)
@@ -51,9 +48,6 @@ export function ActionButton(props: actionButtonProps) {
                   name='showExperiments'
                   path={showExperiments.path}
                 />
-              )}
-              {updateBalanceProps && (
-                <UpdateBalanceMenuItem {...updateBalanceProps} />
               )}
             </>
           )
