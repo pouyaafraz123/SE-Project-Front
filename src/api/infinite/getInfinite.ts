@@ -1,12 +1,7 @@
 import { AxiosError, WithInfinite } from '@api/types'
 import { createInfiniteQuery } from 'react-query-kit'
 import { GenericAbortSignal } from 'axios'
-import {
-  IHFSearchEndpoint,
-  InfiniteQueryTypes,
-  InfiniteQueryVars,
-  IUserSearchEndpoint
-} from '.'
+import { InfiniteQueryTypes, InfiniteQueryVars, IUserSearchEndpoint } from '.'
 import { axiosClient } from '@/api/clients'
 
 const getUrl: { [key in InfiniteQueryTypes]: string } = {
@@ -15,9 +10,7 @@ const getUrl: { [key in InfiniteQueryTypes]: string } = {
 }
 
 const key = 'optionsInfinite'
-type Response =
-  | ({ type: 'user' } & WithInfinite<IUserSearchEndpoint>)
-  | ({ type: 'hf' } & WithInfinite<IHFSearchEndpoint>)
+type Response = { type: 'user' } & WithInfinite<IUserSearchEndpoint>
 type Variables = InfiniteQueryVars & { filter?: string }
 
 const getInfinite = async (

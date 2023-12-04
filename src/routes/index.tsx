@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouteObject } from 'react-router-dom'
 
 import { ErrorPage } from '@pages/errorPage/index'
+import { AuthPage } from '@pages/auth'
 import App from '../App'
 
 import { testRoutes } from './testRoutes/testRoutes'
@@ -8,7 +9,7 @@ import { protectedLoader } from './authLoaders'
 import { path } from './path'
 import { useUIStore } from '@/stores'
 
-const routes = [...testRoutes]
+const routes: RouteObject[] = [...testRoutes]
 
 function attachLoader() {
   for (const route of routes) {
@@ -43,7 +44,8 @@ export const router = createBrowserRouter([
     loader: protectedLoader,
     errorElement: <ErrorPage /> // fullscreen error page
     // if a child doesn't provide an errorElement, it will default to this one
-  }
+  },
+  { path: '/auth', element: <AuthPage /> }
   /*{
     path: '/test/login', // TODO remove in production
     lazy: () => import('@pages/testPage/Login'),

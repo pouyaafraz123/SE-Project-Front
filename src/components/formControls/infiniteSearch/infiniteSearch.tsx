@@ -2,7 +2,6 @@ import { FocusEvent, KeyboardEvent, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { InfiniteSearchProps } from './types'
 import classes from './styles.module.scss'
-import { HFPickerCard } from './cards/hf/hf'
 import { UserPickerCard } from './cards/user/user'
 import { SearchInput } from '@/components/formControls/searchInput'
 import {
@@ -11,7 +10,7 @@ import {
 } from '@/components/molecules/selectBox'
 import { Typography } from '@/components/atoms/typography'
 import { MenuItem } from '@/components/atoms/menuItem'
-import { IHFSearchEndpoint, IUserSearchEndpoint } from '@/api/infinite'
+import { IUserSearchEndpoint } from '@/api/infinite'
 
 export function InfiniteSearch<T>(props: InfiniteSearchProps) {
   const {
@@ -37,13 +36,11 @@ export function InfiniteSearch<T>(props: InfiniteSearchProps) {
 
   const { t } = useTranslation('common')
 
-  function itemClickHandler(item: IUserSearchEndpoint | IHFSearchEndpoint) {
-    const value =
-      type == 'user'
-        ? `${(item as IUserSearchEndpoint).firstName} ${
-            (item as IUserSearchEndpoint).lastName
-          }`
-        : (item as IHFSearchEndpoint).name
+  function itemClickHandler(item: IUserSearchEndpoint) {
+    const value = `${(item as IUserSearchEndpoint).firstName} ${
+      (item as IUserSearchEndpoint).lastName
+    }`
+
     setSearchValue(value)
     onChange?.({
       key: item.id,
@@ -79,7 +76,6 @@ export function InfiniteSearch<T>(props: InfiniteSearchProps) {
           {type == 'user' && (
             <UserPickerCard userInfo={item as IUserSearchEndpoint} />
           )}
-          {type == 'hf' && <HFPickerCard hfInfo={item as IHFSearchEndpoint} />}
         </MenuItem>
       ))}
       {isFetchingNextPage && (

@@ -1,9 +1,5 @@
-import {
-  IHFSearchEndpoint,
-  IUserSearchEndpoint,
-  InfiniteQueryTypes
-} from '@/api/infinite'
-import { FormControlProps, InputProps } from '@/components/formControls'
+import { InfiniteQueryTypes, IUserSearchEndpoint } from '@/api/infinite'
+import { FormControlProps } from '@/components/formControls'
 import { IOption } from '@/interfaces'
 
 export type InfiniteTypes = 'doctor'
@@ -16,13 +12,7 @@ export type InfiniteSearchProps = FormControlProps<
   onGetNext: () => void
   isFetchingNextPage: boolean
   type: InfiniteQueryTypes
-} & (
-    | {
-        type: 'user'
-        data: IUserSearchEndpoint[]
-      }
-    | {
-        type: 'hf'
-        data: IHFSearchEndpoint[]
-      }
-  )
+} & {
+  type: 'user'
+  data: IUserSearchEndpoint[]
+}

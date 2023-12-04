@@ -1,5 +1,3 @@
-import { IOption, HfTypes } from '@/interfaces'
-
 export type InfiniteQueryTypes = 'user' | 'hf'
 
 export type InfiniteFilterTypes = 'country' | 'state' | 'city'
@@ -23,10 +21,4 @@ export interface IUserSearchEndpoint {
   lastName: string
   speciality?: string
   imageUrl?: string
-}
-
-export interface IHFSearchEndpoint {
-  id: string
-  name: string
-  type: IOption<HfTypes>
 }

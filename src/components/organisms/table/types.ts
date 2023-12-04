@@ -1,6 +1,4 @@
-import { ReactNode } from 'react'
-import { ColumnDef, RowData, ColumnDefBase } from '@tanstack/react-table'
-import { HfTypes, IOption } from '@/interfaces'
+import { ColumnDef, RowData } from '@tanstack/react-table'
 
 export interface TableProps<TData extends RowData>
   extends TableBodyProps,

@@ -1,7 +1,7 @@
 import { ParseKeys } from 'i18next'
 import { FormikProps } from 'formik'
-import { IHFSearchEndpoint, IUserSearchEndpoint } from '@api/infinite'
-import { IconProps, iconNameType } from '@/components/atoms/icons'
+import { IUserSearchEndpoint } from '@api/infinite'
+import { iconNameType, IconProps } from '@/components/atoms/icons'
 import { Extends } from '@/utils'
 
 type types = Extends<ParseKeys<'form'>, 'firstName'>
@@ -20,7 +20,7 @@ export type IFastInfiniteProps<T> = {
   formik: FormikProps<T>
   icon?: iconNameType | IconProps
   readonly?: boolean
-  onChangeFullData?: (data: IUserSearchEndpoint | IHFSearchEndpoint) => void
+  onChangeFullData?: (data: IUserSearchEndpoint) => void
 } & ISearchFilters<T>
 
 export type ISearchFilters<T> = Country<T> &

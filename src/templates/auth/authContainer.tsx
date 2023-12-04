@@ -1,14 +1,18 @@
 import clsx from 'clsx'
-import classes from './styles.module.scss'
-import { useParams } from 'react-router-dom'
-import { Login } from '@/templates/auth/login.tsx'
 import { Box } from '@components/atoms/box'
+import { useState } from 'react'
+import classes from './styles.module.scss'
+import { Login } from '@/templates/auth/login.tsx'
 import { LoginSide } from '@/templates/auth/loginSide.tsx'
-import { useEffect, useState } from 'react'
 import { SignupSide } from '@/templates/auth/signupSide.tsx'
 import { Signup } from '@/templates/auth/signup.tsx'
+import { IAuthTemplateProps } from '@/templates/auth/types.ts'
 
-export function AuthContainer() {
+export function AuthContainer({
+  onLogin,
+  onSignup,
+  isLoading
+}: IAuthTemplateProps) {
   const [isLogin, setIsLogin] = useState(true)
   const [isAnimStart, setIsAnimStart] = useState(false)
   const [isScale, setIsScale] = useState(false)
@@ -47,8 +51,8 @@ export function AuthContainer() {
             !isAnimStart && classes.authContainer__formContainerLeft
           )}
         >
-          {isLogin && <Login />}
-          {!isLogin && <Signup />}
+          {isLogin && <Login onLogin={onLogin} isLoading={isLoading} />}
+          {!isLogin && <Signup onSignup={onSignup} isLoading={isLoading} />}
         </div>
       </Box>
     </div>

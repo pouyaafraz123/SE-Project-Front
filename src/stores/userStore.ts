@@ -1,12 +1,12 @@
 import { create } from 'zustand'
 import { devtools, persist, subscribeWithSelector } from 'zustand/middleware'
-import { IRole } from '@/interfaces'
+import { UserTypes } from '@constants'
 
 interface UserState {
   isAuthenticated: boolean
   login: (token: string) => void
   logout: () => void
-  role: IRole
+  role: UserTypes
   token: string
 }
 

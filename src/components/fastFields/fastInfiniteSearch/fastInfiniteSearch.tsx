@@ -1,9 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import {
-  IHFSearchEndpoint,
-  IUserSearchEndpoint,
-  useInfinite
-} from '@api/infinite'
+import { IUserSearchEndpoint, useInfinite } from '@api/infinite'
 import { useState } from 'react'
 import { IFastInfiniteProps } from './types'
 import { queryParams } from './helper'
@@ -51,22 +47,6 @@ export function FastInfiniteSearch<T>(props: IFastInfiniteProps<T>) {
           readOnly={props.readonly}
           type='user'
           data={list as IUserSearchEndpoint[]}
-          searchInputChangeHandler={(value) => setFilter(value)}
-          onGetNext={() => fetchNextPage()}
-          isFetchingNextPage={isFetchingNextPage}
-        />
-      )}
-      {props.type == 'hf' && (
-        <InfiniteSearch
-          placeholder={placeholder}
-          id={name.toString()}
-          onChange={onChange}
-          onBlur={handleBlur}
-          value={value}
-          validation={touched[name] && errors[name] ? 'error' : undefined}
-          readOnly={props.readonly}
-          type='hf'
-          data={list as IHFSearchEndpoint[]}
           searchInputChangeHandler={(value) => setFilter(value)}
           onGetNext={() => fetchNextPage()}
           isFetchingNextPage={isFetchingNextPage}

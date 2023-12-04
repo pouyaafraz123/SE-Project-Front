@@ -1,4 +1,5 @@
-export enum ApptTypes {
-  LOCAL = 'local',
-  INTERNATIONAL = 'international'
+export enum UserTypes {
+  MANAGER = 'Manager',
+  STAFF = 'Staff',
+  CUSTOMER = 'Customer'
 }

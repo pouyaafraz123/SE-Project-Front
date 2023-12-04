@@ -1,5 +1,5 @@
 import type { Meta as StoryMeta, StoryObj } from '@storybook/react'
-import { doctors, hfs } from '@api/infinite/infinite.mock'
+import { doctors } from '@api/infinite/infinite.mock'
 import { InfiniteSearch } from './index'
 import { Grid } from '@/components/atoms/Grid'
 
@@ -54,16 +54,6 @@ export const NoSpeciality: Story = {
           type='user'
           data={doctors.map(({ speciality, ...user }) => user)}
         />
-      </Grid.Column>
-    </Grid>
-  )
-}
-
-export const HF: Story = {
-  render: (args) => (
-    <Grid>
-      <Grid.Column>
-        <InfiniteSearch {...args} type='hf' data={hfs} />
       </Grid.Column>
     </Grid>
   )

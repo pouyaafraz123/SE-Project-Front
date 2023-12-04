@@ -1,18 +1,18 @@
-import { z, toFormikSchema } from '@utils'
+import { toFormikSchema, z } from '@utils'
 import { FormikConfig } from 'formik'
 
 export interface IFormValues {
-  username: string
+  email: string
   password: string
 }
 
 const schema = z.object({
-  username: z.string(),
+  email: z.string().email(),
   password: z.string()
 })
 
 export const formConfig: FormikConfig<IFormValues> = {
-  initialValues: { username: '', password: '' },
+  initialValues: { email: '', password: '' },
   validationSchema: toFormikSchema(schema),
   validateOnChange: true,
   onSubmit: () => {}

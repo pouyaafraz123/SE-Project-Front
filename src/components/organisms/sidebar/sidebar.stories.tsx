@@ -1,6 +1,6 @@
 import type { Meta as StoryMeta, StoryObj } from '@storybook/react'
+import { UserTypes } from '@constants'
 import { Sidebar, sidebarFn } from './index'
-import { Typography } from '@/components/atoms/typography'
 import { Button } from '@/components/atoms/button'
 import { sidebarItems } from '@/constants/sidebarItems'
 
@@ -36,7 +36,7 @@ function ChildrenDiv() {
     <div>
       <Button
         mode='default'
-        onClick={() => setItems(sidebarItems['super-admin'])}
+        onClick={() => setItems(sidebarItems[UserTypes.CUSTOMER])}
       >
         Set Super AdminItems
       </Button>

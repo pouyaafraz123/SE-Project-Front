@@ -1,17 +1,14 @@
 import { ISidebarItems } from '@/components/organisms/sidebar'
-import { IRole } from '@/interfaces'
+import { UserTypes } from '@/constants/enums.ts'
 
-export const sidebarItems: { [key in IRole]: ISidebarItems[] } = {
-  'super-admin': [
+export const sidebarItems: { [key in UserTypes]: ISidebarItems[] } = {
+  [UserTypes.CUSTOMER]: [
     {
       iconName: 'home',
       name: 'dashboard',
       items: { path: '/' }
     }
   ],
-  'local-admin': [],
-  cmo: [],
-  doctor: [],
-  patient: [],
-  staff: []
+  [UserTypes.STAFF]: [],
+  [UserTypes.MANAGER]: []
 }

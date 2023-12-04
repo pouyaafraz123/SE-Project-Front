@@ -3,7 +3,6 @@ import { ParseKeys } from 'i18next'
 import { FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import classes from './styles.module.scss'
-import { IconButton } from '@/components/molecules/iconButton'
 import { Icon } from '@/components/atoms/icons'
 
 interface IProps {
@@ -20,9 +19,10 @@ interface IProps {
   editLink?: string
   editButtonTitle?: ParseKeys<'form'>
   submitBtnTitle?: ParseKeys<'form'>
+  isSubmitting?: boolean
 }
 
-export function Form({ mode, noButtons, ...props }: IProps) {
+export function Form({ mode, noButtons, isSubmitting, ...props }: IProps) {
   const { t } = useTranslation('form')
   const submitTitle =
     props.submitBtnTitle || (mode == 'create' ? 'register' : 'edit')
@@ -48,7 +48,12 @@ export function Form({ mode, noButtons, ...props }: IProps) {
             {t('cancel')}
           </Button>
         )}
-        <Button mode='submit' {...props.submitBtnProps} className={classes.btn}>
+        <Button
+          mode='submit'
+          {...props.submitBtnProps}
+          className={classes.btn}
+          isLoading={isSubmitting}
+        >
           {t(submitTitle)}
         </Button>
       </div>
