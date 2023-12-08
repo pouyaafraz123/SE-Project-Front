@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { ISliderItem } from '@components/organisms/productSlider'
+import { ICategoryBanner } from '@components/atoms/categoryBanner'
 import { Landing } from '@/templates/landing/landing.tsx'
 
 const meta = {
@@ -19,8 +20,17 @@ const bannerProducts: ISliderItem[] = [...Array(10).keys()]?.map((key) => {
   }
 })
 
+const categories: ICategoryBanner[] = [...Array(10).keys()]?.map((key) => {
+  return {
+    title: 'دسته بندی نمونه ' + (key + 1),
+    bannerUrl: `https://picsum.photos/seed/${Math.random()}/600/400`,
+    id: key
+  }
+})
+
 export const LandingStory: Story = {
   args: {
-    bannerProducts: { items: bannerProducts }
+    bannerProducts: { items: bannerProducts },
+    categories
   }
 }

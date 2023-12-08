@@ -1,0 +1,9 @@
+@import 'src/styles/functions';
+
+.categoryContainer {
+  display: flex;
+  gap: space(m4);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}

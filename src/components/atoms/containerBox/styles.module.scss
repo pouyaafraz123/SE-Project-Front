@@ -2,7 +2,7 @@
 @import 'src/styles/mixins';
 
 .containerBox {
-  border-radius: radius(sm);
+  border-radius: radius(md);
   background-color: getColor(var(--theme-primary-dark), 5);
   backdrop-filter: blur(200px);
   display: flex;
@@ -10,7 +10,7 @@
   overflow: hidden;
 
   &__header {
-    padding: space(m1) space(m4);
+    padding: space(m3) space(m4);
     border-bottom: 2px solid getColor(var(--theme-border-dark));
     display: flex;
     justify-content: space-between;
@@ -18,10 +18,17 @@
     transition: all 0.3s ease-in-out;
     @include disable-select;
     cursor: pointer;
+    border-radius: radius(md) radius(md) 0 0;
 
     &:hover {
       background-color: rgba(0, 0, 0, 0.1);
-      border-radius: radius(sm) radius(sm) 0 0;
+    }
+  }
+
+  &__headerNoHover {
+    cursor: default;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0);
     }
   }
 

@@ -5,11 +5,18 @@
   display: flex;
   height: 14rem;
   min-width: 16rem;
+  max-width: 32rem;
+  flex-grow: 1;
   border-radius: radius(lg);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   position: relative;
   overflow: hidden;
+  transform: translateY(0) scale(1);
+
+  &:hover {
+    transform: translateY(-6px) scale(1.01);
+  }
   // TODO CHECK BEHAVIOR
 
   &__imageContainer {
@@ -21,10 +28,11 @@
     border-radius: radius(lg);
     background-position: center;
     background-size: cover;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
   &:hover &__imageContainer {
-    filter: blur(10px);
+    filter: blur(5px);
+    scale: 1.1;
   }
   &__backdrop {
     border-radius: radius(lg);
