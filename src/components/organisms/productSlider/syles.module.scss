@@ -1,0 +1,65 @@
+@import 'src/styles/functions';
+@import 'src/styles/mixins';
+
+.productSlider {
+  &__itemContainer {
+    border-radius: radius(lg);
+    background-position: center;
+    background-size: cover;
+    height: 40vh;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    margin: space(m3);
+    @include disable-select;
+    cursor: pointer;
+  }
+
+  :global .swiper-slide {
+    width: 25% !important;
+    transition: all 0.5s ease-in-out;
+  }
+
+  :global .swiper-slide-active {
+    width: 50% !important;
+  }
+
+  &__itemBackdrop {
+    background: linear-gradient(
+      to right,
+      getColor(var(--theme-black), 80),
+      getColor(var(--theme-black), 70) 30%,
+      getColor(var(--theme-black), 0)
+    );
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: space(l1);
+    border-radius: radius(lg);
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  :global .swiper-pagination-bullet {
+    background-color: getColor(var(--theme-primary-main));
+  }
+
+  :global .swiper-pagination {
+  }
+
+  :global .swiper-wrapper {
+    height: calc(40vh + 60px);
+  }
+
+  :global .swiper-button-next::after {
+    color: getColor(var(--theme-primary-main));
+    font-weight: 1000;
+    opacity: 0.5;
+  }
+
+  :global .swiper-button-prev::after {
+    color: getColor(var(--theme-primary-main));
+    font-weight: 1000;
+    opacity: 0.5;
+  }
+}

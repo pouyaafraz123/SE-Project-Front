@@ -12,7 +12,7 @@ import { useErrorHandler } from '@api/errorHandler/apiErrorHandler.tsx'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { RouterProvider } from 'react-router-dom'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { queryClient, axiosClient } from '@api/clients.ts'
+import { axiosClient, queryClient } from '@api/clients.ts'
 
 import { router } from '@/routes'
 import 'react-toastify/dist/ReactToastify.css'

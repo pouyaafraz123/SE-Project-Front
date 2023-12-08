@@ -1,0 +1,31 @@
+@import 'src/styles/functions';
+@import 'src/styles/mixins';
+
+.containerBox {
+  border-radius: radius(sm);
+  background-color: getColor(var(--theme-primary-dark), 5);
+  backdrop-filter: blur(200px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &__header {
+    padding: space(m1) space(m4);
+    border-bottom: 2px solid getColor(var(--theme-border-dark));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    @include disable-select;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+      border-radius: radius(sm) radius(sm) 0 0;
+    }
+  }
+
+  &__content {
+    padding: space(l1);
+  }
+}
