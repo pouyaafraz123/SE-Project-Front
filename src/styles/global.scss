@@ -60,3 +60,13 @@ body {
   //dataPicker
   display: block !important;
 }
+
+svg {
+  &[data-variant='linear'] > path {
+    width: 1000px;
+    stroke: getColor(var(--theme-primary-text));
+  }
+  &[data-variant='bold'] > path {
+    fill: getColor(var(--theme-primary-text));
+  }
+}

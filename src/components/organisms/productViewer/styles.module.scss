@@ -1,0 +1,90 @@
+@import 'src/styles/functions';
+
+.productViewer {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 40rem;
+  gap: 1rem;
+
+  display: flex;
+
+  &__backdrop {
+    display: flex;
+    padding: 2rem 1rem 10rem;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      getColor(var(--theme-primary-background), 30) 0%,
+      getColor(var(--theme-primary-background), 40) 30%,
+      getColor(var(--theme-primary-background), 80) 80%,
+      getColor(var(--theme-primary-background), 85) 95%,
+      getColor(var(--theme-primary-background), 100) 100%
+    );
+    backdrop-filter: blur(30px);
+  }
+
+  &__imgContainer {
+    height: 100%;
+    padding: 0 1rem;
+    aspect-ratio: 11 / 16;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    border-radius: radius(lg);
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__details {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__detail {
+    display: flex;
+    justify-content: flex-start;
+    gap: space(m1);
+  }
+
+  &__topContent {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__featurePart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 2rem;
+  }
+
+  &__description {
+    background-color: getColor(var(--theme-primary-dark), 10);
+    border-radius: radius(md);
+    padding: 1rem 1rem;
+  }
+  &__rating {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__buyBox {
+    display: flex;
+    flex-direction: column;
+    gap: space(l2);
+    padding: space(l1);
+    background-color: getColor(var(--theme-secondary-main), 50);
+    border-radius: radius(md);
+  }
+}
