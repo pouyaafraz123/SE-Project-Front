@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import { ProductViewer } from '@components/organisms/productViewer/productViewer.tsx'
 
 const meta = {
-  title: 'Organism/ProductViewer',
+  title: 'Organisms/ProductViewer',
   component: ProductViewer,
   parameters: {
     layout: 'fullscreen'
