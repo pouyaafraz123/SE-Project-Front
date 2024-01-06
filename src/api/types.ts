@@ -1,7 +1,7 @@
-import { GenericAbortSignal, AxiosError } from 'axios'
+import { AxiosError, GenericAbortSignal } from 'axios'
 import { IStats } from '@/interfaces'
 
-export interface IResponse<T> {
+export type IResponse<T> = {
   data: T
   message: string
   errors?: { [key: string]: string[] }
@@ -16,17 +16,13 @@ export type AxiosFn<Variables, ReturnType> = (
 export { AxiosError }
 
 export interface WithPagination<T> {
-  page: {
-    pageNumber: number
-    pageSize: number
-    total: number
-    list: T[]
-  }
+  total: number
+  list: T[]
 }
 
 export interface IPaginationParams {
-  page: number
-  per_page: number
+  PageSize: number
+  PageIndex: number
 }
 
 export interface ISearchParams {

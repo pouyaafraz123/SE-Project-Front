@@ -1,0 +1,148 @@
+@import 'src/styles/functions.scss';
+
+@mixin bottom-start {
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  transform-origin: left top;
+}
+@mixin bottom-end {
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: auto;
+  transform-origin: right top;
+}
+@mixin left-bottom {
+  top: 0;
+  right: 100%;
+  bottom: auto;
+  left: auto;
+  transform-origin: right top;
+}
+@mixin right-bottom {
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  transform-origin: left top;
+}
+@mixin left-top {
+  top: auto;
+  right: 100%;
+  bottom: 0;
+  left: auto;
+  transform-origin: right bottom;
+}
+@mixin right-top {
+  top: auto;
+  right: auto;
+  bottom: 0;
+  left: 0;
+  transform-origin: left bottom;
+}
+@mixin top-start {
+  top: auto;
+  right: auto;
+  bottom: 0;
+  left: 0;
+  transform-origin: left bottom;
+}
+@mixin top-end {
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: auto;
+  transform-origin: right bottom;
+}
+
+$animationDuration: 125ms;
+
+.dropdownMenu {
+  position: absolute;
+  padding: 8px;
+  border-radius: radius(sm);
+  border: 1px solid getColor(var(--theme-border-secondary));
+  box-shadow: 0 4px 20px 0 #33415533;
+  z-index: 1000;
+  background-color: getColor(var(--theme-secondary-background));
+  display: none;
+  animation-name: dropdownScale;
+  animation-duration: $animationDuration;
+  animation-timing-function: ease;
+  animation-delay: 0ms;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+
+  &[data-anchor='bottom-start'] {
+    @include bottom-start();
+    :root[dir='rtl'] & {
+      @include bottom-end();
+    }
+  }
+  &[data-anchor='bottom-end'] {
+    @include bottom-end();
+    :root[dir='rtl'] & {
+      @include bottom-start();
+    }
+  }
+  &[data-anchor='bottom-center'] {
+    top: 0;
+    right: auto;
+    bottom: auto;
+    transform-origin: center top;
+  }
+  &[data-anchor='left-bottom'] {
+    @include left-bottom();
+    :root[dir='rtl'] & {
+      @include right-bottom();
+    }
+  }
+  &[data-anchor='left-top'] {
+    @include left-top();
+    :root[dir='rtl'] & {
+      @include right-top();
+    }
+  }
+  &[data-anchor='right-bottom'] {
+    @include right-bottom();
+    :root[dir='rtl'] & {
+      @include left-bottom();
+    }
+  }
+  &[data-anchor='right-top'] {
+    @include right-top();
+    :root[dir='rtl'] & {
+      @include left-top();
+    }
+  }
+  &[data-anchor='top-start'] {
+    @include top-start();
+    :root[dir='rtl'] & {
+      @include top-end();
+    }
+  }
+  &[data-anchor='top-center'] {
+    top: auto;
+    right: auto;
+    bottom: 0;
+    transform-origin: center bottom;
+  }
+  &[data-anchor='top-end'] {
+    @include top-end();
+    :root[dir='rtl'] & {
+      @include top-start();
+    }
+  }
+}
+@keyframes dropdownScale {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}

@@ -1,7 +1,6 @@
-import { FormControlProps } from '..'
+import { InputProps } from '..'
 import { IOption } from '@/interfaces'
 
-export interface MultiselectProps
-  extends FormControlProps<HTMLInputElement, IOption[]> {
+export interface MultiselectProps extends InputProps<IOption[]> {
   options: IOption[]
 }

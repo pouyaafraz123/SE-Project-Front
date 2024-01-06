@@ -1,7 +1,8 @@
-import { FormControlProps } from '..'
+import { InputProps } from '..'
+import { OmitSafety } from '@/utils/typeTools'
 import { IOption } from '@/interfaces'
 
 export interface AutoCompleteProps
-  extends FormControlProps<HTMLInputElement, IOption> {
+  extends OmitSafety<InputProps<IOption>, 'onIconClick'> {
   options: IOption[]
 }

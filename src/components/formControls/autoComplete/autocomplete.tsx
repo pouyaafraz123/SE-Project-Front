@@ -1,98 +1,227 @@
-import { FocusEvent, KeyboardEvent, useEffect, useRef, useState } from 'react'
+import { FocusEvent, memo, useEffect, useRef, useState } from 'react'
+import {
+  autoUpdate,
+  flip,
+  FloatingFocusManager,
+  FloatingPortal,
+  size,
+  useDismiss,
+  useFloating,
+  useInteractions,
+  useListNavigation,
+  useRole
+} from '@floating-ui/react'
 import { AutoCompleteProps } from './types'
 import classes from './styles.module.scss'
 import { SearchInput } from '@/components/formControls/searchInput'
-import {
-  getSelectBoxPosition,
-  selectBoxFn
-} from '@/components/molecules/selectBox'
 import { Typography } from '@/components/atoms/typography'
+import { Menu } from '@/components/atoms/menu'
+import { MenuItem } from '@/components/atoms/menuItem'
+import { MenuContent } from '@/components/atoms/menu/menu'
+import { useReadOnly } from '@/hooks'
 
-export function AutoComplete(props: AutoCompleteProps) {
+export const AutoComplete = memo(function AutoComplete(
+  props: AutoCompleteProps
+) {
   const {
     options,
     value = { key: '', value: '' },
     onChange,
-    readOnly,
+    readOnly: propsReadOnly,
     disabled,
-    onBlur,
     onFocus,
-    onKeyDown,
+    onBlur,
     ...rest
   } = props
+  const readOnly = useReadOnly(propsReadOnly)
+  const isClosedByUseDismiss = useRef(false)
+  const [open, setStateOpen] = useState(false)
+  const [inputValue, setInputValue] = useState(value.value)
+  const [activeIndex, setActiveIndex] = useState<number | null>(null)
 
-  const inputRef = useRef<HTMLInputElement>(null)
+  function setOpen(value: boolean) {
+    if (!readOnly && !disabled) {
+      setStateOpen(value)
+    }
+  }
 
-  const [searchValue, setSearchValue] = useState(value.value)
+  const listRef = useRef<Array<HTMLElement | null>>([])
+
+  const { refs, floatingStyles, context } = useFloating<HTMLInputElement>({
+    whileElementsMounted: autoUpdate,
+    open,
+    onOpenChange: setOpen,
+    middleware: [
+      flip(),
+      size({
+        apply({ rects, availableHeight, elements }) {
+          Object.assign(elements.floating.style, {
+            width: `${rects.reference.width}px`,
+            maxHeight: `${availableHeight}px`
+          })
+        }
+      })
+    ]
+  })
+
+  const role = useRole(context, { role: 'listbox' })
+  const dismiss = useDismiss(context, {
+    outsidePress(event) {
+      isClosedByUseDismiss.current = true
+      return true
+    }
+  })
+  const listNav = useListNavigation(context, {
+    listRef,
+    activeIndex,
+    onNavigate: setActiveIndex,
+    virtual: true,
+    loop: true
+  })
+
+  const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions(
+    [role, dismiss, listNav]
+  )
+
+  const items = options.filter((item) =>
+    item.value.toLowerCase().startsWith(inputValue.toLowerCase())
+  )
+
+  function inputChangeHandler(value: string) {
+    setInputValue(value)
+
+    if (value) {
+      setOpen(true)
+      setActiveIndex(0)
+    } else {
+      onChange?.({ key: '', value: '' })
+      setOpen(false)
+    }
+  }
+
+  function clearIconClickHandler(type: 'search' | 'delete') {
+    switch (type) {
+      case 'delete':
+        setOpen(false)
+        onChange?.({ key: '', value: '' })
+        setInputValue('')
+        break
+      case 'search':
+        if (!open) {
+          if (isInputIsFocused) {
+            if (!isClosedByUseDismiss.current) {
+              setOpen(true)
+            }
+            isClosedByUseDismiss.current = false
+          } else {
+            setOpen(true)
+            context.refs.domReference.current?.focus()
+          }
+        }
+        break
+    }
+  }
+
   const [isInputIsFocused, setIsInputIsFocused] = useState(false)
 
-  // show the selectBox on input focus
   function focusHandler(event: FocusEvent<HTMLInputElement, Element>) {
-    if (!readOnly && !disabled) {
-      selectBoxFn.show({
-        onSelect(item) {
-          // setSelectedItem(item)
-          onChange?.(item)
-        },
-        options: options,
-        refElementPosition: getSelectBoxPosition(inputRef.current),
-        filterValue: value.value
-      })
-    }
     setIsInputIsFocused(true)
     onFocus?.(event)
   }
 
-  // filtering the option after the user finishes typing
-  function searchInputChangeHandler(value: string) {
-    if (value === '') {
-      onChange?.({ key: '', value: '' })
-    }
-    selectBoxFn.filter(value)
-  }
-
-  /**
-   * On item selection, we set the selected item, but the problem is that it has to be rerendered to set in the state properly. When the item is clicked the onBlur event is raised and inside of it we set the search value to the last selected item but the first time the last selected value is empty, so the search value is set earlier than selectedItem so the input value will be empty.
-   * So we write below useEffect to update the search input value.
-   */
-  useEffect(() => {
-    setSearchValue(value.value)
-  }, [value.value])
-
   // set the search input value to the last selected item
   function blurHandler(event: FocusEvent<HTMLInputElement, Element>) {
-    setSearchValue(value.value)
+    setInputValue(value.value)
     setIsInputIsFocused(false)
-    onBlur?.(event)
   }
 
-  function keyDownHandler(e: KeyboardEvent<HTMLInputElement>) {
-    if (e.key === 'Tab') {
-      selectBoxFn.close()
-    }
-    onKeyDown?.(e)
-  }
+  // update the search input value when the autocomplete value has changed programmatically
+  useEffect(() => {
+    setInputValue(value.value)
+  }, [value.value])
 
   return (
-    <div className={classes.container}>
-      <SearchInput
-        ref={inputRef}
-        value={searchValue}
-        onChange={setSearchValue}
-        onFocus={focusHandler}
-        onBlur={blurHandler}
-        onDebouncedValueChange={searchInputChangeHandler}
-        readOnly={readOnly}
-        onKeyDown={(e) => keyDownHandler(e)}
-        disabled={disabled}
-        autoComplete='off'
-        {...rest}
-      />
-      {value.value && !isInputIsFocused && !readOnly && !disabled && (
-        <div onClick={() => inputRef.current?.focus()}>
-          <Typography className={classes.textBox}>{value.value}</Typography>
-        </div>
+    <>
+      <div className={classes.container}>
+        <SearchInput
+          {...getReferenceProps({
+            ref: refs.setReference,
+            value: inputValue,
+            'aria-autocomplete': 'list',
+            onKeyDown(event) {
+              if (
+                event.key === 'Enter' &&
+                activeIndex != null &&
+                items[activeIndex]
+              ) {
+                //prevent form submitting
+                event.preventDefault()
+
+                setInputValue(items[activeIndex].value)
+                onChange?.(items[activeIndex])
+                setActiveIndex(null)
+                setOpen(false)
+              }
+            }
+          })}
+          onChange={inputChangeHandler}
+          onIconClick={clearIconClickHandler}
+          onFocus={focusHandler}
+          onBlur={blurHandler}
+          readOnly={readOnly}
+          disabled={disabled}
+          autoComplete='off'
+          searchIconType='button'
+          {...rest}
+        />
+        {value.value && !isInputIsFocused && !readOnly && !disabled && (
+          <div onClick={() => refs.domReference.current?.focus()}>
+            <Typography className={classes.textBox}>{value.value}</Typography>
+          </div>
+        )}
+      </div>
+      {open && (
+        <FloatingPortal>
+          <FloatingFocusManager
+            context={context}
+            initialFocus={-1}
+            visuallyHiddenDismiss
+          >
+            <Menu
+              {...getFloatingProps({
+                ref: refs.setFloating,
+                style: {
+                  ...floatingStyles
+                }
+              })}
+            >
+              <MenuContent>
+                {items.map((item, index) => (
+                  <MenuItem
+                    key={index}
+                    {...getItemProps({
+                      ref(node) {
+                        listRef.current[index] = node
+                      },
+                      onClick() {
+                        setInputValue(item.value)
+                        onChange?.(item)
+                        setOpen(false)
+                      },
+                      onMouseDown(e) {
+                        e.preventDefault() //cause we don't want to lose input's focus on icon clicking event
+                      }
+                    })}
+                    selected={activeIndex === index}
+                  >
+                    {item.value}
+                  </MenuItem>
+                ))}
+              </MenuContent>
+            </Menu>
+          </FloatingFocusManager>
+        </FloatingPortal>
       )}
-    </div>
+    </>
   )
-}
+})

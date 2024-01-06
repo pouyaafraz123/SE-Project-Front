@@ -13,15 +13,15 @@
   justify-content: center;
   cursor: pointer;
   border-radius: radius(xlg);
-  min-width: 22px;
-  min-height: 22px;
+  min-width: 18px;
+  min-height: 18px;
   background-color: getThemeColor(primary-background);
   border: 2px solid getThemeColor(border-secondary);
   &[data-checked='true'] {
     border-color: getThemeColor(primary-main);
     & .radio-inner {
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
       transition: all ease 100ms;
       background-color: getThemeColor(primary-main);
     }

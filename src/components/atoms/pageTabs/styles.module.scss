@@ -1,0 +1,43 @@
+@import 'src/styles/functions';
+@import 'src/styles/mixins';
+@import 'src/styles/global-variables';
+
+.tabContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: space(m3);
+  flex-wrap: wrap;
+
+  &__tab {
+    @include disable-select;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: space(m3);
+    background-color: getColor(var(--theme-primary-background));
+    border: 1px solid getColor(var(--theme-border-main));
+    border-radius: radius(sm);
+    transition: all $time ease-in-out;
+    cursor: pointer;
+    color: getColor(var(--theme-primary-text));
+
+    &:hover {
+      border-color: getColor(var(--theme-secondary-main));
+      background-color: getColor(var(--theme-secondary-main));
+      color: getColor(var(--theme-primary-main));
+    }
+  }
+
+  &__selectedTab {
+    border-color: getColor(var(--theme-primary-main));
+    background-color: getColor(var(--theme-primary-main));
+    color: getColor(var(--theme-white));
+
+    &:hover {
+      border-color: getColor(var(--theme-primary-main));
+      background-color: getColor(var(--theme-primary-main));
+      color: getColor(var(--theme-white));
+    }
+  }
+}

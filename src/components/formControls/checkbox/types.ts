@@ -1,5 +1,4 @@
 import { HtmlHTMLAttributes } from 'react'
-import { FormControlProps } from '..'
 
 export interface CheckboxProps
   extends Omit<HtmlHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'> {

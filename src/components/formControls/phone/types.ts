@@ -1,4 +1,4 @@
-import { FormControlProps } from '..'
+import { InputProps } from '..'
 import { IOption } from '@/interfaces'
 
 export interface IPhoneNumber {
@@ -6,8 +6,7 @@ export interface IPhoneNumber {
   number: string
 }
 
-export interface PhoneProps
-  extends FormControlProps<HTMLInputElement, IPhoneNumber> {
+export interface PhoneProps extends InputProps<IPhoneNumber> {
   countries: IOption[]
   /** By default is `+98` */
   defaultCode?: string

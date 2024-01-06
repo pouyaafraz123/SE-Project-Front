@@ -26,6 +26,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IIconButtonProps>(
       noTooltip,
       fullRounded,
       transparent,
+      className,
       ...rest
     } = props
 
@@ -41,7 +42,8 @@ export const IconButton = forwardRef<HTMLButtonElement, IIconButtonProps>(
             ? 'rounded-xlg'
             : transparent
             ? 'rounded-sm'
-            : 'rounded-md'
+            : 'rounded-md',
+          className
         )}
         {...rest}
       >

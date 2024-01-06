@@ -23,7 +23,8 @@ async function setupMocks() {
   return Promise.resolve()
 }
 
-function Root() {
+export function Root() {
+  document.documentElement.dir = 'rtl'
   const errorHandler = useErrorHandler()
   axiosClient.interceptors.response.use(undefined, errorHandler)
   return (

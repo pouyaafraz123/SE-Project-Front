@@ -50,6 +50,10 @@ export interface ICommonButtonProps extends PropsWithChildren {
    */
   onClick?: MouseEventHandler<HTMLButtonElement>
   /**
+   * Event handler for the mouse down event.
+   */
+  onMouseDown?: MouseEventHandler<HTMLButtonElement>
+  /**
    * Event handler for the form submission event.
    */
   onSubmit?: FormEventHandler<HTMLButtonElement>

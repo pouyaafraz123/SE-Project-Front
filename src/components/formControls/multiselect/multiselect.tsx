@@ -12,10 +12,11 @@ import {
 } from '@/components/molecules/selectBox'
 import { IOption } from '@/interfaces'
 import { Typography } from '@/components/atoms/typography'
+import { useReadOnly } from '@/hooks'
 
 export function Multiselect(props: MultiselectProps) {
   const {
-    readOnly,
+    readOnly: propsReadOnly,
     value = [],
     onChange,
     options,
@@ -24,6 +25,8 @@ export function Multiselect(props: MultiselectProps) {
     disabled,
     ...rest
   } = props
+  const readOnly = useReadOnly(propsReadOnly)
+
   const inputRef = useRef<HTMLInputElement>(null)
 
   function selectHandler(selected: IOption[], option: IOption, value: boolean) {

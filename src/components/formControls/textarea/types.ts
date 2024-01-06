@@ -1,6 +1,13 @@
-import { FormControlProps } from '..'
+import { DetailedHTMLProps, TextareaHTMLAttributes } from 'react'
+import { IncludeFormControl } from '..'
 
 export interface TextareaProps
-  extends FormControlProps<HTMLTextAreaElement, string> {
+  extends IncludeFormControl<
+    DetailedHTMLProps<
+      TextareaHTMLAttributes<HTMLTextAreaElement>,
+      HTMLTextAreaElement
+    >,
+    string
+  > {
   rows?: number
 }

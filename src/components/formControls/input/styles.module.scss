@@ -1,8 +1,8 @@
 @import 'src/styles/functions.scss';
 @import 'src/styles/mixins.scss';
 
-$iconSize: 24px;
-$padding-end: calc((2 * space(m1)) + $iconSize);
+$iconSize: 2.275rem;
+$padding-end: calc(space(m1) + $iconSize);
 
 .container {
   position: relative;
@@ -14,11 +14,15 @@ $padding-end: calc((2 * space(m1)) + $iconSize);
   bottom: space(xs1);
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   @include end(space(xs));
-  padding: space(xs1);
+}
+.imageIcon {
+  width: $iconSize;
+  // height: $iconSize;
 }
 .input {
-  &[data-hasicon='true'] {
+  &[data-has-icon='true'] {
     padding-inline-end: $padding-end;
   }
 }

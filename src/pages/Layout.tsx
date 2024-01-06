@@ -10,7 +10,7 @@ import { PageLayout } from '@components/layout/pageLayout'
 import { Sidebar, sidebarFn } from '@components/organisms/sidebar'
 import { sidebarItems } from '@constants'
 
-import { useUserStore, useUIStore } from '@stores'
+import { useUIStore, useUserStore } from '@stores'
 import { useProfile } from '@/api/profile'
 import { IHeaderProps } from '@/components/organisms/sidebar/types'
 import { AlertContainer } from '@/components/molecules/alert'
@@ -26,7 +26,7 @@ export function Component() {
   document.documentElement.dir = i18n.dir()
   document.documentElement.lang = i18n.language
 
-  sidebarFn.setItems(sidebarItems[role])
+  sidebarFn.setItems(sidebarItems[role!])
 
   const { data, isLoading } = useProfile()
 
@@ -35,11 +35,7 @@ export function Component() {
   const user: IHeaderProps = {
     firstName: data.data.first_name,
     lastName: data.data.last_name,
-    imageUrl: data.data.avatar,
-    hfName:
-      data.data.facilities.find(
-        (value) => value.id == data.data.current_facility
-      )?.name || 'noFacilities'
+    imageUrl: data.data.avatar
   }
 
   // TODO loading bar here

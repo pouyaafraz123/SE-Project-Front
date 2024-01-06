@@ -1,5 +1,8 @@
 import { RequestHandler, rest } from 'msw'
-import { Options } from './types'
+import * as path from './path'
+import { IOption } from '@/interfaces'
+
+type Options = IOption[]
 
 const getData = (data: unknown) => {
   return { data: data, message: '' }
@@ -7,35 +10,34 @@ const getData = (data: unknown) => {
 const baseURL = import.meta.env.VITE_API_BASE_URL
 
 export const handlers: RequestHandler[] = [
-  // * done
-  rest.get(baseURL + '/dropdown/countries', (_req, res, ctx) => {
+  rest.get(baseURL + path.COUNTRY, (_req, res, ctx) => {
     const data: Options = [
-      {
-        key: '1',
-        value: 'ایران',
-        flag: 'https://cdn.kcak11.com/CountryFlags/countries/ir.svg'
-      },
+      { key: '1', value: 'ایران' },
       { key: '2', value: 'افغانستان' }
     ]
     return res(ctx.status(200), ctx.delay(1000), ctx.json(getData(data)))
   }),
-  // * done
-  rest.get(baseURL + '/dropdown/countries/1/states', (_req, res, ctx) => {
+  rest.get(baseURL + path.STATE, (_req, res, ctx) => {
     const data: Options = [
       { key: '1', value: 'آذربایجان شرقی' },
       { key: '2', value: 'آذربایجان غربی' }
     ]
     return res(ctx.status(200), ctx.delay(1000), ctx.json(getData(data)))
   }),
-  // * done
-  rest.get(baseURL + '/dropdown/states/1/cities', (_req, res, ctx) => {
+  rest.get(baseURL + path.CITY, (_req, res, ctx) => {
     const data: Options = [
       { key: '1', value: 'تبریز' },
       { key: '2', value: 'بناب' }
     ]
     return res(ctx.status(200), ctx.delay(1000), ctx.json(getData(data)))
   }),
-  // * done
+  rest.get(baseURL + path.GENDER, (_req, res, ctx) => {
+    const data: Options = [
+      { key: '1', value: 'مرد' },
+      { key: '2', value: 'زن' }
+    ]
+    return res(ctx.status(200), ctx.delay(1000), ctx.json(getData(data)))
+  }),
   rest.get(baseURL + '/dropdown/phone-codes', (_req, res, ctx) => {
     const data = [
       {
@@ -51,15 +53,14 @@ export const handlers: RequestHandler[] = [
     ]
     return res(ctx.status(200), ctx.delay(5000), ctx.json(getData(data)))
   }),
-  // * done
-  rest.get(baseURL + '/dropdown/facility/types', (_req, res, ctx) => {
+  rest.get(baseURL + path.HF_TYPE, (_req, res, ctx) => {
     const data: Options = [
       { key: '1', value: 'بیمارستان' },
       { key: '2', value: 'کلینیک' }
     ]
     return res(ctx.status(200), ctx.delay(1000), ctx.json(getData(data)))
   }),
-  rest.get(baseURL + '/dropdown/medicine-type', (_req, res, ctx) => {
+  rest.get(baseURL + path.MEDICINE_TYPE, (_req, res, ctx) => {
     const data: Options = [
       { key: '1', value: 'قرص' },
       { key: '2', value: 'تزریق' },
@@ -67,7 +68,48 @@ export const handlers: RequestHandler[] = [
     ]
     return res(ctx.status(200), ctx.delay(1000), ctx.json(getData(data)))
   }),
-  rest.get(baseURL + '/dropdown/days', (_req, res, ctx) => {
+  rest.get(baseURL + path.MEDICAL_DEVICE_TYPE, (_req, res, ctx) => {
+    const data: Options = [
+      { key: '1', value: 'فشارسنج' },
+      { key: '2', value: 'دروغ سنج' },
+      { key: '3', value: '.و غیره سنج' }
+    ]
+    return res(ctx.status(200), ctx.delay(1000), ctx.json(getData(data)))
+  }),
+  rest.get(baseURL + path.CLINICAL_ORDER_TYPE, (_req, res, ctx) => {
+    const data: Options = [
+      { key: '1', value: 'تصویربرداری' },
+      { key: '2', value: 'آزمایش' }
+    ]
+    return res(ctx.status(200), ctx.delay(1000), ctx.json(getData(data)))
+  }),
+  rest.get(baseURL + path.PAYMENT, (_req, res, ctx) => {
+    const data: Options = [
+      { key: '1', value: 'زرین پال' },
+      { key: '2', value: 'چک' },
+      { key: '2', value: 'pos' }
+    ]
+    return res(ctx.status(200), ctx.delay(1000), ctx.json(getData(data)))
+  }),
+  rest.get(baseURL + path.RELATIONSHIP, (_req, res, ctx) => {
+    const data: Options = [
+      { key: '1', value: 'پدر' },
+      { key: '2', value: 'مادر' },
+      { key: '2', value: 'همسر' },
+      { key: '2', value: 'فرزند' }
+    ]
+    return res(ctx.status(200), ctx.delay(1000), ctx.json(getData(data)))
+  }),
+  rest.get(baseURL + path.FAMILY_MEMBER, (_req, res, ctx) => {
+    const data: Options = [
+      { key: '1', value: 'پدر' },
+      { key: '2', value: 'مادر' },
+      { key: '2', value: 'همسر' },
+      { key: '2', value: 'فرزند' }
+    ]
+    return res(ctx.status(200), ctx.delay(1000), ctx.json(getData(data)))
+  }),
+  rest.get(baseURL + path.DAYS, (_req, res, ctx) => {
     const data: Options = [
       { key: '1', value: 'شنبه' },
       { key: '2', value: 'یکشنبه' },
@@ -79,15 +121,14 @@ export const handlers: RequestHandler[] = [
     ]
     return res(ctx.status(200), ctx.delay(1000), ctx.json(getData(data)))
   }),
-  // * done
-  rest.get(baseURL + '/dropdown/department-names', (_req, res, ctx) => {
+  rest.get(baseURL + path.ALL_DEPARTMENTS, (_req, res, ctx) => {
     const data: Options = [
       { key: '1', value: 'گوارش' },
       { key: '2', value: 'قلب' }
     ]
     return res(ctx.status(200), ctx.delay(1000), ctx.json(getData(data)))
   }),
-  rest.get(baseURL + '/dropdown/languageSkill', (_req, res, ctx) => {
+  rest.get(baseURL + path.LANGUAGE_SKILL, (_req, res, ctx) => {
     const data: Options = [
       { key: '1', value: 'متوسط' },
       { key: '2', value: 'پیشرفته' },
@@ -96,7 +137,7 @@ export const handlers: RequestHandler[] = [
     ]
     return res(ctx.status(200), ctx.delay(1000), ctx.json(getData(data)))
   }),
-  rest.get(baseURL + '/dropdown/languages', (_req, res, ctx) => {
+  rest.get(baseURL + path.LANGUAGE, (_req, res, ctx) => {
     const data: Options = [
       { key: '1', value: 'انگلیسی' },
       { key: '2', value: 'ترکی' },
@@ -106,7 +147,7 @@ export const handlers: RequestHandler[] = [
     ]
     return res(ctx.status(200), ctx.delay(1000), ctx.json(getData(data)))
   }),
-  rest.get(baseURL + '/dropdown/doctor-degree', (_req, res, ctx) => {
+  rest.get(baseURL + path.DOCTOR_DEGREE, (_req, res, ctx) => {
     const data: Options = [
       { key: '1', value: 'PH.D' },
       { key: '2', value: 'MH.D' },
@@ -114,31 +155,27 @@ export const handlers: RequestHandler[] = [
     ]
     return res(ctx.status(200), ctx.delay(1000), ctx.json(getData(data)))
   }),
-  rest.get(baseURL + '/dropdown/department-names/1', (_req, res, ctx) => {
+  rest.get(baseURL + path.HF_DEPARTMENT, (_req, res, ctx) => {
     const data: Options = [
       { key: '1', value: 'گوارش' },
       { key: '2', value: 'قلب' }
     ]
     return res(ctx.status(200), ctx.delay(1000), ctx.json(getData(data)))
   }),
-  // * done
-  rest.get(
-    baseURL + '/dropdown/countries/:country_id/timezones',
-    (_req, res, ctx) => {
-      const data: Options = [
-        {
-          key: '61',
-          value: 'America/Araguaina (UTC-03:00)'
-        },
-        {
-          key: '62',
-          value: 'America/Bahia (UTC-03:00)'
-        }
-      ]
-      return res(ctx.status(200), ctx.delay(1000), ctx.json(getData(data)))
-    }
-  ),
-  rest.get(baseURL + '/dropdown/doctors-specialities', (_req, res, ctx) => {
+  rest.get(baseURL + path.TIMEZONE, (_req, res, ctx) => {
+    const data: Options = [
+      {
+        key: '61',
+        value: 'America/Araguaina (UTC-03:00)'
+      },
+      {
+        key: '62',
+        value: 'America/Bahia (UTC-03:00)'
+      }
+    ]
+    return res(ctx.status(200), ctx.delay(1000), ctx.json(getData(data)))
+  }),
+  rest.get(baseURL + path.SPECIALITY, (_req, res, ctx) => {
     const data: Options = [
       { key: '1', value: 'متخصص قلب و عروق' },
       { key: '2', value: 'متخصص خون' }
@@ -155,7 +192,7 @@ export const handlers: RequestHandler[] = [
       return res(ctx.status(200), ctx.delay(1000), ctx.json(getData(data)))
     }
   ),
-  rest.get(baseURL + '/dropdown/visit-type', (_req, res, ctx) => {
+  rest.get(baseURL + path.VISIT_TYPE, (_req, res, ctx) => {
     const data: Options = [
       { key: 'emergency', value: 'اورژانسی' },
       { key: 'normal', value: 'عادی' }

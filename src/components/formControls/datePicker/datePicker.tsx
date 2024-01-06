@@ -7,12 +7,21 @@ import { useTranslation } from 'react-i18next'
 import persian from 'react-date-object/calendars/persian'
 import persian_fa from 'react-date-object/locales/persian_fa'
 import { localeType } from '@configs'
+import { memo } from 'react'
 import { DatePickerProps } from './types'
+import { useReadOnly } from '@/hooks'
 
-export function DatePicker(props: DatePickerProps) {
-  const { value, onChange, readOnly, disabled, date, placeholder, ...rest } =
-    props
-
+export const DatePicker = memo(function DatePicker(props: DatePickerProps) {
+  const {
+    value,
+    onChange,
+    readOnly: propsReadOnly,
+    disabled,
+    date,
+    placeholder,
+    ...rest
+  } = props
+  const readOnly = useReadOnly(propsReadOnly)
   const { i18n } = useTranslation()
   const lng = i18n.language as localeType
   let calender, locale
@@ -48,4 +57,4 @@ export function DatePicker(props: DatePickerProps) {
       disabled={disabled}
     />
   )
-}
+})

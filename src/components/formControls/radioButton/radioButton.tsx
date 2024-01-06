@@ -1,10 +1,19 @@
 import classes from './styles.module.scss'
 import { RadioButtonProps } from '.'
 import { Typography } from '@/components/atoms/typography'
+import { useReadOnly } from '@/hooks'
 
 export function RadioButton(props: RadioButtonProps) {
-  const { disabled, selectedValue, value, label, onChange, readOnly, ...rest } =
-    props
+  const {
+    disabled,
+    selectedValue,
+    value,
+    label,
+    onChange,
+    readOnly: propsReadOnly,
+    ...rest
+  } = props
+  const readOnly = useReadOnly(propsReadOnly)
   return (
     <label className={classes.label}>
       <input

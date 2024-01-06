@@ -5,7 +5,7 @@ import { AuthPage } from '@pages/auth'
 import App from '../App'
 
 import { testRoutes } from './testRoutes/testRoutes'
-import { protectedLoader } from './authLoaders'
+import { loginLoader, protectedLoader } from './authLoaders'
 import { path } from './path'
 import { useUIStore } from '@/stores'
 
@@ -26,10 +26,10 @@ function attachLoader() {
 
 const withLayout: RouteObject[] = [
   {
-    path: '/',
+    path: '/panel',
     element: <App />,
-    loader: () => {
-      useUIStore.getState().setPage('pageTitle.main', [])
+    loader: ({ request }) => {
+      useUIStore.getState().setPage(request, 'pageTitle.main', [], 'index')
       return {}
     }
   },
@@ -45,7 +45,7 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage /> // fullscreen error page
     // if a child doesn't provide an errorElement, it will default to this one
   },
-  { path: '/auth', element: <AuthPage /> }
+  { path: '/auth', element: <AuthPage />, loader: loginLoader }
   /*{
     path: '/test/login', // TODO remove in production
     lazy: () => import('@pages/testPage/Login'),

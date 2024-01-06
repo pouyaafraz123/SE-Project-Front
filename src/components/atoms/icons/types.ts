@@ -6,8 +6,11 @@ export type iconNameType = keyof typeof EnumIconName
 export interface IconProps {
   className?: string
   name: iconNameType
-  type?: 'linear' | 'bold' | 'broken' | 'bold-duotone'
+  type?: IIconTypes
   fontSize?: fontSizeType
   fontWeight?: fontWeightType
   color?: color
+  onClick?: () => void
 }
+
+export type IIconTypes = 'linear' | 'bold' | 'broken' | 'bold-duotone'

@@ -21,7 +21,7 @@
 
 @mixin error {
   &[data-validation='error'] {
-    @include border-and-shadow(xs, danger-main);
+    @include border(danger-main);
   }
 }
 
@@ -40,7 +40,7 @@
   appearance: none;
   @include font-size(md);
   min-height: 3rem;
-  border-radius: radius(md);
+  border-radius: radius(sm);
   caret-color: getThemeColor(primary-main);
   transition:
     border-color 0.15s ease-in-out,

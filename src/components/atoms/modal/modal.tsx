@@ -6,7 +6,6 @@ import { getContainerStyle } from '@components/atoms/modal/config.ts'
 import { Box } from '@components/atoms/box'
 import { DragContainer } from '@components/atoms/dragContainer'
 import { blockScroll, restoreScroll } from '@utils'
-import { use } from 'i18next'
 import classes from './styles.module.scss'
 
 /**

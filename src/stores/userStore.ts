@@ -4,24 +4,21 @@ import { UserTypes } from '@constants'
 
 interface UserState {
   isAuthenticated: boolean
-  login: (token: string) => void
+  login: (token: string, role: UserTypes) => void
   logout: () => void
-  role: UserTypes
-  token: string
+  role?: UserTypes
+  token?: string
 }
 
-// TODO: where to store user login? localstorage or cookie???
 export const useUserStore = create<UserState>()(
   subscribeWithSelector(
     persist(
       devtools(
         (set) => ({
-          isAuthenticated: true,
-          login: (token: string) =>
-            set({ isAuthenticated: true, token }, false, 'user/login'),
-          logout: () => set({ isAuthenticated: false }, false, 'user/logout'),
-          role: import.meta.env.VITE_PANEL,
-          token: import.meta.env.VITE_API_TOKEN
+          isAuthenticated: false,
+          login: (token: string, role: UserTypes) =>
+            set({ isAuthenticated: true, token, role }, false, 'user/login'),
+          logout: () => set({ isAuthenticated: false }, false, 'user/logout')
         }),
         {
           enabled: !import.meta.env.PROD,

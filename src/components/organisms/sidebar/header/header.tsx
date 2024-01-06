@@ -20,7 +20,6 @@ export function SideBarHeader(props: IHeaderProps) {
               {t('common.welcome')}
             </Typography>
           </Typography>
-          <Typography variant='caption2'>{props.hfName}</Typography>
         </div>
         {/* <Icon
           name='arrow-down'

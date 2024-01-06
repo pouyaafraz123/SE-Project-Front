@@ -1,11 +1,12 @@
 import { ParseKeys } from 'i18next'
 import { FormikProps } from 'formik'
 import { DatePicker } from '@components/formControls/datePicker'
+import { useCallback } from 'react'
 import { iconNameType } from '@/components/atoms/icons'
 import { Field } from '@/components/fastFields/field/field'
 
 interface IProps<T> {
-  name: keyof T
+  name: keyof T & string
   title: ParseKeys<'form'> // TODO generic namespace
   disabled?: boolean
   placeholder?: string
@@ -21,6 +22,13 @@ export function FastDate<T>(props: IProps<T>) {
   const value = values[name] as Date
   const placeholder = props.placeholder
 
+  const handleChange = useCallback(
+    (val: string) => {
+      setFieldValue(name.toString(), val)
+    },
+    [name, setFieldValue]
+  )
+
   return (
     <Field
       name={props.name}
@@ -32,7 +40,7 @@ export function FastDate<T>(props: IProps<T>) {
       <DatePicker
         placeholder={placeholder}
         id={name.toString()}
-        onChange={(val) => setFieldValue(name.toString(), val)}
+        onChange={handleChange}
         onBlur={handleBlur}
         date={value}
         validation={touched[name] && errors[name] ? 'error' : undefined}

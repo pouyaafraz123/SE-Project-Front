@@ -1,7 +1,6 @@
 import { LoaderFunctionArgs, redirect } from 'react-router-dom'
-import { userAccess } from '@constants'
 import { useUserStore } from '@stores'
-import { matchPath } from 'react-router-dom'
+import { path } from '@routes/path.ts'
 
 /**
 If the user is not logged in we redirect
@@ -21,7 +20,7 @@ export function protectedLoader({ request }: LoaderFunctionArgs) {
   if (!state.token) {
     const params = new URLSearchParams()
     params.set('from', new URL(request.url).pathname)
-    return redirect('/test/login?' + params.toString())
+    return redirect(`${path.auth}?` + params.toString())
   }
   return null
 }
@@ -32,7 +31,7 @@ if user is already logged in, redirect to `from` or `/`
 export function loginLoader({ request }: LoaderFunctionArgs) {
   const state = useUserStore.getState() // we don't need reactive state here
 
-  if (state.token) {
+  if (state.token && state.role) {
     const params = new URL(request.url).searchParams
     return redirect(params.get('from') || '/')
   }

@@ -11,6 +11,7 @@ import { ParseKeys } from 'i18next'
 import { ThemeMode } from '@/theme'
 import { IBreadcrumbs } from '@/interfaces'
 
+export type pageModeType = 'index' | 'edit' | 'view' | 'create'
 interface UIState {
   locale: localeType
   changeLocale: (value: localeType) => void
@@ -20,7 +21,17 @@ interface UIState {
   showAlert: (props: TAlertProps) => void
   pageTitle: ParseKeys<'common'>
   breadcrumbs: IBreadcrumbs
-  setPage: (pageTitle: ParseKeys<'common'>, breadcrumps?: IBreadcrumbs) => void
+  pageMode: pageModeType
+  setPage: (
+    request: Request,
+    pageTitle: ParseKeys<'common'>,
+    breadcrumps: IBreadcrumbs,
+    pageMode: pageModeType
+  ) => void
+  /**
+   * the path that has been set for pageTitle, pageMode and pageBreadcrumbs
+   */
+  locatedPath: string
 }
 
 // partialized items are stored in localStorge
@@ -36,10 +47,16 @@ export const useUIStore = create<UIState>()(
           alertProps: ALERT_DEFAULT_PROPS,
           showAlert: (value) => set({ alertProps: value }),
           pageTitle: 'pageTitle.usersManagement',
+          locatedPath: '',
+          pageMode: 'index',
           breadcrumbs: [],
-          setPage: (pageTitle, breadcrumps) => {
-            set({ pageTitle })
-            breadcrumps && set({ breadcrumbs: breadcrumps })
+          setPage(request, pageTitle, breadcrumps, pageMode) {
+            set({
+              pageTitle: pageTitle,
+              locatedPath: request.url,
+              breadcrumbs: breadcrumps,
+              pageMode: pageMode
+            })
           }
         }),
         {

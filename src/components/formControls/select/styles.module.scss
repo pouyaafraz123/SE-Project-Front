@@ -1,7 +1,7 @@
 @import '../styles.module.scss';
 
 .select {
-  cursor: pointer;
+  cursor: default;
   &:read-only {
     @include default;
   }
@@ -13,10 +13,8 @@
   }
   &[data-readonly='true'] {
     @include readOnly;
-    cursor: default;
   }
   &:disabled {
     @include disabled;
-    cursor: default;
   }
 }
