@@ -13,3 +13,5 @@ export const userTypesValue: Record<UserTypes, string> = {
 export const getUserTypesValue = (role: UserTypes) => {
   return userTypesValue[role]
 }
+
+export type ID = string

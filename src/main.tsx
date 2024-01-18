@@ -10,12 +10,11 @@ import './i18n/i18n'
 import { useErrorHandler } from '@api/errorHandler/apiErrorHandler.tsx'
 
 import { QueryClientProvider } from '@tanstack/react-query'
-import { RouterProvider } from 'react-router-dom'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { axiosClient, queryClient } from '@api/clients.ts'
 
-import { router } from '@/routes'
 import 'react-toastify/dist/ReactToastify.css'
+import { AppRouter } from '@routes/appRouter.tsx'
 
 async function setupMocks() {
   const { worker } = await import('./api/mock.ts')
@@ -30,7 +29,7 @@ export function Root() {
   return (
     <React.StrictMode>
       <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
+        <AppRouter />
         <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
       </QueryClientProvider>
     </React.StrictMode>

@@ -17,7 +17,7 @@ export const ProductSliderStory: Story = {
       {
         img: 'https://images-eds-ssl.xboxlive.com/image?url=7flt5HU26ZSS3Tgted_TMty0wzqMQYpm03yD7eAPRtQBYO5dMlD18uZxNDuKXvpqoIQ98JhFD0JZE25yvmdkL3AIp_IvH2W6_qekI6mI8TSNVa.cXBCK8rk2s9h0ks.bZDPbOTZ4YXbNGJaDQ2arYpEYPcskRU14E50J3DMyubfj8jgjNjncLcPmSOYdj2QPCEaAhNGDthEflof14ZU_4A--&h=720',
         title: 'عکس محصول نمونه',
-        id: 1
+        id: '1'
       }
     ]
   }

@@ -14,7 +14,7 @@ function withPage<T>(
 ): WithPagination<T> {
   return {
     total: list.length,
-    list: list.slice((page - 1) * pageSize, page * pageSize)
+    data: list.slice((page - 1) * pageSize, page * pageSize)
   }
 }
 

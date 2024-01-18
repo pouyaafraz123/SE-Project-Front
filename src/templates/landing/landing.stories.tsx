@@ -18,7 +18,7 @@ const bannerProducts: ISliderItem[] = [...Array(10).keys()]?.map((key) => {
   return {
     title: 'محصول نمونه ' + (key + 1),
     img: `https://picsum.photos/seed/${Math.random()}/600/400`,
-    id: key
+    id: key?.toString()
   }
 })
 

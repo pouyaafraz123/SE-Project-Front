@@ -17,7 +17,7 @@ export { AxiosError }
 
 export interface WithPagination<T> {
   total: number
-  list: T[]
+  data: T[]
 }
 
 export interface IPaginationParams {
