@@ -2,11 +2,11 @@
 
 .productViewer {
   background-position: center;
-  background-size: cover;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   height: 40rem;
   gap: 1rem;
-
+  width: 100%;
   display: flex;
 
   &__backdrop {
@@ -22,7 +22,7 @@
       getColor(var(--theme-primary-background), 85) 95%,
       getColor(var(--theme-primary-background), 100) 100%
     );
-    backdrop-filter: blur(30px);
+    backdrop-filter: blur(100px);
   }
 
   &__imgContainer {
@@ -60,6 +60,7 @@
   &__content {
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
 
   &__featurePart {

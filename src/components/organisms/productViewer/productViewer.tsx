@@ -7,18 +7,27 @@ import { IProduct } from '@/templates/product'
 import { convertCurrency } from '@/utils/currency.ts'
 
 export function ProductViewer(props: IProduct) {
-  const { id, quantity, rating, price, detail, images, title, description } =
-    props
+  const {
+    id,
+    quantity,
+    rating,
+    price,
+    detail,
+    images,
+    cover,
+    title,
+    description
+  } = props
 
   return (
     <div
-      style={{ backgroundImage: `url(${images[0]})` }}
+      style={{ backgroundImage: `url(${cover})` }}
       className={clsx(classes.productViewer)}
     >
       <div className={clsx(classes.productViewer__backdrop)}>
         <div className={clsx(classes.productViewer__imgContainer)}>
           <img
-            src={images[0]}
+            src={cover}
             alt={title}
             className={clsx(classes.productViewer__img)}
           />

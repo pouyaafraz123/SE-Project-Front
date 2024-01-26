@@ -4,8 +4,8 @@ import '../App.css'
 import '@/theme/useTheme'
 import { ToastContainer } from 'react-toastify'
 import { TOAST_CONTAINER_PROPS } from '@configs'
-import { Suspense } from 'react'
-import { SelectBoxContainer } from '@components/molecules/selectBox/index'
+import { Suspense, useEffect } from 'react'
+import { SelectBoxContainer } from '@components/molecules/selectBox'
 import { PageLayout } from '@components/layout/pageLayout'
 import { Sidebar, sidebarFn } from '@components/organisms/sidebar'
 import { sidebarItems } from '@constants'
@@ -26,7 +26,9 @@ export function Component() {
   document.documentElement.dir = i18n.dir()
   document.documentElement.lang = i18n.language
 
-  sidebarFn.setItems(sidebarItems[role!])
+  useEffect(() => {
+    sidebarFn.setItems(sidebarItems[role!])
+  }, [role])
 
   const { data, isLoading } = useProfile()
 

@@ -15,6 +15,7 @@ import { axiosClient, queryClient } from '@api/clients.ts'
 
 import 'react-toastify/dist/ReactToastify.css'
 import { AppRouter } from '@routes/appRouter.tsx'
+import { SelectBoxContainer } from '@components/molecules/selectBox'
 
 async function setupMocks() {
   const { worker } = await import('./api/mock.ts')
@@ -31,6 +32,7 @@ export function Root() {
       <QueryClientProvider client={queryClient}>
         <AppRouter />
         <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
+        <SelectBoxContainer />
       </QueryClientProvider>
     </React.StrictMode>
   )

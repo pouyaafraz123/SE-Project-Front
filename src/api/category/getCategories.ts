@@ -6,12 +6,13 @@ import { axiosClient, AxiosFn, IPaginationParams, WithPagination } from '@/api'
 type Variables = IPaginationParams
 type Response = AxiosResponse<WithPagination<ICategory>>
 
-const key = 'banner-table'
+const key = 'categories-all'
 
 export const getCategories: AxiosFn<Variables, Response> = async (
   params,
   signal
 ) => {
+  console.log('params', params)
   return await axiosClient.get('/panels/categories', { params, signal })
 }
 

@@ -1,5 +1,7 @@
+import { ID } from '@constants'
+
 export interface IProductCardProps {
-  id: string | number
+  id: ID
   title: string
   description: string
   rating: number

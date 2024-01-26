@@ -19,6 +19,7 @@ export interface ITableBasicProps
   type: TTableType
   isFetching?: boolean
   index?: number
+  isLoading?: boolean
 }
 
 export type TTableType = 'basic' | 'row' | 'grid' | 'custom'

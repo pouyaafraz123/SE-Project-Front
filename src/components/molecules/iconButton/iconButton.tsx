@@ -27,6 +27,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IIconButtonProps>(
       fullRounded,
       transparent,
       className,
+      isSmall,
       ...rest
     } = props
 
@@ -38,6 +39,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IIconButtonProps>(
         data-transparent={!!transparent}
         className={clsx(
           classes.button,
+          isSmall && classes.small,
           fullRounded
             ? 'rounded-xlg'
             : transparent

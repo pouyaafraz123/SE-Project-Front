@@ -1,9 +1,10 @@
 import { INavItems } from '@components/molecules/navbar/types.ts'
+import { path } from '@/routes'
 
 export const navItems: INavItems[] = [
-  { id: '1', title: 'صفحه اصلی', link: '/' },
-  { id: '1', title: 'دسته بندی ها', link: '/' },
-  { id: '1', title: 'محصولات', link: '/' },
-  { id: '1', title: 'درباره ما', link: '/' },
-  { id: '1', title: 'تماس با ما', link: '/' }
+  { id: '1', title: 'صفحه اصلی', link: path.common.landing.link() },
+  { id: '2', title: 'دسته بندی ها', link: '/' },
+  { id: '3', title: 'محصولات', link: path.common.productSearch.link() },
+  { id: '4', title: 'درباره ما', link: '/' },
+  { id: '5', title: 'تماس با ما', link: '/' }
 ]

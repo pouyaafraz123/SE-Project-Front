@@ -7,6 +7,7 @@ export interface IProduct {
   id: string | number
   title: string
   rating: number
+  cover: string
   images: string[]
   description: string
   price: number

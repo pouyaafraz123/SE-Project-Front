@@ -2,18 +2,18 @@ import { AxiosError, AxiosResponse } from 'axios'
 import { createQuery } from 'react-query-kit'
 import { ID } from '@constants'
 import { axiosClient, AxiosFn } from '@/api'
-import { IProduct } from '@/templates/product'
+import { IProductEndpoint } from '@api/product/types.ts'
 
 type Variables = { id: ID }
-type Response = AxiosResponse<IProduct>
+type Response = AxiosResponse<IProductEndpoint>
 
 const key = 'product'
 
 export const getProduct: AxiosFn<Variables, Response> = async (
-  params,
+  { id },
   signal
 ) => {
-  return await axiosClient.get('/products/:id', { params, signal })
+  return await axiosClient.get(`/products/${id}`, { signal })
 }
 
 export const useProduct = createQuery<Response, Variables, AxiosError>({

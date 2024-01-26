@@ -43,4 +43,5 @@ export interface IProductTableParams {
   BrandId?: string
   IsDiscount?: boolean
   Order?: 'Newest' | 'Cheapest' | 'Discounted'
+  Title: string
 }

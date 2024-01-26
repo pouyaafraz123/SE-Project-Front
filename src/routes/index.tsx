@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
 
-import { ErrorPage } from '@pages/errorPage/index'
+import { ErrorPage } from '@pages/errorPage'
 import { AuthPage } from '@pages/auth'
 import { commonRoutes } from '@routes/commonRoutes/commonRoutes.tsx'
 import { IExtendedRouteObject } from '@routes/types.ts'
@@ -43,8 +43,12 @@ const getExtractRolesRoute = (
   role: UserTypes | undefined,
   routes: IExtendedRouteObject[]
 ) => {
+  if (!role)
+    return routes
+      ?.filter((route) => route.isPublic)
+      ?.map((route) => route.route)
   return routes
-    ?.filter((route) => route.permissions?.includes(role || UserTypes.CUSTOMER))
+    ?.filter((route) => route.permissions?.includes(role))
     ?.map((route) => route.route)
 }
 export const getRouter = (role?: UserTypes) =>

@@ -21,6 +21,7 @@ export type ExtractParams<Path> = Path extends `${infer Segment}/${infer Rest}`
 export type IExtendedRouteObject = {
   route: RouteObject
   permissions: UserTypes[]
+  isPublic?: boolean
 }
 
 export type IRouteParams<T> = Record<keyof T, string>

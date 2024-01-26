@@ -396,5 +396,8 @@
   "view-stored-result": "نمایش آزمایشات پزشکی",
   "past-medical-history": "مشاهده تاریخچه پزشکی بیمار",
   "medicineName": "دارو",
-  "medicineDosage": "مقدار مصرف"
+  "medicineDosage": "مقدار مصرف",
+  "no_data": "داده ای وجود ندارد",
+  "product_table": "لیست محصولات",
+  "category": "دسته بندی"
 }

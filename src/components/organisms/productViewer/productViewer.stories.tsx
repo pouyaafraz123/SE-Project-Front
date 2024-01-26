@@ -27,6 +27,7 @@ export const ProductViewerStory: Story = {
     detail: {
       رنگ: 'سبز'
     },
-    title: 'گوشی موبایل هوآوی'
+    title: 'گوشی موبایل هوآوی',
+    cover: 'https://picsum.photos/seed/${Math.random()}/600/400'
   }
 }
