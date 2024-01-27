@@ -1,8 +1,8 @@
 import { useProductTable } from '@api/product'
 import { useBannerTable } from '@api/banner'
 import { useCategories } from '@api/category'
-import { Landing } from '@/templates/landing'
 import { BasePage } from '@pages/basePage/basePage.tsx'
+import { Landing } from '@/templates/landing'
 
 export function Component() {
   const { data: bannerProducts } = useProductTable({
@@ -94,7 +94,7 @@ export function Component() {
         }
         categories={
           categories?.data?.data?.map((i) => ({
-            id: i?.name,
+            id: i?.uuid,
             title: i?.name,
             bannerUrl:
               'https://cdn2.vectorstock.com/i/1000x1000/53/56/grunge-black-category-word-square-rubber-seal-vector-30495356.jpg'

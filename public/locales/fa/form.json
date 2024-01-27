@@ -399,5 +399,10 @@
   "medicineDosage": "مقدار مصرف",
   "no_data": "داده ای وجود ندارد",
   "product_table": "لیست محصولات",
-  "category": "دسته بندی"
+  "category": "دسته بندی",
+  "brands": "برند",
+  "brand": "برند",
+  "newest": "جدیدترین",
+  "cheapest": "ارزان ترین",
+  "discounted": "تخفیف دار"
 }

@@ -1,10 +1,12 @@
+import { ID } from '@constants'
+
 export interface IProductTemplateProps {
   product: IProduct
   comments: IComment[]
 }
 
 export interface IProduct {
-  id: string | number
+  id: ID
   title: string
   rating: number
   cover: string

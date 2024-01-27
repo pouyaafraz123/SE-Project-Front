@@ -83,7 +83,7 @@ export const AutoComplete = memo(function AutoComplete(
     [role, dismiss, listNav]
   )
 
-  const items = options.filter((item) =>
+  const items = options?.filter((item) =>
     item.value.toLowerCase().startsWith(inputValue.toLowerCase())
   )
 

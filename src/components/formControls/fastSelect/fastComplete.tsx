@@ -4,7 +4,6 @@ import { Field } from '../field'
 import { FastAutocompleteProps } from './types'
 import { dropdownIcons } from './icon'
 import { AutoComplete } from '@/components/formControls'
-import { QueryVariablesType, useOptions } from '@/api/dropdowns'
 import { IOption } from '@/interfaces'
 
 export function FastComplete<T>(props: FastAutocompleteProps<T>) {
@@ -17,21 +16,15 @@ export function FastComplete<T>(props: FastAutocompleteProps<T>) {
     placeholder,
     readOnly,
     dependencies,
-    disabled
+    disabled,
+    isLoading,
+    isError,
+    options
   } = props
   const { t } = useTranslation('form')
-  const defaultIcon = dropdownIcons[type]
-  const queryVariables: QueryVariablesType = {
-    optionType: type,
-    params: undefined
-  }
-  const { data, isLoading, isError } = useOptions({
-    variables: queryVariables,
-    enabled: !readOnly,
-    staleTime: Infinity,
-    cacheTime: Infinity
-  })
-  const options = data ? data?.data : []
+  const defaultIcon = Object.keys(dropdownIcons)?.includes(type)
+    ? dropdownIcons[type as keyof typeof dropdownIcons]
+    : 'figma'
 
   const _title = title || type
   const { values, setFieldValue, errors, touched, handleBlur } = formik

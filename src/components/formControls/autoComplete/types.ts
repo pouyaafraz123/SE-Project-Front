@@ -5,4 +5,6 @@ import { IOption } from '@/interfaces'
 export interface AutoCompleteProps
   extends OmitSafety<InputProps<IOption>, 'onIconClick'> {
   options: IOption[]
+  isLoading?: boolean
+  isError?: boolean
 }

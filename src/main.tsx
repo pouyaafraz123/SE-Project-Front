@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import './styles/main.css'
@@ -16,6 +16,9 @@ import { axiosClient, queryClient } from '@api/clients.ts'
 import 'react-toastify/dist/ReactToastify.css'
 import { AppRouter } from '@routes/appRouter.tsx'
 import { SelectBoxContainer } from '@components/molecules/selectBox'
+import { TOAST_CONTAINER_PROPS } from '@configs'
+import { ToastContainer } from 'react-toastify'
+import { useUserStore } from '@stores'
 
 async function setupMocks() {
   const { worker } = await import('./api/mock.ts')
@@ -25,17 +28,34 @@ async function setupMocks() {
 
 export function Root() {
   document.documentElement.dir = 'rtl'
-  const errorHandler = useErrorHandler()
-  axiosClient.interceptors.response.use(undefined, errorHandler)
+
+  const token = useUserStore((state) => state.token)
+  useEffect(() => {
+    if (token)
+      axiosClient.defaults.headers.common['Authorization'] = `Bearer ${token}`
+    else delete axiosClient.defaults.headers.common['Authorization']
+  }, [token])
+
   return (
     <React.StrictMode>
       <QueryClientProvider client={queryClient}>
         <AppRouter />
+        <AxiosHandler />
         <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
         <SelectBoxContainer />
+        <ToastContainer {...TOAST_CONTAINER_PROPS} rtl={true} />
       </QueryClientProvider>
     </React.StrictMode>
   )
+}
+
+function AxiosHandler() {
+  const errorHandler = useErrorHandler()
+  useEffect(() => {
+    axiosClient.interceptors.response.use(undefined, errorHandler)
+  }, [errorHandler])
+
+  return <></>
 }
 
 function createRoot() {

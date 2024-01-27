@@ -1,9 +1,11 @@
-@import "src/styles/functions";
+@import 'src/styles/functions';
 
-.basePage{
-
-  &__content{
-	padding: space(l1);
+.basePage {
+  &__content {
+    padding: space(l1);
   }
 
+  &__noPadding {
+    padding: 0;
+  }
 }

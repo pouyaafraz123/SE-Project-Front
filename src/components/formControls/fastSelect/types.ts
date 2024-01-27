@@ -1,9 +1,9 @@
+import { ParseKeys } from 'i18next'
 import { FieldProps } from '../field'
 import { DependentDropdownTypesProps } from './dependentTypes'
 import {
   AllDropdownType,
   DependentAutocompleteType,
-  IndependentAutocompleteType,
   MultiselectType,
   SelectType
 } from '@/api/dropdowns'
@@ -31,11 +31,16 @@ export type FastSelectProps<T> = DropdownProps<SelectType, T> &
 export type FastMultiSelectProps<T> = DropdownProps<MultiselectType, T> &
   Pick<MultiselectProps, 'disabled' | 'readOnly' | 'placeholder'>
 
-export type FastAutocompleteProps<T> = DropdownProps<
-  IndependentAutocompleteType,
-  T
-> &
-  Pick<AutoCompleteProps, 'disabled' | 'readOnly' | 'placeholder'>
+export type FastAutocompleteProps<T> = DropdownProps<ParseKeys<'form'>, T> &
+  Pick<
+    AutoCompleteProps,
+    | 'disabled'
+    | 'readOnly'
+    | 'placeholder'
+    | 'options'
+    | 'isError'
+    | 'isLoading'
+  >
 
 export type DependentAutocompleteProps<T> = DropdownProps<
   DependentAutocompleteType,

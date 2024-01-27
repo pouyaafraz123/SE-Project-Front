@@ -11,7 +11,7 @@ export function ContainerBox({ name, link, children }: IContainerBoxProps) {
   return (
     <div className={clsx(classes.containerBox)}>
       <div
-        onClick={() => navigate(link)}
+        onClick={() => navigate(link?.to, link?.options)}
         className={clsx(
           classes.containerBox__header,
           !link && classes.containerBox__headerNoHover
