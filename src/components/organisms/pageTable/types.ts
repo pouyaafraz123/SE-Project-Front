@@ -37,6 +37,7 @@ export interface ITableHeadingProps {
   onPrint?: () => void
   noDownload?: boolean
   noPrint?: boolean
+  noSearch?: boolean
 }
 
 export interface ITableTabProps {

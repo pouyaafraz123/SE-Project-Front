@@ -35,9 +35,9 @@ export function Component() {
   if (isLoading || !data) return null
 
   const user: IHeaderProps = {
-    firstName: data.data.first_name,
-    lastName: data.data.last_name,
-    imageUrl: data.data.avatar
+    firstName: data.data.firstName,
+    lastName: data.data.lastName,
+    imageUrl: data.data.avatarFile?.url
   }
 
   // TODO loading bar here

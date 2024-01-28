@@ -2,7 +2,6 @@ import { ICartProductCardProps } from '@components/organisms/cartProductCard/typ
 import { Typography } from '@components/atoms/typography'
 import clsx from 'clsx'
 import { AddBox } from '@components/molecules/addBox'
-import { useState } from 'react'
 import classes from './styles.module.scss'
 
 export function CartProductCard({
@@ -11,9 +10,12 @@ export function CartProductCard({
   title,
   price,
   id,
-  discount
+  discount,
+  count,
+  onCountChange,
+  onDelete
 }: ICartProductCardProps) {
-  const [count, setCount] = useState(1)
+  // const [count, setCount] = useState(1)
 
   return (
     <div
@@ -35,23 +37,26 @@ export function CartProductCard({
               <Typography fontSize={'lg'} fontWeight={'bold'}>
                 قیمت: {price}
               </Typography>
-              <Typography
-                fontSize={'lg'}
-                fontWeight={'extra-bold'}
-                color={'danger-dark'}
-              >
-                تخفیف:{' '}
-                <span className={clsx(classes.productCard__discount)}>
-                  %{discount}
-                </span>
-              </Typography>
+              {discount !== 0 && (
+                <Typography
+                  fontSize={'lg'}
+                  fontWeight={'extra-bold'}
+                  color={'danger-dark'}
+                >
+                  تخفیف:{' '}
+                  <span className={clsx(classes.productCard__discount)}>
+                    %{discount}
+                  </span>
+                </Typography>
+              )}
             </div>
           </div>
           <div className={clsx(classes.productCard__addPart)}>
             <AddBox
               count={count}
               maxCount={quantity}
-              onCountChange={(count) => setCount(count)}
+              onCountChange={(count) => onCountChange(count)}
+              onDelete={() => onDelete()}
             />
           </div>
         </div>

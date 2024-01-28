@@ -11,7 +11,9 @@ export function TableHead({
   return (
     <div>
       <TableHeading {...headingProps} />
-      <TableFilterSearch {...tableFilterSearchProps} />
+      {!headingProps?.noSearch && (
+        <TableFilterSearch {...tableFilterSearchProps} />
+      )}
     </div>
   )
 }

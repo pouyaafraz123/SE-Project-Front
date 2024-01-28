@@ -4,9 +4,11 @@ import clsx from 'clsx'
 import { Typography } from '@components/atoms/typography'
 import { usePostCart } from '@api/cart'
 import { notify } from '@components/atoms/notify'
+import { useNavigate } from 'react-router-dom'
 import classes from './styles.module.scss'
 import { IProduct } from '@/templates/product'
 import { convertCurrency } from '@/utils/currency.ts'
+import { path } from '@/routes'
 
 export function ProductViewer(props: IProduct) {
   const {
@@ -22,6 +24,7 @@ export function ProductViewer(props: IProduct) {
   } = props
 
   const { mutate } = usePostCart()
+  const navigate = useNavigate()
 
   return (
     <div
@@ -101,6 +104,7 @@ export function ProductViewer(props: IProduct) {
                             title: 'سبد خرید',
                             text: 'به سبد خرید اضافه شد'
                           })
+                          navigate(path.common.cart.link())
                         }
                       }
                     )

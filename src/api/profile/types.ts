@@ -16,13 +16,18 @@ export interface IFacilityEndpoint {
 }
 
 export interface IProfileEndpoint {
-  id: number
-  first_name: string
-  last_name: string
+  uuid: string
+  firstName: string
+  lastName: string
+  mobileNumber: string
   email: string
-  mobile: string
-  avatar: string
-  facilities: IFacilityEndpoint[]
-  roles: IRoleEndpoint[]
-  current_facility: number
+  role: string
+  userState: string
+  avatarFile: {
+    fileId: string
+    url: string
+  }
+  emailVerifiedAt: string
+  setting: string
+  panelGuid: string
 }

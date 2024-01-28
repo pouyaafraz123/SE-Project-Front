@@ -5,4 +5,7 @@ export interface ICartProductCardProps {
   quantity: number
   price: number
   discount: number
+  count: number
+  onCountChange: (count: number) => void
+  onDelete: () => void
 }

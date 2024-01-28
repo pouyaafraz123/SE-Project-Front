@@ -17,6 +17,8 @@ export const CartProductCardStory: Story = {
     price: 400000000000,
     quantity: 13,
     img: `https://picsum.photos/seed/${Math.random()}/600/400`,
-    discount: 20
+    discount: 20,
+    count: 1,
+    onCountChange: () => {}
   }
 }

@@ -16,5 +16,17 @@ export const path = {
   productSearch: {
     route: '/products',
     link: () => path.productSearch.route
+  },
+  profile: {
+    route: '/profile',
+    link: () => path.profile.route
+  },
+  cart: {
+    route: '/cart',
+    link: () => path.cart.route
+  },
+  address: {
+    route: '/addresses',
+    link: () => path.address.route
   }
 }

@@ -1,0 +1,24 @@
+@import 'src/styles/functions';
+@import 'src/styles/mixins';
+
+.card {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  cursor: pointer;
+  @include disable-select;
+
+  background-color: getColor(var(--theme-primary-background));
+  border: 2px solid getColor(var(--theme-border-dark), 50);
+  border-radius: radius(sm);
+  padding: space(m4) space(l1);
+
+  transition: all 0.3s ease-in-out;
+  direction: rtl;
+
+  &__selected {
+    background-color: getColor(var(--theme-primary-main), 10);
+    border: 2px solid getColor(var(--theme-primary-main));
+  }
+}

@@ -26,5 +26,26 @@ export const commonRoutes: IExtendedRouteObject[] = [
     },
     permissions: [UserTypes.MANAGER, UserTypes.CUSTOMER, UserTypes.STAFF],
     isPublic: true
+  },
+  {
+    route: {
+      path: path.profile.route,
+      lazy: () => import('@pages/panelPage/panelPage')
+    },
+    permissions: [UserTypes.MANAGER, UserTypes.CUSTOMER, UserTypes.STAFF]
+  },
+  {
+    route: {
+      path: path.cart.route,
+      lazy: () => import('@pages/cartPage/cartPage')
+    },
+    permissions: [UserTypes.CUSTOMER]
+  },
+  {
+    route: {
+      path: path.address.route,
+      lazy: () => import('@pages/addressPage/addressPage')
+    },
+    permissions: [UserTypes.CUSTOMER]
   }
 ]

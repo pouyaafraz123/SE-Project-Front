@@ -38,7 +38,10 @@ export function Header({ isNeedBack }: IHeaderProps) {
         <Navbar />
       </div>
       <div className={clsx(classes.header__actionsPlace)}>
-        <div className={clsx(classes.header__action)}>
+        <div
+          className={clsx(classes.header__action)}
+          onClick={() => navigate(path.common.productSearch.link())}
+        >
           <IconButton
             transparent
             icon={
@@ -48,7 +51,10 @@ export function Header({ isNeedBack }: IHeaderProps) {
           />
         </div>
         <div className={clsx(classes.header__sep)}></div>
-        <div className={clsx(classes.header__action)}>
+        <div
+          className={clsx(classes.header__action)}
+          onClick={() => navigate(path.common.profile.link())}
+        >
           <IconButton
             transparent
             icon={

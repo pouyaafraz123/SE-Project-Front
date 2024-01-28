@@ -1,18 +1,18 @@
 import { AxiosResponse } from 'axios'
-import { ICartDTO } from '@api/cart/types.ts'
 import { createMutation } from 'react-query-kit'
 import { useCart } from '@api/cart/getCart.ts'
+import { ID } from '@constants'
 import { axiosClient, AxiosFn, queryClient } from '@/api'
 
-export const postCart: AxiosFn<ICartDTO, AxiosResponse<null>> = (
-  data,
+export const cartDel: AxiosFn<{ id: ID }, AxiosResponse<any>> = (
+  { id },
   signal
 ) => {
-  return axiosClient.post('/users/cart', data, { signal })
+  return axiosClient.delete(`/users/cart/${id}`, { signal })
 }
 
-export const usePostCart = createMutation({
-  mutationFn: (data: ICartDTO) => postCart(data),
+export const useDeleteCart = createMutation({
+  mutationFn: (data: { id: ID }) => cartDel(data),
   onMutate: (newData) => {},
   onError(_error, _variables, context) {},
   onSuccess: (data, _variables, _context) => {

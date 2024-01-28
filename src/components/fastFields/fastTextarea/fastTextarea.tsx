@@ -1,21 +1,14 @@
-import { useCallback } from 'react'
 import { FormikProps } from 'formik'
-import { Input } from '@components/formControls'
+import { Textarea } from '@components/formControls'
 import { ParseKeys } from 'i18next'
 import { useTranslation } from 'react-i18next'
 import { iconNameType, IconProps } from '@components/atoms/icons'
 import { Field } from '@/components/fastFields/field/field'
 import { Extends } from '@/utils'
 
-type types = Extends<
-  ParseKeys<'form'>,
-  'first_name' | 'email' | 'search' | 'address'
->
+type types = Extends<ParseKeys<'form'>, 'address'>
 
 const iconMap: { [key in types]: iconNameType | IconProps } = {
-  first_name: 'user-rounded',
-  email: 'mailbox',
-  search: 'magnifer',
   address: 'map-point'
 }
 
@@ -25,16 +18,13 @@ interface IProps<T> {
   type: types
   disabled?: boolean
   placeholder?: string
-  dependents?: (keyof T)[]
-  dependencies?: (keyof T)[]
   formik: FormikProps<T>
   icon?: iconNameType | IconProps
   readonly?: boolean
   onChange?: (val: string) => void
 }
 
-export function FastInput<T>(props: IProps<T>) {
-  const { onChange } = props
+export function FastTextarea<T>(props: IProps<T>) {
   const { t } = useTranslation('form')
   const title = props.title || props.type
   const placeholder = props.placeholder || t(title)
@@ -43,24 +33,20 @@ export function FastInput<T>(props: IProps<T>) {
   const value = values[name] as string
 
   const icon = props.icon || iconMap[props.type]
-  const changeHandler = useCallback(
-    (val: string) => {
-      onChange?.(val)
-      setFieldValue(name.toString(), val)
-    },
-    [onChange, setFieldValue, name]
-  )
-
   return (
     <Field name={name} title={title} formik={props.formik} icon={icon}>
-      <Input
+      <Textarea
         placeholder={placeholder}
         id={name.toString()}
-        onChange={changeHandler}
+        onChange={(val) => {
+          props?.onChange?.(val)
+          setFieldValue(name.toString(), val)
+        }}
         onBlur={handleBlur}
         value={value}
         validation={touched[name] && errors[name] ? 'error' : undefined}
         readOnly={props.readonly}
+        disabled={props.disabled}
       />
     </Field>
   )

@@ -43,6 +43,8 @@ export function Component() {
         onCategoryChange={(value) => setCategory(value)}
         onBrandChange={(value) => setBrand(value)}
         onOrderChange={(value) => setOrder(value)}
+        isFetching={isFetching}
+        isLoading={isLoading}
       />
     </BasePage>
   )

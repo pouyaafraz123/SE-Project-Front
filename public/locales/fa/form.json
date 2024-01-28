@@ -404,5 +404,9 @@
   "brand": "برند",
   "newest": "جدیدترین",
   "cheapest": "ارزان ترین",
-  "discounted": "تخفیف دار"
+  "discounted": "تخفیف دار",
+  "cart_table": "سبد خرید",
+  "addresses": "آدرس ها",
+  "add_address": "اضافه کردن آدرس",
+  "select_address": "انتخاب آدرس"
 }
