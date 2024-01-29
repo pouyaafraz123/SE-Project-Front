@@ -28,5 +28,13 @@ export const path = {
   address: {
     route: '/addresses',
     link: () => path.address.route
+  },
+  categoryTable: {
+    route: '/category',
+    link: () => path.categoryTable.route
+  },
+  profileEdit: {
+    route: '/profile/edit',
+    link: () => path.profileEdit.route
   }
 }

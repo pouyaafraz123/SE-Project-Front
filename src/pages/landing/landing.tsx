@@ -97,7 +97,7 @@ export function Component() {
             id: i?.uuid,
             title: i?.name,
             bannerUrl:
-              'https://cdn2.vectorstock.com/i/1000x1000/53/56/grunge-black-category-word-square-rubber-seal-vector-30495356.jpg'
+              'https://files.virgool.io/upload/users/3239/posts/silsu6rfdea9/yu8fghqbaecj.jpeg'
           })) || []
         }
         banners={

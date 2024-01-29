@@ -31,3 +31,10 @@ export interface IProfileEndpoint {
   setting: string
   panelGuid: string
 }
+
+export interface IProfileDTO {
+  firstName: string
+  lastName: string
+  mobileNumber: string
+  avatarFileId: string
+}

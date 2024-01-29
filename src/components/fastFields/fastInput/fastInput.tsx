@@ -9,14 +9,15 @@ import { Extends } from '@/utils'
 
 type types = Extends<
   ParseKeys<'form'>,
-  'first_name' | 'email' | 'search' | 'address'
+  'first_name' | 'email' | 'search' | 'address' | 'last_name'
 >
 
 const iconMap: { [key in types]: iconNameType | IconProps } = {
   first_name: 'user-rounded',
   email: 'mailbox',
   search: 'magnifer',
-  address: 'map-point'
+  address: 'map-point',
+  last_name: 'user-rounded'
 }
 
 interface IProps<T> {

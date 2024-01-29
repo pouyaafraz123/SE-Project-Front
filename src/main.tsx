@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import './styles/main.css'
@@ -39,11 +39,13 @@ export function Root() {
   return (
     <React.StrictMode>
       <QueryClientProvider client={queryClient}>
-        <AppRouter />
-        <AxiosHandler />
-        <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
-        <SelectBoxContainer />
-        <ToastContainer {...TOAST_CONTAINER_PROPS} rtl={true} />
+        <Suspense fallback={<div>در حال لود ...</div>}>
+          <AppRouter />
+          <AxiosHandler />
+          <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
+          <SelectBoxContainer />
+          <ToastContainer {...TOAST_CONTAINER_PROPS} rtl={true} />
+        </Suspense>
       </QueryClientProvider>
     </React.StrictMode>
   )

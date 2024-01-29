@@ -1,6 +1,5 @@
-import { ReactNode } from 'react'
-import { color } from '@constants'
-import { IResponse } from '@/api/types'
+import {ReactNode} from 'react'
+import {color} from '@constants'
 
 /**
  * Type representing different notification types.
@@ -39,7 +38,7 @@ export interface TPromiseNotifProps {
   pendingMessage: TNotifMessage
   resolvedMessage?: TNotifMessage
   rejectMessage?: TNotifMessage
-  promise: Promise<IResponse<unknown> | void>
+  promise: Promise<any>
 }
 
 /**

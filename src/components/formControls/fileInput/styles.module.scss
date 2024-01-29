@@ -1,0 +1,23 @@
+@import 'src/styles/functions.scss';
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: space(2m1);
+  margin-top: space(l1);
+}
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: space(m3);
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+  max-width: 20rem;
+  border-radius: 10px;
+  border: 2px solid getColor(var(--theme-border-dark));
+  box-shadow: 0 10px 20px 20px getColor(var(--theme-border-dark),20);
+}

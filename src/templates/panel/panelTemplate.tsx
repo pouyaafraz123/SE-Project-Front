@@ -11,6 +11,12 @@ export function PanelTemplate({ id }: IPanelTemplateProps) {
     <div>
       <Grid>
         <PanelCard
+          title={'ویرایش پروفایل'}
+          onClick={() => {
+            navigate(path.common.profileEdit.link())
+          }}
+        />
+        <PanelCard
           title={'سبد خرید'}
           onClick={() => {
             navigate(path.common.cart.link())

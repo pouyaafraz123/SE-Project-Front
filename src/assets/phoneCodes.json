@@ -1,0 +1,1219 @@
+{
+  "data": [
+    {
+      "key": "+93",
+      "value": "\u0627\u0641\u063a\u0627\u0646\u0633\u062a\u0627\u0646",
+      "flag": "af"
+    },
+    {
+      "key": "+358-18",
+      "value": "\u00c5land",
+      "flag": "ax"
+    },
+    {
+      "key": "+355",
+      "value": "Shqip\u00ebria",
+      "flag": "al"
+    },
+    {
+      "key": "+213",
+      "value": "\u0627\u0644\u062c\u0632\u0627\u0626\u0631",
+      "flag": "dz"
+    },
+    {
+      "key": "+1-684",
+      "value": "American Samoa",
+      "flag": "as"
+    },
+    {
+      "key": "+376",
+      "value": "Andorra",
+      "flag": "ad"
+    },
+    {
+      "key": "+244",
+      "value": "Angola",
+      "flag": "ao"
+    },
+    {
+      "key": "+1-264",
+      "value": "Anguilla",
+      "flag": "ai"
+    },
+    {
+      "key": "+672",
+      "value": "Antarctica",
+      "flag": "aq"
+    },
+    {
+      "key": "+1-268",
+      "value": "Antigua and Barbuda",
+      "flag": "ag"
+    },
+    {
+      "key": "+54",
+      "value": "Argentina",
+      "flag": "ar"
+    },
+    {
+      "key": "+374",
+      "value": "\u0540\u0561\u0575\u0561\u057d\u057f\u0561\u0576",
+      "flag": "am"
+    },
+    {
+      "key": "+297",
+      "value": "Aruba",
+      "flag": "aw"
+    },
+    {
+      "key": "+61",
+      "value": "Australia",
+      "flag": "au"
+    },
+    {
+      "key": "+43",
+      "value": "\u00d6sterreich",
+      "flag": "at"
+    },
+    {
+      "key": "+994",
+      "value": "Az\u0259rbaycan",
+      "flag": "az"
+    },
+    {
+      "key": "+973",
+      "value": "\u0627\u0644\u0628\u062d\u0631\u064a\u0646",
+      "flag": "bh"
+    },
+    {
+      "key": "+880",
+      "value": "Bangladesh",
+      "flag": "bd"
+    },
+    {
+      "key": "+1-246",
+      "value": "Barbados",
+      "flag": "bb"
+    },
+    {
+      "key": "+375",
+      "value": "\u0411\u0435\u043b\u0430\u0440\u0443\u0301\u0441\u044c",
+      "flag": "by"
+    },
+    {
+      "key": "+32",
+      "value": "Belgi\u00eb",
+      "flag": "be"
+    },
+    {
+      "key": "+501",
+      "value": "Belize",
+      "flag": "bz"
+    },
+    {
+      "key": "+229",
+      "value": "B\u00e9nin",
+      "flag": "bj"
+    },
+    {
+      "key": "+1-441",
+      "value": "Bermuda",
+      "flag": "bm"
+    },
+    {
+      "key": "+975",
+      "value": "\u02bcbrug-yul",
+      "flag": "bt"
+    },
+    {
+      "key": "+591",
+      "value": "Bolivia",
+      "flag": "bo"
+    },
+    {
+      "key": "+387",
+      "value": "Bosna i Hercegovina",
+      "flag": "ba"
+    },
+    {
+      "key": "+267",
+      "value": "Botswana",
+      "flag": "bw"
+    },
+    {
+      "key": "+55",
+      "value": "Brasil",
+      "flag": "br"
+    },
+    {
+      "key": "+246",
+      "value": "British Indian Ocean Territory",
+      "flag": "io"
+    },
+    {
+      "key": "+673",
+      "value": "Negara Brunei Darussalam",
+      "flag": "bn"
+    },
+    {
+      "key": "+359",
+      "value": "\u0411\u044a\u043b\u0433\u0430\u0440\u0438\u044f",
+      "flag": "bg"
+    },
+    {
+      "key": "+226",
+      "value": "Burkina Faso",
+      "flag": "bf"
+    },
+    {
+      "key": "+257",
+      "value": "Burundi",
+      "flag": "bi"
+    },
+    {
+      "key": "+855",
+      "value": "K\u00e2mp\u016dch\u00e9a",
+      "flag": "kh"
+    },
+    {
+      "key": "+237",
+      "value": "Cameroon",
+      "flag": "cm"
+    },
+    {
+      "key": "+1",
+      "value": "Canada",
+      "flag": "ca"
+    },
+    {
+      "key": "+238",
+      "value": "Cabo Verde",
+      "flag": "cv"
+    },
+    {
+      "key": "+1-345",
+      "value": "Cayman Islands",
+      "flag": "ky"
+    },
+    {
+      "key": "+236",
+      "value": "K\u00f6d\u00f6r\u00f6s\u00ease t\u00ee B\u00eaafr\u00eeka",
+      "flag": "cf"
+    },
+    {
+      "key": "+235",
+      "value": "Tchad",
+      "flag": "td"
+    },
+    {
+      "key": "+56",
+      "value": "Chile",
+      "flag": "cl"
+    },
+    {
+      "key": "+86",
+      "value": "\u4e2d\u56fd",
+      "flag": "cn"
+    },
+    {
+      "key": "+61",
+      "value": "Christmas Island",
+      "flag": "cx"
+    },
+    {
+      "key": "+61",
+      "value": "Cocos (Keeling) Islands",
+      "flag": "cc"
+    },
+    {
+      "key": "+57",
+      "value": "Colombia",
+      "flag": "co"
+    },
+    {
+      "key": "+269",
+      "value": "Komori",
+      "flag": "km"
+    },
+    {
+      "key": "+242",
+      "value": "R\u00e9publique du Congo",
+      "flag": "cg"
+    },
+    {
+      "key": "+682",
+      "value": "Cook Islands",
+      "flag": "ck"
+    },
+    {
+      "key": "+506",
+      "value": "Costa Rica",
+      "flag": "cr"
+    },
+    {
+      "key": "+225",
+      "value": "Cote D'Ivoire (Ivory Coast)",
+      "flag": "ci"
+    },
+    {
+      "key": "+385",
+      "value": "Hrvatska",
+      "flag": "hr"
+    },
+    {
+      "key": "+53",
+      "value": "Cuba",
+      "flag": "cu"
+    },
+    {
+      "key": "+357",
+      "value": "\u039a\u03cd\u03c0\u03c1\u03bf\u03c2",
+      "flag": "cy"
+    },
+    {
+      "key": "+420",
+      "value": "\u010cesk\u00e1 republika",
+      "flag": "cz"
+    },
+    {
+      "key": "+243",
+      "value": "R\u00e9publique d\u00e9mocratique du Congo",
+      "flag": "cd"
+    },
+    {
+      "key": "+45",
+      "value": "Danmark",
+      "flag": "dk"
+    },
+    {
+      "key": "+253",
+      "value": "Djibouti",
+      "flag": "dj"
+    },
+    {
+      "key": "+1-767",
+      "value": "Dominica",
+      "flag": "dm"
+    },
+    {
+      "key": "+1-809,+1-829,+1-849",
+      "value": "Rep\u00fablica Dominicana",
+      "flag": "do"
+    },
+    {
+      "key": "+670",
+      "value": "Timor-Leste",
+      "flag": "tl"
+    },
+    {
+      "key": "+593",
+      "value": "Ecuador",
+      "flag": "ec"
+    },
+    {
+      "key": "+20",
+      "value": "\u0645\u0635\u0631\u200e",
+      "flag": "eg"
+    },
+    {
+      "key": "+503",
+      "value": "El Salvador",
+      "flag": "sv"
+    },
+    {
+      "key": "+240",
+      "value": "Guinea Ecuatorial",
+      "flag": "gq"
+    },
+    {
+      "key": "+291",
+      "value": "\u12a4\u122d\u1275\u122b",
+      "flag": "er"
+    },
+    {
+      "key": "+372",
+      "value": "Eesti",
+      "flag": "ee"
+    },
+    {
+      "key": "+251",
+      "value": "\u12a2\u1275\u12ee\u1335\u12eb",
+      "flag": "et"
+    },
+    {
+      "key": "+500",
+      "value": "Falkland Islands",
+      "flag": "fk"
+    },
+    {
+      "key": "+298",
+      "value": "F\u00f8royar",
+      "flag": "fo"
+    },
+    {
+      "key": "+679",
+      "value": "Fiji",
+      "flag": "fj"
+    },
+    {
+      "key": "+358",
+      "value": "Suomi",
+      "flag": "fi"
+    },
+    {
+      "key": "+33",
+      "value": "France",
+      "flag": "fr"
+    },
+    {
+      "key": "+594",
+      "value": "Guyane fran\u00e7aise",
+      "flag": "gf"
+    },
+    {
+      "key": "+689",
+      "value": "Polyn\u00e9sie fran\u00e7aise",
+      "flag": "pf"
+    },
+    {
+      "key": "+241",
+      "value": "Gabon",
+      "flag": "ga"
+    },
+    {
+      "key": "+220",
+      "value": "Gambia",
+      "flag": "gm"
+    },
+    {
+      "key": "+995",
+      "value": "\u10e1\u10d0\u10e5\u10d0\u10e0\u10d7\u10d5\u10d4\u10da\u10dd",
+      "flag": "ge"
+    },
+    {
+      "key": "+49",
+      "value": "Deutschland",
+      "flag": "de"
+    },
+    {
+      "key": "+233",
+      "value": "Ghana",
+      "flag": "gh"
+    },
+    {
+      "key": "+350",
+      "value": "Gibraltar",
+      "flag": "gi"
+    },
+    {
+      "key": "+30",
+      "value": "\u0395\u03bb\u03bb\u03ac\u03b4\u03b1",
+      "flag": "gr"
+    },
+    {
+      "key": "+299",
+      "value": "Kalaallit Nunaat",
+      "flag": "gl"
+    },
+    {
+      "key": "+1-473",
+      "value": "Grenada",
+      "flag": "gd"
+    },
+    {
+      "key": "+590",
+      "value": "Guadeloupe",
+      "flag": "gp"
+    },
+    {
+      "key": "+1-671",
+      "value": "Guam",
+      "flag": "gu"
+    },
+    {
+      "key": "+502",
+      "value": "Guatemala",
+      "flag": "gt"
+    },
+    {
+      "key": "+44-1481",
+      "value": "Guernsey",
+      "flag": "gg"
+    },
+    {
+      "key": "+224",
+      "value": "Guin\u00e9e",
+      "flag": "gn"
+    },
+    {
+      "key": "+245",
+      "value": "Guin\u00e9-Bissau",
+      "flag": "gw"
+    },
+    {
+      "key": "+592",
+      "value": "Guyana",
+      "flag": "gy"
+    },
+    {
+      "key": "+509",
+      "value": "Ha\u00efti",
+      "flag": "ht"
+    },
+    {
+      "key": "+504",
+      "value": "Honduras",
+      "flag": "hn"
+    },
+    {
+      "key": "+852",
+      "value": "\u9999\u6e2f",
+      "flag": "hk"
+    },
+    {
+      "key": "+36",
+      "value": "Magyarorsz\u00e1g",
+      "flag": "hu"
+    },
+    {
+      "key": "+354",
+      "value": "\u00cdsland",
+      "flag": "is"
+    },
+    {
+      "key": "+91",
+      "value": "\u092d\u093e\u0930\u0924",
+      "flag": "in"
+    },
+    {
+      "key": "+62",
+      "value": "Indonesia",
+      "flag": "id"
+    },
+    {
+      "key": "+98",
+      "value": "\u0627\u06cc\u0631\u0627\u0646",
+      "flag": "ir"
+    },
+    {
+      "key": "+964",
+      "value": "\u0627\u0644\u0639\u0631\u0627\u0642",
+      "flag": "iq"
+    },
+    {
+      "key": "+353",
+      "value": "\u00c9ire",
+      "flag": "ie"
+    },
+    {
+      "key": "+972",
+      "value": "\u05d9\u05b4\u05e9\u05b0\u05c2\u05e8\u05b8\u05d0\u05b5\u05dc",
+      "flag": "il"
+    },
+    {
+      "key": "+39",
+      "value": "Italia",
+      "flag": "it"
+    },
+    {
+      "key": "+1-876",
+      "value": "Jamaica",
+      "flag": "jm"
+    },
+    {
+      "key": "+81",
+      "value": "\u65e5\u672c",
+      "flag": "jp"
+    },
+    {
+      "key": "+44-1534",
+      "value": "Jersey",
+      "flag": "je"
+    },
+    {
+      "key": "+962",
+      "value": "\u0627\u0644\u0623\u0631\u062f\u0646",
+      "flag": "jo"
+    },
+    {
+      "key": "+7",
+      "value": "\u049a\u0430\u0437\u0430\u049b\u0441\u0442\u0430\u043d",
+      "flag": "kz"
+    },
+    {
+      "key": "+254",
+      "value": "Kenya",
+      "flag": "ke"
+    },
+    {
+      "key": "+686",
+      "value": "Kiribati",
+      "flag": "ki"
+    },
+    {
+      "key": "+383",
+      "value": "Republika e Kosov\u00ebs",
+      "flag": "xk"
+    },
+    {
+      "key": "+965",
+      "value": "\u0627\u0644\u0643\u0648\u064a\u062a",
+      "flag": "kw"
+    },
+    {
+      "key": "+996",
+      "value": "\u041a\u044b\u0440\u0433\u044b\u0437\u0441\u0442\u0430\u043d",
+      "flag": "kg"
+    },
+    {
+      "key": "+856",
+      "value": "\u0eaa\u0e9b\u0e9b\u0ea5\u0eb2\u0ea7",
+      "flag": "la"
+    },
+    {
+      "key": "+371",
+      "value": "Latvija",
+      "flag": "lv"
+    },
+    {
+      "key": "+961",
+      "value": "\u0644\u0628\u0646\u0627\u0646",
+      "flag": "lb"
+    },
+    {
+      "key": "+266",
+      "value": "Lesotho",
+      "flag": "ls"
+    },
+    {
+      "key": "+231",
+      "value": "Liberia",
+      "flag": "lr"
+    },
+    {
+      "key": "+218",
+      "value": "\u200f\u0644\u064a\u0628\u064a\u0627",
+      "flag": "ly"
+    },
+    {
+      "key": "+423",
+      "value": "Liechtenstein",
+      "flag": "li"
+    },
+    {
+      "key": "+370",
+      "value": "Lietuva",
+      "flag": "lt"
+    },
+    {
+      "key": "+352",
+      "value": "Luxembourg",
+      "flag": "lu"
+    },
+    {
+      "key": "+853",
+      "value": "\u6fb3\u9580",
+      "flag": "mo"
+    },
+    {
+      "key": "+389",
+      "value": "\u0421\u0435\u0432\u0435\u0440\u043d\u0430 \u041c\u0430\u043a\u0435\u0434\u043e\u043d\u0438\u0458\u0430",
+      "flag": "mk"
+    },
+    {
+      "key": "+261",
+      "value": "Madagasikara",
+      "flag": "mg"
+    },
+    {
+      "key": "+265",
+      "value": "Malawi",
+      "flag": "mw"
+    },
+    {
+      "key": "+60",
+      "value": "Malaysia",
+      "flag": "my"
+    },
+    {
+      "key": "+960",
+      "value": "Maldives",
+      "flag": "mv"
+    },
+    {
+      "key": "+223",
+      "value": "Mali",
+      "flag": "ml"
+    },
+    {
+      "key": "+356",
+      "value": "Malta",
+      "flag": "mt"
+    },
+    {
+      "key": "+44-1624",
+      "value": "Isle of Man",
+      "flag": "im"
+    },
+    {
+      "key": "+692",
+      "value": "M\u0327aje\u013c",
+      "flag": "mh"
+    },
+    {
+      "key": "+596",
+      "value": "Martinique",
+      "flag": "mq"
+    },
+    {
+      "key": "+222",
+      "value": "\u0645\u0648\u0631\u064a\u062a\u0627\u0646\u064a\u0627",
+      "flag": "mr"
+    },
+    {
+      "key": "+230",
+      "value": "Maurice",
+      "flag": "mu"
+    },
+    {
+      "key": "+262",
+      "value": "Mayotte",
+      "flag": "yt"
+    },
+    {
+      "key": "+52",
+      "value": "M\u00e9xico",
+      "flag": "mx"
+    },
+    {
+      "key": "+691",
+      "value": "Micronesia",
+      "flag": "fm"
+    },
+    {
+      "key": "+373",
+      "value": "Moldova",
+      "flag": "md"
+    },
+    {
+      "key": "+377",
+      "value": "Monaco",
+      "flag": "mc"
+    },
+    {
+      "key": "+976",
+      "value": "\u041c\u043e\u043d\u0433\u043e\u043b \u0443\u043b\u0441",
+      "flag": "mn"
+    },
+    {
+      "key": "+382",
+      "value": "\u0426\u0440\u043d\u0430 \u0413\u043e\u0440\u0430",
+      "flag": "me"
+    },
+    {
+      "key": "+1-664",
+      "value": "Montserrat",
+      "flag": "ms"
+    },
+    {
+      "key": "+212",
+      "value": "\u0627\u0644\u0645\u063a\u0631\u0628",
+      "flag": "ma"
+    },
+    {
+      "key": "+258",
+      "value": "Mo\u00e7ambique",
+      "flag": "mz"
+    },
+    {
+      "key": "+95",
+      "value": "\u1019\u103c\u1014\u103a\u1019\u102c",
+      "flag": "mm"
+    },
+    {
+      "key": "+264",
+      "value": "Namibia",
+      "flag": "na"
+    },
+    {
+      "key": "+674",
+      "value": "Nauru",
+      "flag": "nr"
+    },
+    {
+      "key": "+977",
+      "value": "\u0928\u092a\u0932",
+      "flag": "np"
+    },
+    {
+      "key": "+31",
+      "value": "Nederland",
+      "flag": "nl"
+    },
+    {
+      "key": "+687",
+      "value": "Nouvelle-Cal\u00e9donie",
+      "flag": "nc"
+    },
+    {
+      "key": "+64",
+      "value": "New Zealand",
+      "flag": "nz"
+    },
+    {
+      "key": "+505",
+      "value": "Nicaragua",
+      "flag": "ni"
+    },
+    {
+      "key": "+227",
+      "value": "Niger",
+      "flag": "ne"
+    },
+    {
+      "key": "+234",
+      "value": "Nigeria",
+      "flag": "ng"
+    },
+    {
+      "key": "+683",
+      "value": "Niu\u0113",
+      "flag": "nu"
+    },
+    {
+      "key": "+672",
+      "value": "Norfolk Island",
+      "flag": "nf"
+    },
+    {
+      "key": "+850",
+      "value": "\ubd81\ud55c",
+      "flag": "kp"
+    },
+    {
+      "key": "+1-670",
+      "value": "Northern Mariana Islands",
+      "flag": "mp"
+    },
+    {
+      "key": "+47",
+      "value": "Norge",
+      "flag": "no"
+    },
+    {
+      "key": "+968",
+      "value": "\u0639\u0645\u0627\u0646",
+      "flag": "om"
+    },
+    {
+      "key": "+92",
+      "value": "Pakistan",
+      "flag": "pk"
+    },
+    {
+      "key": "+680",
+      "value": "Palau",
+      "flag": "pw"
+    },
+    {
+      "key": "+970",
+      "value": "\u0641\u0644\u0633\u0637\u064a\u0646",
+      "flag": "ps"
+    },
+    {
+      "key": "+507",
+      "value": "Panam\u00e1",
+      "flag": "pa"
+    },
+    {
+      "key": "+675",
+      "value": "Papua Niugini",
+      "flag": "pg"
+    },
+    {
+      "key": "+595",
+      "value": "Paraguay",
+      "flag": "py"
+    },
+    {
+      "key": "+51",
+      "value": "Per\u00fa",
+      "flag": "pe"
+    },
+    {
+      "key": "+63",
+      "value": "Pilipinas",
+      "flag": "ph"
+    },
+    {
+      "key": "+870",
+      "value": "Pitcairn Islands",
+      "flag": "pn"
+    },
+    {
+      "key": "+48",
+      "value": "Polska",
+      "flag": "pl"
+    },
+    {
+      "key": "+351",
+      "value": "Portugal",
+      "flag": "pt"
+    },
+    {
+      "key": "+1-787, +1-939",
+      "value": "Puerto Rico",
+      "flag": "pr"
+    },
+    {
+      "key": "+974",
+      "value": "\u0642\u0637\u0631",
+      "flag": "qa"
+    },
+    {
+      "key": "+262",
+      "value": "La R\u00e9union",
+      "flag": "re"
+    },
+    {
+      "key": "+40",
+      "value": "Rom\u00e2nia",
+      "flag": "ro"
+    },
+    {
+      "key": "+7",
+      "value": "\u0420\u043e\u0441\u0441\u0438\u044f",
+      "flag": "ru"
+    },
+    {
+      "key": "+250",
+      "value": "Rwanda",
+      "flag": "rw"
+    },
+    {
+      "key": "+290",
+      "value": "Saint Helena",
+      "flag": "sh"
+    },
+    {
+      "key": "+1-869",
+      "value": "Saint Kitts and Nevis",
+      "flag": "kn"
+    },
+    {
+      "key": "+1-758",
+      "value": "Saint Lucia",
+      "flag": "lc"
+    },
+    {
+      "key": "+508",
+      "value": "Saint-Pierre-et-Miquelon",
+      "flag": "pm"
+    },
+    {
+      "key": "+1-784",
+      "value": "Saint Vincent and the Grenadines",
+      "flag": "vc"
+    },
+    {
+      "key": "+590",
+      "value": "Saint-Barth\u00e9lemy",
+      "flag": "bl"
+    },
+    {
+      "key": "+590",
+      "value": "Saint-Martin",
+      "flag": "mf"
+    },
+    {
+      "key": "+685",
+      "value": "Samoa",
+      "flag": "ws"
+    },
+    {
+      "key": "+378",
+      "value": "San Marino",
+      "flag": "sm"
+    },
+    {
+      "key": "+239",
+      "value": "S\u00e3o Tom\u00e9 e Pr\u00edncipe",
+      "flag": "st"
+    },
+    {
+      "key": "+966",
+      "value": "\u0627\u0644\u0645\u0645\u0644\u0643\u0629 \u0627\u0644\u0639\u0631\u0628\u064a\u0629 \u0627\u0644\u0633\u0639\u0648\u062f\u064a\u0629",
+      "flag": "sa"
+    },
+    {
+      "key": "+221",
+      "value": "S\u00e9n\u00e9gal",
+      "flag": "sn"
+    },
+    {
+      "key": "+381",
+      "value": "\u0421\u0440\u0431\u0438\u0458\u0430",
+      "flag": "rs"
+    },
+    {
+      "key": "+248",
+      "value": "Seychelles",
+      "flag": "sc"
+    },
+    {
+      "key": "+232",
+      "value": "Sierra Leone",
+      "flag": "sl"
+    },
+    {
+      "key": "+65",
+      "value": "Singapore",
+      "flag": "sg"
+    },
+    {
+      "key": "+1721",
+      "value": "Sint Maarten",
+      "flag": "sx"
+    },
+    {
+      "key": "+421",
+      "value": "Slovensko",
+      "flag": "sk"
+    },
+    {
+      "key": "+386",
+      "value": "Slovenija",
+      "flag": "si"
+    },
+    {
+      "key": "+677",
+      "value": "Solomon Islands",
+      "flag": "sb"
+    },
+    {
+      "key": "+252",
+      "value": "Soomaaliya",
+      "flag": "so"
+    },
+    {
+      "key": "+27",
+      "value": "South Africa",
+      "flag": "za"
+    },
+    {
+      "key": "+500",
+      "value": "South Georgia",
+      "flag": "gs"
+    },
+    {
+      "key": "+82",
+      "value": "\ub300\ud55c\ubbfc\uad6d",
+      "flag": "kr"
+    },
+    {
+      "key": "+211",
+      "value": "South Sudan",
+      "flag": "ss"
+    },
+    {
+      "key": "+34",
+      "value": "Espa\u00f1a",
+      "flag": "es"
+    },
+    {
+      "key": "+94",
+      "value": "\u015br\u012b la\u1e43k\u0101va",
+      "flag": "lk"
+    },
+    {
+      "key": "+249",
+      "value": "\u0627\u0644\u0633\u0648\u062f\u0627\u0646",
+      "flag": "sd"
+    },
+    {
+      "key": "+597",
+      "value": "Suriname",
+      "flag": "sr"
+    },
+    {
+      "key": "+47",
+      "value": "Svalbard og Jan Mayen",
+      "flag": "sj"
+    },
+    {
+      "key": "+268",
+      "value": "Swaziland",
+      "flag": "sz"
+    },
+    {
+      "key": "+46",
+      "value": "Sverige",
+      "flag": "se"
+    },
+    {
+      "key": "+41",
+      "value": "Schweiz",
+      "flag": "ch"
+    },
+    {
+      "key": "+963",
+      "value": "\u0633\u0648\u0631\u064a\u0627",
+      "flag": "sy"
+    },
+    {
+      "key": "+886",
+      "value": "\u81fa\u7063",
+      "flag": "tw"
+    },
+    {
+      "key": "+992",
+      "value": "\u0422\u043e\u04b7\u0438\u043a\u0438\u0441\u0442\u043e\u043d",
+      "flag": "tj"
+    },
+    {
+      "key": "+255",
+      "value": "Tanzania",
+      "flag": "tz"
+    },
+    {
+      "key": "+66",
+      "value": "\u0e1b\u0e23\u0e30\u0e40\u0e17\u0e28\u0e44\u0e17\u0e22",
+      "flag": "th"
+    },
+    {
+      "key": "+1-242",
+      "value": "Bahamas",
+      "flag": "bs"
+    },
+    {
+      "key": "+228",
+      "value": "Togo",
+      "flag": "tg"
+    },
+    {
+      "key": "+690",
+      "value": "Tokelau",
+      "flag": "tk"
+    },
+    {
+      "key": "+676",
+      "value": "Tonga",
+      "flag": "to"
+    },
+    {
+      "key": "+1-868",
+      "value": "Trinidad and Tobago",
+      "flag": "tt"
+    },
+    {
+      "key": "+216",
+      "value": "\u062a\u0648\u0646\u0633",
+      "flag": "tn"
+    },
+    {
+      "key": "+90",
+      "value": "T\u00fcrkiye",
+      "flag": "tr"
+    },
+    {
+      "key": "+993",
+      "value": "T\u00fcrkmenistan",
+      "flag": "tm"
+    },
+    {
+      "key": "+1-649",
+      "value": "Turks and Caicos Islands",
+      "flag": "tc"
+    },
+    {
+      "key": "+688",
+      "value": "Tuvalu",
+      "flag": "tv"
+    },
+    {
+      "key": "+256",
+      "value": "Uganda",
+      "flag": "ug"
+    },
+    {
+      "key": "+380",
+      "value": "\u0423\u043a\u0440\u0430\u0457\u043d\u0430",
+      "flag": "ua"
+    },
+    {
+      "key": "+971",
+      "value": "\u062f\u0648\u0644\u0629 \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a \u0627\u0644\u0639\u0631\u0628\u064a\u0629 \u0627\u0644\u0645\u062a\u062d\u062f\u0629",
+      "flag": "ae"
+    },
+    {
+      "key": "+44",
+      "value": "United Kingdom",
+      "flag": "gb"
+    },
+    {
+      "key": "+1",
+      "value": "United States",
+      "flag": "us"
+    },
+    {
+      "key": "+598",
+      "value": "Uruguay",
+      "flag": "uy"
+    },
+    {
+      "key": "+998",
+      "value": "O\u2018zbekiston",
+      "flag": "uz"
+    },
+    {
+      "key": "+678",
+      "value": "Vanuatu",
+      "flag": "vu"
+    },
+    {
+      "key": "+379",
+      "value": "Vaticano",
+      "flag": "va"
+    },
+    {
+      "key": "+58",
+      "value": "Venezuela",
+      "flag": "ve"
+    },
+    {
+      "key": "+84",
+      "value": "Vi\u1ec7t Nam",
+      "flag": "vn"
+    },
+    {
+      "key": "+1-284",
+      "value": "British Virgin Islands",
+      "flag": "vg"
+    },
+    {
+      "key": "+1-340",
+      "value": "United States Virgin Islands",
+      "flag": "vi"
+    },
+    {
+      "key": "+681",
+      "value": "Wallis et Futuna",
+      "flag": "wf"
+    },
+    {
+      "key": "+967",
+      "value": "\u0627\u0644\u064a\u064e\u0645\u064e\u0646",
+      "flag": "ye"
+    },
+    {
+      "key": "+260",
+      "value": "Zambia",
+      "flag": "zm"
+    },
+    {
+      "key": "+263",
+      "value": "Zimbabwe",
+      "flag": "zw"
+    }
+  ]
+}
