@@ -1,44 +1,45 @@
 {
   "dropdownEmpty": "الزامی",
+  "minAge": "حداقل باید 18 سال سن داشته باشید.",
   "errors": {
-    "invalid_type": "منتظر {{expected}}، دریافت‌شده {{received}}",
-    "invalid_type_received_undefined": "الزامی",
-    "invalid_literal": "داده ابتدایی نامعتبر، منتظر {{expected}}",
+    "invalid_type": "نوع نامعتبر: مورد {{expected}} انتظار می‌رفت، اما {{received}} دریافت شد",
+    "invalid_type_received_undefined": "{{path}} الزامی است",
+    "invalid_literal": "مقدار حرفه‌ای نامعتبر، مورد انتظار {{expected}} است",
     "unrecognized_keys": "کلید(های) ناشناخته در شی: {{- keys}}",
-    "invalid_union": "ترکیب نوع نامعتبر",
-    "invalid_union_discriminator": "مقدار تمییزنده نامعتبر. منتظر {{- options}}",
-    "invalid_enum_value": "مقدار enum نامعتبر. منتظر {{- options}}، دریافت‌شده '{{received}}'",
-    "invalid_arguments": "آرگومان‌های تابع نامعتبر",
-    "invalid_return_type": "مقدار بازگشتی تابع نامعتبر",
+    "invalid_union": "ورودی نامعتبر",
+    "invalid_union_discriminator": "مقدار تشخیص‌دهنده نامعتبر. مورد انتظار {{- options}}",
+    "invalid_enum_value": "مقدار شماره‌گان نامعتبر. مورد انتظار {{- options}}، دریافت شده '{{received}}'",
+    "invalid_arguments": "آرگومان‌های نامعتبر تابع",
+    "invalid_return_type": "نوع بازگشتی تابع نامعتبر",
     "invalid_date": "تاریخ نامعتبر",
     "custom": "ورودی نامعتبر",
-    "invalid_intersection_types": "نتایج تقاطع قابل ترکیب نیستند",
-    "not_multiple_of": "باید ضریبی از {{multipleOf}} باشد",
-    "not_finite": "عدد باید متناهی باشد",
+    "invalid_intersection_types": "نتایج اشتراک نمی‌توانند ادغام شوند",
+    "not_multiple_of": "عدد باید ضریبی از {{multipleOf}} باشد",
+    "not_finite": "عدد باید محدود باشد",
     "invalid_string": {
-      "email": "{{validation}} نامعتبر",
-      "url": "{{validation}} نامعتبر",
-      "uuid": "{{validation}} نامعتبر",
-      "cuid": "{{validation}} نامعتبر",
-      "regex": "نامعتبر",
-      "datetime": "{{validation}} نامعتبر",
-      "startsWith": "ورودی نامعتبر: باید با \"{{startsWith}}\" شروع شود",
-      "endsWith": "ورودی نامعتبر: باید با \"{{endsWith}}\" پایان یابد"
+      "email": "{{validation}} نامعتبر است",
+      "url": "Invalid {{validation}}",
+      "uuid": "Invalid {{validation}}",
+      "cuid": "Invalid {{validation}}",
+      "regex": "Invalid",
+      "datetime": "Invalid {{validation}}",
+      "startsWith": "Invalid input: must start with \"{{startsWith}}\"",
+      "endsWith": "Invalid input: must end with \"{{endsWith}}\""
     },
     "too_small": {
       "array": {
-        "exact": "آرایه باید دقیقاً {{minimum}} داده داشته باشد",
-        "inclusive": "آرایه باید حداقل {{minimum}} داده داشته باشد",
-        "not_inclusive": "آرایه باید بیشتر از {{minimum}} داده داشته باشد"
+        "exact": "آرایه باید دقیقاً {{minimum}} عنصر داشته باشد",
+        "inclusive": "آرایه باید حداقل {{minimum}} عنصر داشته باشد",
+        "not_inclusive": "آرایه باید بیشتر از {{minimum}} عنصر داشته باشد"
       },
       "string": {
-        "exact": "متن باید دقیقاً {{minimum}} کاراکتر داشته باشد",
-        "inclusive": "متن باید حداقل {{minimum}} کاراکتر داشته باشد",
-        "not_inclusive": "متن باید بیشتر از {{minimum}} کاراکتر داشته باشد"
+        "exact": "رشته باید دقیقاً {{minimum}} نویسه داشته باشد",
+        "inclusive": "رشته باید حداقل {{minimum}} نویسه داشته باشد",
+        "not_inclusive": "رشته باید بیشتر از {{minimum}} نویسه داشته باشد"
       },
       "number": {
         "exact": "عدد باید دقیقاً {{minimum}} باشد",
-        "inclusive": "عدد باید {{minimum}} یا بیشتر باشد",
+        "inclusive": "عدد باید بزرگتر یا مساوی با {{minimum}} باشد",
         "not_inclusive": "عدد باید بیشتر از {{minimum}} باشد"
       },
       "set": {
@@ -48,24 +49,24 @@
       },
       "date": {
         "exact": "تاریخ باید دقیقاً {{- minimum, datetime}} باشد",
-        "inclusive": "تاریخ باید برابر یا بزرگتر از {{- minimum, datetime}} باشد",
-        "not_inclusive": "تاریخ باید بزرگتر از {{- minimum, datetime}} باشد"
+        "inclusive": "تاریخ باید بزرگتر یا مساوی با {{- minimum, datetime}} باشد",
+        "not_inclusive": "تاریخ باید بیشتر از {{- minimum, datetime}} باشد"
       }
     },
     "too_big": {
       "array": {
-        "exact": "آرایه باید دقیقاً {{maximum}} داده داشته باشد",
-        "inclusive": "آرایه باید حداکثر {{maximum}} داده داشته باشد",
-        "not_inclusive": "آرایه باید کمتر از {{maximum}} داده داشته باشد"
+        "exact": "آرایه باید دقیقاً {{maximum}} عنصر داشته باشد",
+        "inclusive": "آرایه باید حداکثر {{maximum}} عنصر داشته باشد",
+        "not_inclusive": "آرایه باید کمتر از {{maximum}} عنصر داشته باشد"
       },
       "string": {
-        "exact": "متن باید دقیقاً {{maximum}} کاراکتر داشته باشد",
-        "inclusive": "متن باید حداکثر {{maximum}} کاراکتر داشته باشد",
-        "not_inclusive": "متن باید کمتر از {{maximum}} کاراکتر داشته باشد"
+        "exact": "رشته باید دقیقاً {{maximum}} نویسه داشته باشد",
+        "inclusive": "رشته باید حداکثر {{maximum}} نویسه داشته باشد",
+        "not_inclusive": "رشته باید کمتر از {{maximum}} نویسه داشته باشد"
       },
       "number": {
         "exact": "عدد باید دقیقاً {{maximum}} باشد",
-        "inclusive": "عدد باید {{maximum}} یا کمتر باشد",
+        "inclusive": "عدد باید کمتر یا مساوی با {{maximum}} باشد",
         "not_inclusive": "عدد باید کمتر از {{maximum}} باشد"
       },
       "set": {
@@ -75,37 +76,37 @@
       },
       "date": {
         "exact": "تاریخ باید دقیقاً {{- maximum, datetime}} باشد",
-        "inclusive": "تاریخ باید برابر یا کمتر از {{- maximum, datetime}} باشد",
-        "not_inclusive": "تاریخ باید کمتر از {{- maximum, datetime}} باشد"
+        "inclusive": "تاریخ باید کوچکتر یا مساوی با {{- maximum, datetime}} باشد",
+        "not_inclusive": "تاریخ باید کوچکتر از {{- maximum, datetime}} باشد"
       }
     }
   },
   "validations": {
     "email": "ایمیل",
-    "url": "لینک",
+    "url": "آدرس وب",
     "uuid": "شناسه یکتا یونیورسال",
-    "cuid": "شناسه یکتا مشترک کاربر",
+    "cuid": "شناسه یکتا مشترک",
     "regex": "عبارت باقاعده",
     "datetime": "تاریخ و زمان"
   },
   "types": {
     "function": "تابع",
     "number": "عدد",
-    "string": "متن",
-    "nan": "NaN",
+    "string": "رشته",
+    "nan": "نه‌عدد (NaN)",
     "integer": "عدد صحیح",
     "float": "عدد اعشاری",
-    "boolean": "بولین",
+    "boolean": "منطقی",
     "date": "تاریخ",
-    "bigint": "عدد صحیح بزرگ",
+    "bigint": "عدد بزرگ",
     "undefined": "تعریف نشده",
     "symbol": "نماد",
-    "null": "خالی",
+    "null": "تهی",
     "array": "آرایه",
     "object": "شی",
-    "unknown": "ناشناخته",
+    "unknown": "نامعلوم",
     "promise": "پرمیس",
-    "void": "وید",
+    "void": "خالی",
     "never": "هرگز",
     "map": "نگاشت",
     "set": "مجموعه"

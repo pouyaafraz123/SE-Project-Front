@@ -1,5 +1,5 @@
 export type FlagImgProps = {
-  src: string
+  src?: string
   /** default is 24px */
   width?: number
   /** default is 24px */

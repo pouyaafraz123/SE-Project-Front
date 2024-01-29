@@ -1,6 +1,6 @@
 import {
-  MouseEvent,
   memo,
+  MouseEvent,
   useCallback,
   useEffect,
   useRef,
@@ -30,6 +30,14 @@ export const SelectBoxContainer = memo(function SelectBoxContainer() {
 
   useEffect(() => {
     if (isOpen) {
+      if (getBrowser() !== 'Mozilla Firefox') {
+        const padding = Number(
+          window.getComputedStyle(document.body).padding.replace('px', '')
+        )
+        const scrollbarWidth = window.innerWidth - document.body.clientWidth
+
+        document.body.style.paddingInlineEnd = `${padding + scrollbarWidth}px`
+      }
       document.body.style.overflow = 'hidden'
 
       if (
@@ -41,6 +49,7 @@ export const SelectBoxContainer = memo(function SelectBoxContainer() {
       }
     } else {
       document.body.style.overflowY = 'auto'
+      document.body.style.paddingInlineEnd = ''
     }
     setX(refElementPosition.x)
   }, [isOpen, refElementPosition])
@@ -92,3 +101,35 @@ export const SelectBoxContainer = memo(function SelectBoxContainer() {
     </div>
   )
 })
+function getBrowser():
+  | 'Google Chrome'
+  | 'Microsoft Edge'
+  | 'Mozilla Firefox'
+  | 'Apple Safari'
+  | 'Internet Explorer'
+  | 'Unknown' {
+  const userAgent = navigator.userAgent
+
+  // Detect Chrome
+  if (/Chrome/.test(userAgent) && !/Chromium/.test(userAgent)) {
+    return 'Google Chrome'
+  }
+  // Detect Chromium-based Edge
+  else if (/Edg/.test(userAgent)) {
+    return 'Microsoft Edge'
+  }
+  // Detect Firefox
+  else if (/Firefox/.test(userAgent)) {
+    return 'Mozilla Firefox'
+  }
+  // Detect Safari
+  else if (/Safari/.test(userAgent)) {
+    return 'Apple Safari'
+  }
+  // Detect Internet Explorer
+  else if (/Trident/.test(userAgent)) {
+    return 'Internet Explorer'
+  }
+
+  return 'Unknown'
+}

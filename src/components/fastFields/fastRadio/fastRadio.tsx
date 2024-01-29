@@ -2,9 +2,6 @@ import { ParseKeys } from 'i18next'
 import { FormikProps } from 'formik'
 import { RadioButton } from '@components/formControls/radioButton'
 import { useTranslation } from 'react-i18next'
-import { iconNameType } from '@/components/atoms/icons'
-import { Field } from '@/components/fastFields/field/field'
-import { IOption } from '@/interfaces'
 
 interface IProps<T, U extends keyof T> {
   name: U
@@ -13,6 +10,7 @@ interface IProps<T, U extends keyof T> {
   disabled?: boolean
   formik: FormikProps<T>
   readonly?: boolean
+  onChange?: (value: FormikProps<T>['values'][U]) => void
 }
 
 export function FastRadio<T, U extends keyof T>(props: IProps<T, U>) {
@@ -26,7 +24,10 @@ export function FastRadio<T, U extends keyof T>(props: IProps<T, U>) {
     <RadioButton
       label={t(title)}
       value={value}
-      onChange={(value) => setFieldValue(name.toString(), props.value)}
+      onChange={(value) => {
+        setFieldValue(name.toString(), props.value)
+        props?.onChange?.(props.value)
+      }}
       selectedValue={selectedValue}
     />
   )

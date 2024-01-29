@@ -22,7 +22,7 @@ export const VButtonVariants: TButtonVariantsData = {
   add: {
     variant: 'transparent',
     type: 'button',
-    label: 'افزودن به لیست موجود',
+    label: 'افزودن',
     icon: <Icon name={'add-square'} />
   },
   select: { variant: 'transparent', type: 'button', label: 'Select' }

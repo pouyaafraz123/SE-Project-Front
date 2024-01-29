@@ -11,7 +11,7 @@ export function TableFilterSearch({
 }: ITableFilterSearchProps) {
   return (
     <div className={clsx(classes.pageTable__filterSearch)}>
-      <Filter options={[]} value={[]} {...filterProps} />
+      {filterProps && <Filter {...filterProps} />}
       <TableSearch onChange={() => {}} {...searchProps} />
       {actions}
     </div>

@@ -6,7 +6,7 @@ import classes from './styles.module.scss'
 
 export function CategorySection({ categories }: ICategorySectionProps) {
   return (
-    <ContainerBox name={'دسته بندی ها'} link={''}>
+    <ContainerBox name={'دسته بندی ها'} link={{ to: '' }}>
       <div className={clsx(classes.categoryContainer)}>
         {categories?.map((category) => (
           <CategoryBanner {...category} key={category.id} />

@@ -1,44 +1,25 @@
-import { Extends } from '@utils'
-import { ParseKeys } from 'i18next'
-import { iconNameType, IconProps } from '@components/atoms/icons'
-import { FormikProps } from 'formik'
 import { useTranslation } from 'react-i18next'
-import { Field } from '@components/fastFields/field/field.tsx'
-import { Input } from '@components/formControls'
+import { Field } from '../field'
+import { FastPasswordProps } from './types'
+import { Password } from '@/components/formControls/password'
 
-interface IProps<T> {
-  name: keyof T
-  disabled?: boolean
-  placeholder?: string
-  dependents?: (keyof T)[]
-  dependencies?: (keyof T)[]
-  formik: FormikProps<T>
-  readonly?: boolean
-  onChange?: (val: string) => void
-}
-
-export function FastPassword<T>(props: IProps<T>) {
-  const { t } = useTranslation('form')
-  const title = 'password'
-  const placeholder = props.placeholder || t(title)
-  const name = props.name
+export function FastPassword<T>(props: FastPasswordProps<T>) {
+  const { placeholder, title, formik, name, icon, ...rest } = props
   const { values, setFieldValue, errors, touched, handleBlur } = props.formik
+  const { t } = useTranslation('form')
   const value = values[name] as string
-
+  const _title = t(title || 'password')
+  const _placeholder = placeholder || _title
   return (
-    <Field name={name} title={title} formik={props.formik} icon={'eye'}>
-      <Input
-        placeholder={placeholder}
+    <Field name={name} title={title || 'password'} formik={formik} icon={icon}>
+      <Password
         id={name.toString()}
-        onChange={(val) => {
-          props?.onChange?.(val)
-          setFieldValue(name.toString(), val)
-        }}
-        onBlur={handleBlur}
         value={value}
+        onChange={(value) => setFieldValue(name.toString(), value)}
+        onBlur={handleBlur}
         validation={touched[name] && errors[name] ? 'error' : undefined}
-        readOnly={props.readonly}
-        type={'password'}
+        placeholder={_placeholder}
+        {...rest}
       />
     </Field>
   )

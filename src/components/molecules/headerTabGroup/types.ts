@@ -1,7 +1,7 @@
 import { THeaderTabSize } from '@components/atoms/headerTab'
 
-export interface ITabObject {
-  key: string
+export interface ITabObject<T extends string = string> {
+  key: T
   title: string
 }
 export interface IHeaderTabGroupProps {

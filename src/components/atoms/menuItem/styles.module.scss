@@ -10,12 +10,15 @@
   align-items: center;
   justify-content: start;
   padding: space(xs) space(m1);
-  gap: 0 space(xs);
+  gap: 0 space(xs1);
   min-width: 3rem;
   border-radius: radius(xs);
-  background-color: getThemeColor(primary-background);
+  background-color: getThemeColor(primary, 5);
   &:hover {
     @include selected;
+  }
+  &:focus-visible {
+    outline-width: 0 !important;
   }
 }
 .selected {

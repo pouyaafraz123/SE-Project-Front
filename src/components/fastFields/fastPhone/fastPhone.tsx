@@ -3,11 +3,12 @@ import { usePhoneCodes } from '@api/dropdowns'
 import { FormikProps } from 'formik'
 import { ParseKeys } from 'i18next'
 import { IPhoneNumber, Phone } from '@components/formControls/phone'
+import { useCallback } from 'react'
 import { Field } from '@/components/fastFields/field/field'
-import { IconProps, iconNameType } from '@/components/atoms/icons'
+import { iconNameType, IconProps } from '@/components/atoms/icons'
 
 export type IProps<T> = {
-  name: keyof T
+  name: keyof T & string
   title?: ParseKeys<'form'>
   disabled?: boolean
   placeholder?: string
@@ -38,6 +39,14 @@ export function FastPhone<T>(props: IProps<T>) {
         }
       ]
     : data.data
+
+  const handleChange = useCallback(
+    (val: IPhoneNumber) => {
+      setFieldValue(name.toString(), val)
+    },
+    [name, setFieldValue]
+  )
+
   return (
     <Field
       name={name}
@@ -49,7 +58,7 @@ export function FastPhone<T>(props: IProps<T>) {
         countries={countries}
         placeholder={placeholder}
         id={name.toString()}
-        onChange={(val) => setFieldValue(name.toString(), val)}
+        onChange={handleChange}
         onBlur={handleBlur}
         value={value}
         disabled={props.disabled || (isLoading && !props.readonly)}

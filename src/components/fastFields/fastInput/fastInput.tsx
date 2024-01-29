@@ -1,3 +1,4 @@
+import { useCallback } from 'react'
 import { FormikProps } from 'formik'
 import { Input } from '@components/formControls'
 import { ParseKeys } from 'i18next'
@@ -8,49 +9,18 @@ import { Extends } from '@/utils'
 
 type types = Extends<
   ParseKeys<'form'>,
-  | 'firstName'
-  | 'lastName'
-  | 'hfName'
-  | 'postalCode'
-  | 'website'
-  | 'email'
-  | 'address'
-  | 'licenseNumber'
-  | 'nationalCode'
-  | 'patientFileNumber'
-  | 'staffId'
-  | 'search'
-  | 'duaration'
-  | 'price'
-  | 'percentage'
-  | 'illnessName'
-  | 'reason'
-  | 'username'
+  'first_name' | 'email' | 'search' | 'address'
 >
 
 const iconMap: { [key in types]: iconNameType | IconProps } = {
-  firstName: 'user-rounded',
-  lastName: 'user-rounded',
-  hfName: 'hospital',
-  postalCode: 'mailbox',
-  website: 'global',
-  email: 'letter',
-  licenseNumber: 'medal-ribbon-star',
-  address: { name: 'routing', type: 'bold' },
-  nationalCode: 'card',
-  patientFileNumber: 'clipboard',
-  staffId: 'user-rounded',
+  first_name: 'user-rounded',
+  email: 'mailbox',
   search: 'magnifer',
-  duaration: 'add-square',
-  percentage: 'add-square',
-  price: 'dollar-minimalistic',
-  illnessName: 'pills',
-  reason: 'dropper-minimalistic',
-  username: 'user-rounded'
+  address: 'map-point'
 }
 
 interface IProps<T> {
-  name: keyof T
+  name: keyof T & string
   title?: ParseKeys<'form'>
   type: types
   disabled?: boolean
@@ -64,6 +34,7 @@ interface IProps<T> {
 }
 
 export function FastInput<T>(props: IProps<T>) {
+  const { onChange } = props
   const { t } = useTranslation('form')
   const title = props.title || props.type
   const placeholder = props.placeholder || t(title)
@@ -72,15 +43,20 @@ export function FastInput<T>(props: IProps<T>) {
   const value = values[name] as string
 
   const icon = props.icon || iconMap[props.type]
+  const changeHandler = useCallback(
+    (val: string) => {
+      onChange?.(val)
+      setFieldValue(name.toString(), val)
+    },
+    [onChange, setFieldValue, name]
+  )
+
   return (
     <Field name={name} title={title} formik={props.formik} icon={icon}>
       <Input
         placeholder={placeholder}
         id={name.toString()}
-        onChange={(val) => {
-          props?.onChange?.(val)
-          setFieldValue(name.toString(), val)
-        }}
+        onChange={changeHandler}
         onBlur={handleBlur}
         value={value}
         validation={touched[name] && errors[name] ? 'error' : undefined}

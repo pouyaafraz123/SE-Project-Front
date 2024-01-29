@@ -1,10 +1,12 @@
-import { ReactNode } from 'react'
-import { FormControlProps } from '..'
+import { DetailedHTMLProps, InputHTMLAttributes } from 'react'
+import { IncludeFormControl } from '..'
 
-export interface InputProps
-  extends FormControlProps<HTMLInputElement, string>,
-    IconRendererProps {
-  type?:
+export interface InputProps<T>
+  extends IncludeFormControl<
+    DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
+    T
+  > {
+  inputType?:
     | 'email'
     | 'number'
     | 'password'
@@ -13,11 +15,4 @@ export interface InputProps
     | 'search'
     | 'time'
     | 'time'
-}
-export type IconRendererProps = {
-  icon?: ReactNode | (() => JSX.Element)
-  onIconClick?: () => void
-  showIcon?: boolean
-  isLoading?: boolean
-  isError?: boolean
 }

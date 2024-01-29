@@ -6,13 +6,13 @@
 }
 .textBox {
   position: absolute;
-  top: space(xs1);
-  bottom: space(xs1);
+  top: space(m1);
+  bottom: space(m1);
   display: inline-flex;
   align-items: center;
   cursor: text;
   @include start(space(m3));
-  border-radius: radius(sm);
+  border-radius: radius(xs);
   padding: space(xs1);
   background-color: getThemeColor(gray-background);
 }

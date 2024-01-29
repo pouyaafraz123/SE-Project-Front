@@ -1,0 +1,16 @@
+.productSearch {
+  &__questionField {
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__radios {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding-bottom: 16px;
+  }
+}

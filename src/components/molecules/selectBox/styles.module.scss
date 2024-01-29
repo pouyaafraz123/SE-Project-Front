@@ -28,6 +28,8 @@
   animation-iteration-count: 1;
   animation-direction: normal;
   transform-origin: top center;
+  max-height: 10rem;
+  overflow-y: auto;
 }
 @keyframes dropdownScale {
   0% {

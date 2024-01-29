@@ -40,4 +40,5 @@ export interface IIconButtonProps
    * @type {boolean}
    */
   transparent?: boolean
+  isSmall?: boolean
 }

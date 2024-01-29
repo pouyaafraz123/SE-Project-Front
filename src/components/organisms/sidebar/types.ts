@@ -25,5 +25,4 @@ export type IHeaderProps = {
   firstName: string
   lastName: string
   imageUrl?: string
-  hfName: string
 }

@@ -1,25 +1,26 @@
-import { AxiosFn, AxiosError, IResponse, WithPagination } from '@api/types'
+import { AxiosError, AxiosFn } from '@api/types'
 import { createQuery } from 'react-query-kit'
 import { generatePath } from 'react-router-dom'
+import { AxiosResponse } from 'axios'
 import { IProfileEndpoint } from './types'
 import { axiosClient } from '@/api/clients'
 
 const key = 'profile'
-type Response = IResponse<IProfileEndpoint>
+type Response = AxiosResponse<IProfileEndpoint>
 type Variables = object
 
 export const getProfile: AxiosFn<Variables, Response> = async (
   params,
   signal
 ) => {
-  const { data } = await axiosClient.get(generatePath('/profile'), {
+  return axiosClient.get(generatePath('/users/profile'), {
     signal
   })
-  return data
 }
 
 export const useProfile = createQuery<Response, Variables, AxiosError>({
   primaryKey: key,
   queryFn: ({ queryKey: [_primaryKey, variables], signal }) =>
-    getProfile(variables, signal)
+    getProfile(variables, signal),
+  keepPreviousData: true
 })

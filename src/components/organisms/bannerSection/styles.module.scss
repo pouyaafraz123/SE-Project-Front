@@ -1,0 +1,26 @@
+@import 'src/styles/functions';
+
+.bannerPlace {
+  width: 100%;
+  display: flex;
+  gap: space(l1);
+
+  &__bannerContainer {
+    border-radius: radius(lg);
+    height: 20rem;
+    overflow: hidden;
+    cursor: pointer;
+    flex-grow: 1;
+  }
+
+  &__bannerImg {
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease-out;
+  }
+
+  &__bannerContainer:hover &__bannerImg {
+    transform: scale(1.1);
+    filter: grayscale(0.8);
+  }
+}

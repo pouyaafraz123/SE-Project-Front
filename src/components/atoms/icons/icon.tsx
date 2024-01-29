@@ -10,7 +10,8 @@ export function Icon(props: IconProps) {
     fontSize = 'lg',
     color = 'inherit',
     fontWeight = 'medium',
-    className
+    className,
+    onClick
   } = props
 
   return (
@@ -23,6 +24,7 @@ export function Icon(props: IconProps) {
         `fw-${fontWeight}`,
         className
       ])}
+      onClick={onClick}
       // style={getStyles(fontSize, color)}
     >
       {type === 'bold-duotone'

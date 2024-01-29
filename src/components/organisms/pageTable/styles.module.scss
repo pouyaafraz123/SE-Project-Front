@@ -5,8 +5,9 @@
   &__container {
     border: 1px solid getColor(var(--theme-border-main));
     box-shadow: 0 0 20px 0 getColor(var(--theme-border-main), 20);
-    border-radius: radius(lg);
+    border-radius: radius(sm);
     width: 100%;
+    overflow: hidden;
   }
 
   &__heading {
@@ -15,6 +16,8 @@
     align-items: center;
     padding: space(2m1) space(l1);
     border-bottom: 1px solid getColor(var(--theme-border-main));
+    background-color: getColor(var(--theme-secondary-main), 10);
+    backdrop-filter: blur(100px);
   }
 
   &__headingTitle {
@@ -39,7 +42,7 @@
 
   &__gridTable {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
     grid-template-rows: auto;
     padding: space(l1);
     grid-gap: space(l1);

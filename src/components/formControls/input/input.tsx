@@ -1,25 +1,27 @@
 import clsx from 'clsx'
-import { KeyboardEvent, Ref, forwardRef } from 'react'
+import { forwardRef, memo, Ref } from 'react'
 import { BounceLoader } from 'react-spinners'
 import { useTranslation } from 'react-i18next'
 import formClasses from '../styles.module.scss'
+import { IconRendererProps } from '..'
 import classes from './styles.module.scss'
-import { IconRendererProps, InputProps } from './types'
+import { InputProps } from './types'
 import { Icon } from '@/components/atoms/icons'
 import { Tooltip } from '@/components/atoms/tooltip'
-import { selectBoxFn } from '@/components/molecules/selectBox'
+import { IconButton } from '@/components/molecules/iconButton'
+import { useReadOnly } from '@/hooks'
 
-export const Input = forwardRef(function Input(
-  props: InputProps,
+const ForwardedInput = forwardRef(function Input(
+  props: InputProps<string>,
   ref: Ref<HTMLInputElement>
 ) {
   const {
     className,
     onChange,
-    type = 'text',
+    inputType = 'text',
     validation,
     value,
-    readOnly,
+    readOnly: propsReadOnly,
     disabled,
     size,
     icon,
@@ -27,10 +29,13 @@ export const Input = forwardRef(function Input(
     onIconClick,
     isError,
     isLoading,
+    name,
+    onIconMouseDown,
+    iconType,
     ...rest
   } = props
-
-  const hasIcon = icon || showIcon !== false || isLoading || isError
+  const readOnly = useReadOnly(propsReadOnly)
+  const hasIcon = (icon && showIcon !== false) || isLoading || isError
 
   return (
     <div className={classes.container}>
@@ -42,33 +47,49 @@ export const Input = forwardRef(function Input(
           className
         ])}
         onChange={(e) => onChange?.(e.target.value)}
-        type={type}
+        type={inputType}
         value={value}
         readOnly={readOnly}
         disabled={disabled || isLoading}
         data-validation={validation}
         data-size={size}
-        data-hasicon={Boolean(hasIcon)}
+        data-has-icon={Boolean(hasIcon)}
+        name={name}
         {...rest}
       />
       {hasIcon && (
         <div
           className={clsx([
             classes.iconContainer,
+            (iconType !== 'button' || isError || isLoading) &&
+              classes.imageIcon,
             disabled ? 'color-secondary-text' : 'color-primary-main'
           ])}
-          onClick={onIconClick}
         >
-          <IconRenderer isLoading={isLoading} isError={isError} icon={icon} />
+          <IconRenderer
+            isLoading={isLoading}
+            isError={isError}
+            icon={icon}
+            iconType={iconType}
+            onIconClick={onIconClick}
+            onIconMouseDown={onIconMouseDown}
+          />
         </div>
       )}
     </div>
   )
 })
-
+export const Input = memo(ForwardedInput)
 function IconRenderer(props: IconRendererProps) {
   const { t } = useTranslation('form')
-  const { icon, isError, isLoading } = props
+  const {
+    icon,
+    isError,
+    isLoading,
+    iconType = 'image',
+    onIconClick,
+    onIconMouseDown
+  } = props
   if (isLoading) {
     return <BounceLoader size={20} color={'#29A9E14D'} loading={true} />
   }
@@ -77,6 +98,20 @@ function IconRenderer(props: IconRendererProps) {
       <Tooltip text={t('errorOcurred')}>
         <Icon name='danger' color='danger-main' type='bold' />
       </Tooltip>
+    )
+  }
+  if (iconType === 'button') {
+    return (
+      <IconButton
+        icon={typeof icon === 'function' ? icon() : icon}
+        label=''
+        noTooltip
+        type='button'
+        className='color-inherit'
+        transparent
+        onClick={onIconClick}
+        onMouseDown={onIconMouseDown}
+      />
     )
   }
   if (typeof icon === 'function') {

@@ -12,8 +12,11 @@ import {
 import { Typography } from '@components/atoms/typography'
 import classes from './syles.module.scss'
 import 'swiper/swiper-bundle.css'
+import { useNavigate } from 'react-router-dom'
+import { path } from '@/routes'
 
 export function ProductSlider(props: IProductSliderProps) {
+  const navigate = useNavigate()
   const { items } = props
 
   return (
@@ -43,6 +46,9 @@ export function ProductSlider(props: IProductSliderProps) {
               <div
                 style={{ backgroundImage: `url(${item?.img})` }}
                 className={clsx(classes.productSlider__itemContainer)}
+                onClick={() =>
+                  navigate(path.common.productView.link({ id: item?.id }))
+                }
               >
                 <div className={clsx(classes.productSlider__itemBackdrop)}>
                   <Typography variant={'h2'} color={'white'}>

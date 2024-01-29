@@ -4,13 +4,13 @@ import '../App.css'
 import '@/theme/useTheme'
 import { ToastContainer } from 'react-toastify'
 import { TOAST_CONTAINER_PROPS } from '@configs'
-import { Suspense } from 'react'
-import { SelectBoxContainer } from '@components/molecules/selectBox/index'
+import { Suspense, useEffect } from 'react'
+import { SelectBoxContainer } from '@components/molecules/selectBox'
 import { PageLayout } from '@components/layout/pageLayout'
 import { Sidebar, sidebarFn } from '@components/organisms/sidebar'
 import { sidebarItems } from '@constants'
 
-import { useUserStore, useUIStore } from '@stores'
+import { useUIStore, useUserStore } from '@stores'
 import { useProfile } from '@/api/profile'
 import { IHeaderProps } from '@/components/organisms/sidebar/types'
 import { AlertContainer } from '@/components/molecules/alert'
@@ -26,20 +26,18 @@ export function Component() {
   document.documentElement.dir = i18n.dir()
   document.documentElement.lang = i18n.language
 
-  sidebarFn.setItems(sidebarItems[role])
+  useEffect(() => {
+    sidebarFn.setItems(sidebarItems[role!])
+  }, [role])
 
   const { data, isLoading } = useProfile()
 
   if (isLoading || !data) return null
 
   const user: IHeaderProps = {
-    firstName: data.data.first_name,
-    lastName: data.data.last_name,
-    imageUrl: data.data.avatar,
-    hfName:
-      data.data.facilities.find(
-        (value) => value.id == data.data.current_facility
-      )?.name || 'noFacilities'
+    firstName: data.data.firstName,
+    lastName: data.data.lastName,
+    imageUrl: data.data.avatarFile?.url
   }
 
   // TODO loading bar here

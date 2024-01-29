@@ -25,10 +25,10 @@ export const PageTableStoryBasic: Story = {
     },
     tabProps: {
       tabs: [
-        { key: '1', title: 'همه ملاقات ها' },
-        { key: '2', title: 'ملاقات های امروز' },
-        { key: '3', title: 'ملاقات های گذشته' },
-        { key: '4', title: 'ملاقات های آینده' }
+        { key: '1', title: 'همه ویزیت ها' },
+        { key: '2', title: 'ویزیت های امروز' },
+        { key: '3', title: 'ویزیت های گذشته' },
+        { key: '4', title: 'ویزیت های آینده' }
       ],
       onChange: () => {},
       selectedKey: '1'

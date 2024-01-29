@@ -21,14 +21,21 @@ type Story = StoryObj<typeof Meta>
 export const Default: Story = {
   render: (args) => <Input {...args} />
 }
-export const WithIcon: Story = {
-  render: (args) => <Input {...args} icon={<Icon name='close-circle' />} />
+export const WithImageTypeIcon: Story = {
+  render: (args) => (
+    <Input {...args} iconType='image' icon={<Icon name='arrow-down' />} />
+  )
+}
+export const WithButtonTypeIcon: Story = {
+  render: (args) => (
+    <Input {...args} iconType='button' icon={<Icon name='magnifer' />} />
+  )
 }
 export const IsLoading: Story = {
-  render: (args) => <Input {...args} isLoading />
+  render: (args) => <Input {...args} isLoading iconType='button' />
 }
 export const IsError: Story = {
-  render: (args) => <Input {...args} isError />
+  render: (args) => <Input {...args} isError iconType='button' />
 }
 export const Error: Story = {
   render: (args) => <Input {...args} validation='error' />

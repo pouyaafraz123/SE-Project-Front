@@ -14,12 +14,19 @@ import classes from './styles.module.scss'
  * @returns {JSX.Element} The rendered Link component.
  */
 export const Link = forwardRef<HTMLAnchorElement, ILinkProps>(
-  ({ children, ...rest }, ref) => {
+  ({ children, fontWeight, fontSize, fontFamily, color, ...rest }, ref) => {
     return (
       // Use React Router's Link component with forwarded props and ref.
       <RLink {...rest} ref={ref}>
         {/* Render a Typography component with additional styling for the link. */}
-        <Typography variant={'subtitle3'} className={clsx(classes.link)}>
+        <Typography
+          fontSize={fontSize}
+          fontWeight={fontWeight}
+          fontFamily={fontFamily}
+          color={color}
+          variant={'subtitle3'}
+          className={clsx(classes.link, rest?.className)}
+        >
           {children}
         </Typography>
       </RLink>

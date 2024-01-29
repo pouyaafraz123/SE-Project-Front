@@ -1,6 +1,5 @@
-import { FormControlProps, IconRendererProps } from '..'
+import { InputProps } from '..'
 
-export interface DatePickerProps
-  extends FormControlProps<HTMLInputElement, string> {
+export interface DatePickerProps extends InputProps<string> {
   date?: Date
 }

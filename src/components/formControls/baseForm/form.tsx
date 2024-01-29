@@ -1,29 +1,16 @@
-import { Button, IButtonProps } from '@components/atoms/button'
-import { ParseKeys } from 'i18next'
+import { Button } from '@components/atoms/button'
 import { FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
+import clsx from 'clsx'
 import classes from './styles.module.scss'
+import { IBaseFormProps } from '.'
 import { Icon } from '@/components/atoms/icons'
+import { notify } from '@/components/atoms/notify'
+import { useUIStore } from '@/stores'
 
-interface IProps {
-  mode: 'view' | 'edit' | 'create'
-  children: React.ReactNode
-  onSubmit?: () => void
-  onCancel?: () => void
-  isLoading?: boolean
-  submitBtnProps?: IButtonProps
-  cancelBtnProps?: IButtonProps
-  noButtons?: boolean
-  noCancel?: boolean
-  noEdit?: boolean
-  editLink?: string
-  editButtonTitle?: ParseKeys<'form'>
-  submitBtnTitle?: ParseKeys<'form'>
-  isSubmitting?: boolean
-}
-
-export function Form({ mode, noButtons, isSubmitting, ...props }: IProps) {
+export function Form({ noButtons, errors, ...props }: IBaseFormProps) {
   const { t } = useTranslation('form')
+  const mode = useUIStore((state) => state.pageMode)
   const submitTitle =
     props.submitBtnTitle || (mode == 'create' ? 'register' : 'edit')
 
@@ -32,12 +19,19 @@ export function Form({ mode, noButtons, isSubmitting, ...props }: IProps) {
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     props.onSubmit?.()
+    if (errors) {
+      for (let index = 0; index < Object.keys(errors).length; index++) {
+        const error = Object.keys(errors)[index] as keyof typeof errors
+        notify.error({ text: errors[error] })
+        return
+      }
+    }
   }
 
   // TODO style form buttons
   const buttons =
     mode == 'view' ? null : (
-      <div className={classes.btnContainer}>
+      <div className={clsx([classes.btnContainer, 'border-top py-2m5'])}>
         {!props.noCancel && (
           <Button
             className={classes.btn}
@@ -48,18 +42,11 @@ export function Form({ mode, noButtons, isSubmitting, ...props }: IProps) {
             {t('cancel')}
           </Button>
         )}
-        <Button
-          mode='submit'
-          {...props.submitBtnProps}
-          className={classes.btn}
-          isLoading={isSubmitting}
-        >
+        <Button mode='submit' {...props.submitBtnProps} className={classes.btn}>
           {t(submitTitle)}
         </Button>
       </div>
     )
-
-  if (props.isLoading) return null // TODO form is loading spinner
 
   return (
     <>
@@ -68,14 +55,17 @@ export function Form({ mode, noButtons, isSubmitting, ...props }: IProps) {
         {!noButtons && buttons}
       </form>
       {!props.noEdit && mode == 'view' && (
-        <Button
-          type='button'
-          mode='main'
-          icon={<Icon name='pen-square' />}
-          label={t(editTitle)}
-          className={classes.editBtn}
-          linkTo={props.editLink}
-        />
+        <>
+          <div className='border-top py-2m5'></div>
+          <Button
+            type='button'
+            mode='main'
+            icon={<Icon name='pen-square' />}
+            label={t(editTitle)}
+            className={classes.editBtn}
+            linkTo={props.editLink}
+          />
+        </>
       )}
     </>
   )

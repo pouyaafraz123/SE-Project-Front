@@ -1,0 +1,18 @@
+@import 'src/styles/functions';
+@import 'src/styles/mixins';
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  align-items: center;
+  gap: space(l1);
+
+  &__link {
+    color: getColor(var(--theme-primary-main));
+  }
+
+  &__linkSelected {
+    color: getColor(var(--theme-primary-dark));
+  }
+}

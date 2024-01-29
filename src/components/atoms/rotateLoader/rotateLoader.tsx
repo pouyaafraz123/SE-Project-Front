@@ -18,7 +18,7 @@ export function RotateLoader({ color, width }: IRotateLoaderProps) {
     <RotatingLines
       animationDuration={'500ms'} // Animation duration in milliseconds.
       width={width || '20'} // Default width is 20 if not provided.
-      strokeColor={themeColor?.color} // Color of the rotating lines.
+      strokeColor={'#000'} // Color of the rotating lines.
     />
   )
 }

@@ -1,5 +1,5 @@
-import { IProps, OptType } from '@components/fastFields/fastSelect/types.ts'
 import { IOption } from '@/interfaces'
+import { SelectType } from '@/api/dropdowns'
 
 export type TFilterVariants = 'basic' | 'timespan' | 'cost' | 'dropdown'
 
@@ -8,7 +8,7 @@ export interface IFilter {
   title: string
   options: TFilterOption[]
   variant: TFilterVariants
-  dropdownType?: OptType //TODO FIX TYPING
+  dropdownType?: SelectType //TODO FIX TYPING
 }
 
 export type TFilterOption = {

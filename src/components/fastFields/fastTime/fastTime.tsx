@@ -5,7 +5,7 @@ import { iconNameType } from '@/components/atoms/icons'
 import { Field } from '@/components/fastFields/field/field'
 
 interface IProps<T> {
-  name: keyof T
+  name: keyof T & string
   title: ParseKeys<'form'> // TODO generic namespace
   disabled?: boolean
   placeholder?: string

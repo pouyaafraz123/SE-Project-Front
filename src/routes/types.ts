@@ -1,3 +1,6 @@
+import { RouteObject } from 'react-router-dom'
+import { UserTypes } from '@constants'
+
 type ExtractParam<Path, NextPart> = Path extends `:${infer Param}`
   ? Record<Param, string | number | boolean> & NextPart
   : NextPart
@@ -14,3 +17,11 @@ export type ExtractParams<Path> = Path extends `${infer Segment}/${infer Rest}`
   : Path extends `:${infer Param}`
   ? Record<Param, string | number | boolean>
   : undefined
+
+export type IExtendedRouteObject = {
+  route: RouteObject
+  permissions: UserTypes[]
+  isPublic?: boolean
+}
+
+export type IRouteParams<T> = Record<keyof T, string>

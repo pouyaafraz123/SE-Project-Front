@@ -1,0 +1,52 @@
+@import 'src/styles/functions.scss';
+@import 'src/styles/mixins.scss';
+
+@mixin px {
+  @include padding-x(space(m1));
+}
+
+.header {
+  @include border-gr-bottom();
+  padding-bottom: space(m3);
+  margin-bottom: space(m1);
+  @include px();
+}
+
+.menu {
+  min-width: 5rem;
+  max-height: 15rem;
+  @include padding-y(space(m2));
+  display: flex;
+  flex-direction: column;
+  gap: space(m2) 0;
+
+  &:focus-visible {
+    outline-width: 0 !important;
+  }
+}
+.content {
+  @include px();
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: space(xs) 0;
+}
+.box-animation {
+  animation-name: dropdownScale;
+  animation-duration: 200ms;
+  animation-timing-function: ease;
+  animation-delay: 0ms;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  transform-origin: top center;
+}
+@keyframes dropdownScale {
+  0% {
+    transform: scale(1, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}

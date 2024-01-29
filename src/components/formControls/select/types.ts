@@ -1,7 +1,6 @@
-import { FormControlProps } from '..'
+import { InputProps } from '..'
 import { IOption } from '@/interfaces'
 
-export interface SelectProps
-  extends FormControlProps<HTMLInputElement, IOption> {
+export interface SelectProps extends InputProps<IOption> {
   options: IOption[]
 }

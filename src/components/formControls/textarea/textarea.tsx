@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import formClasses from '../styles.module.scss'
 import { TextareaProps } from './types'
 import classes from './styles.module.scss'
+import { useReadOnly } from '@/hooks'
 
 export function Textarea(props: TextareaProps) {
   const {
@@ -9,11 +10,12 @@ export function Textarea(props: TextareaProps) {
     onChange,
     rows = 3,
     validation,
-    readOnly,
+    readOnly: propsReadOnly,
     disabled,
     value,
     ...rest
   } = props
+  const readOnly = useReadOnly(propsReadOnly)
   return (
     <textarea
       className={clsx([

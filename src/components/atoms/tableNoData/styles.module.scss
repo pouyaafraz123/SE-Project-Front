@@ -1,0 +1,9 @@
+@import 'src/styles/functions';
+
+.noData {
+  width: 100%;
+  padding: space(m4) space(l1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

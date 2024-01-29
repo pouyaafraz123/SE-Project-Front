@@ -2,13 +2,12 @@ import {
   Swiper as SwiperComponent,
   SwiperSlide as SwiperSlideComponent
 } from 'swiper/react'
-import { FreeMode } from 'swiper/modules'
-import 'swiper/css/free-mode'
-import 'swiper/css'
+import { Autoplay } from 'swiper/modules'
 import { ISwiperProps } from '@components/atoms/swiper/types.ts'
 import { useMemo } from 'react'
-import './styles.module.scss'
 import { useTranslation } from 'react-i18next'
+import classes from './styles.module.scss'
+import 'swiper/swiper-bundle.css'
 
 export function Swiper({ children }: ISwiperProps) {
   const { i18n } = useTranslation()
@@ -21,21 +20,14 @@ export function Swiper({ children }: ISwiperProps) {
 
   return (
     <SwiperComponent
-      style={{ width: '100%' }}
-      freeMode={true}
-      spaceBetween={20}
       slidesPerView={'auto'}
-      modules={[FreeMode]}
+      autoplay={true}
+      modules={[Autoplay]}
+      loop
     >
       {items?.map((item, index) => {
         return (
-          <SwiperSlideComponent
-            key={index}
-            style={{
-              width: `${96 / items?.length}%`,
-              minWidth: '15.125rem'
-            }}
-          >
+          <SwiperSlideComponent key={index} className={classes.slide}>
             {item}
           </SwiperSlideComponent>
         )

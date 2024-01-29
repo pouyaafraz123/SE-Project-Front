@@ -14,7 +14,7 @@ type Story = StoryObj<typeof meta>
 export const ContainerBoxStory: Story = {
   args: {
     name: 'عنوان نمونه اول',
-    link: '/',
+    link: { to: '/' },
     children: <></>
   }
 }

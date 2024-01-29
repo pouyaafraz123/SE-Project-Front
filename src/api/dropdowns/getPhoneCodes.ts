@@ -1,7 +1,6 @@
-import { AxiosFn, AxiosError, IResponse } from '@api/types'
+import { AxiosError, AxiosFn, IResponse } from '@api/types'
 import { createQuery } from 'react-query-kit'
-import { generatePath } from 'react-router-dom'
-import { Options, OptionQueryVars, IPhoneCode } from './types'
+import { IPhoneCode } from './types'
 import { axiosClient } from '@/api/clients'
 
 const key = 'options'

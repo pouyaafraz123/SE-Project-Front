@@ -1,3 +1,9 @@
 :global .swiper-slide {
   height: unset;
 }
+
+.slide {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+}

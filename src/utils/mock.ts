@@ -1,4 +1,4 @@
-import { WithPagination, WithStats, WithInfinite } from '@api/types'
+import { WithInfinite, WithPagination, WithStats } from '@api/types'
 import { IStats } from '@/interfaces'
 
 /**
@@ -13,12 +13,8 @@ function withPage<T>(
   pageSize: number
 ): WithPagination<T> {
   return {
-    page: {
-      pageNumber: page,
-      pageSize: pageSize,
-      total: list.length,
-      list: list.slice((page - 1) * pageSize, page * pageSize)
-    }
+    total: list.length,
+    data: list.slice((page - 1) * pageSize, page * pageSize)
   }
 }
 

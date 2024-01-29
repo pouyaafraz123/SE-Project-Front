@@ -1,5 +1,6 @@
-import { HtmlHTMLAttributes } from 'react'
+import { DetailedHTMLProps, HTMLAttributes } from 'react'
 
-export interface ItemProps extends HtmlHTMLAttributes<HTMLDivElement> {
+export interface ItemProps
+  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   selected?: boolean
 }

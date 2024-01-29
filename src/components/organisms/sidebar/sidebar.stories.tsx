@@ -13,8 +13,7 @@ const Meta = {
   args: {
     header: {
       firstName: 'ناصر',
-      lastName: 'محمدی',
-      hfName: 'بیمارستان الغدیر'
+      lastName: 'محمدی'
     }
   }
   // tags: ['autodocs']

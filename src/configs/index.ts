@@ -12,15 +12,9 @@ export const reactQueryConfig: QueryClientConfig = {
   }
 }
 
-// ! FOR DEV ONLY
-const Authorization = import.meta.env.VITE_API_TOKEN && {
-  Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`
-}
-
 // TODO set token from store/localstorage/cookie when login page available
 export const axiosConfig: CreateAxiosDefaults = {
-  baseURL: import.meta.env.VITE_API_BASE_URL,
-  headers: { ...Authorization }
+  baseURL: import.meta.env.VITE_API_BASE_URL
 }
 
 export * from './toastConfig.ts'

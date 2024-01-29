@@ -1,0 +1,37 @@
+@import 'src/styles/functions';
+@import 'src/styles/mixins';
+
+.panel {
+  &__card {
+    border-radius: radius(md);
+    background-color: getColor(var(--theme-primary-background));
+    padding: space(l1);
+    border: 2px solid getColor(var(--theme-border-dark), 20);
+    box-shadow:
+      10px 10px 40px getColor(var(--theme-border-dark), 40),
+      -10px -10px 40px getColor(var(--theme-border-dark), 5);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      box-shadow:
+        10px 10px 40px getColor(var(--theme-border-dark), 50),
+        -10px -10px 40px getColor(var(--theme-border-dark), 10);
+    }
+
+    @include disable-select;
+  }
+
+  &__cardIcon {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__cardText {
+    padding-bottom: 1rem;
+  }
+}

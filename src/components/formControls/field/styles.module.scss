@@ -1,0 +1,17 @@
+@import 'src/styles/functions.scss';
+@import 'src/styles/mixins.scss';
+
+.container {
+  position: relative;
+}
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: space(xs);
+  margin-bottom: space(m1);
+}
+.error {
+  position: absolute;
+  bottom: -20px;
+  @include start(0);
+}
