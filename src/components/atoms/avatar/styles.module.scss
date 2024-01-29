@@ -23,6 +23,8 @@
   border-radius: 100%;
   border: 3px solid getColor(var(--theme-border-main));
   transition: 0.5s all ease;
+  object-fit: cover;
+  object-position: center;
 }
 
 .avatar:hover {
