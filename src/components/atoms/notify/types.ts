@@ -1,5 +1,5 @@
-import {ReactNode} from 'react'
-import {color} from '@constants'
+import { ReactNode } from 'react'
+import { color } from '@constants'
 
 /**
  * Type representing different notification types.
