@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Grid } from '@components/atoms/Grid'
 import { FileInputProps } from './types'
 import {
   EXCEL_FORMATS,
@@ -12,7 +13,6 @@ import classes from './styles.module.scss'
 import { Box } from '@/components/atoms/box'
 import { FileUploadImage } from '@/components/icons'
 import { Typography } from '@/components/atoms/typography'
-import { Grid } from '@components/atoms/Grid'
 
 export function FileInput(props: FileInputProps) {
   const {
@@ -62,6 +62,8 @@ export function FileInput(props: FileInputProps) {
       onChange?.(fileList)
     }
   }
+
+  console.log(value)
 
   return (
     <>

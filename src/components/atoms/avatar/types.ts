@@ -1,9 +1,4 @@
-export type TAvatarSize =
-  | 'extraSmall'
-  | 'smaller'
-  | 'small'
-  | 'medium'
-  | 'large'
+export type TAvatarSize = 'small' | 'medium' | 'large'
 
 export interface AvatarProps {
   userInfo: {
@@ -12,4 +7,8 @@ export interface AvatarProps {
     imageUrl?: string
   }
   size: TAvatarSize
+  variant?: number
+  sidebar?: boolean
+  role?: 'super-admin' | 'local-admin' | 'cmo' | 'doctor' | 'staff' | 'patient'
+  roleValue?: string
 }

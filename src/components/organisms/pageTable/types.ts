@@ -37,7 +37,6 @@ export interface ITableHeadingProps {
   onPrint?: () => void
   noDownload?: boolean
   noPrint?: boolean
-  noSearch?: boolean
 }
 
 export interface ITableTabProps {
@@ -50,6 +49,7 @@ export interface ITableFilterSearchProps {
   filterProps?: IFilterProps
   searchProps?: ITableSearchProps
   actions?: ReactNode
+  noSearch?: boolean
 }
 
 export type TTableConditionalProps<TData extends RowData> =

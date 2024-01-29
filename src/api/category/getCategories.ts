@@ -3,7 +3,7 @@ import { createQuery } from 'react-query-kit'
 import { ICategory } from '@api/category/types.ts'
 import { axiosClient, AxiosFn, IPaginationParams, WithPagination } from '@/api'
 
-type Variables = IPaginationParams
+type Variables = IPaginationParams & { OnlyParentCategories?: boolean }
 type Response = AxiosResponse<WithPagination<ICategory>>
 
 const key = 'categories-all'

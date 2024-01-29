@@ -412,5 +412,18 @@
   "categories": "همه دسته بندی ها",
   "profile_edit": "ویرایش پروفایل",
   "last_name": "نام خانوادگی",
-  "upload_avatar": "آپلود عکس"
+  "upload_avatar": "آپلود عکس",
+  "add_category": "اضافه کردن دسته بندی",
+  "category_name": "نام دسته بندی",
+  "category_parent": "دسته بندی پدر",
+  "brand_name": "نام برند",
+  "add_brand": "اضافه کردن برند",
+  "add_product": "اضافه کردن محصول",
+  "product_name": "نام محصول",
+  "quantity": "تعداد",
+  "discounted_price": "قیمت با تخفیف",
+  "type_status": "نوع محصول",
+  "add_detail": "اضافه کردن جزئیات",
+  "feature": "ویژگی",
+  "value": "مقدار"
 }

@@ -36,8 +36,8 @@ export function ProfileEditTemplate({
       <div>
         <Avatar
           userInfo={{
-            firstName: profileData?.firstName || '',
-            lastName: profileData?.lastName || '',
+            firstName: profileData?.firstName || 'ا',
+            lastName: profileData?.lastName || 'ت',
             imageUrl: profileData?.avatarFile?.url
           }}
           size={'large'}

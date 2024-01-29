@@ -71,5 +71,37 @@ export const commonRoutes: IExtendedRouteObject[] = [
     },
     permissions: [UserTypes.CUSTOMER, UserTypes.STAFF, UserTypes.MANAGER],
     isPublic: true
+  },
+  {
+    route: {
+      path: path.userForm.route,
+      lazy: () => import('@pages/userForm/userForm'),
+      loader: protectedLoader
+    },
+    permissions: [UserTypes.STAFF, UserTypes.MANAGER]
+  },
+  {
+    route: {
+      path: path.categoryForm.route,
+      lazy: () => import('@pages/categoryForm/categoryForm'),
+      loader: protectedLoader
+    },
+    permissions: [UserTypes.STAFF, UserTypes.MANAGER]
+  },
+  {
+    route: {
+      path: path.brandForm.route,
+      lazy: () => import('@pages/brandForm/brandForm'),
+      loader: protectedLoader
+    },
+    permissions: [UserTypes.STAFF, UserTypes.MANAGER]
+  },
+  {
+    route: {
+      path: path.productForm.route,
+      lazy: () => import('@pages/productForm/productForm'),
+      loader: protectedLoader
+    },
+    permissions: [UserTypes.STAFF, UserTypes.MANAGER]
   }
 ]

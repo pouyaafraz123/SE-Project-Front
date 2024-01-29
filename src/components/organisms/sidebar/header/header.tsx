@@ -11,7 +11,7 @@ export function SideBarHeader(props: IHeaderProps) {
   const { t } = useTranslation('sidebar')
   return (
     <div className={classes.container}>
-      <Avatar size='smaller' userInfo={props} />
+      <Avatar size='small' userInfo={props} />
       <HiddenBox className={classes.userInfoBox}>
         <div>
           <Typography fontSize='md' fontWeight='semi-bold'>

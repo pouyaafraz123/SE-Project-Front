@@ -6,3 +6,8 @@ export interface IBrands {
     url: string
   }
 }
+
+export interface IBrandDTO {
+  name: string
+  logoFileId: string
+}

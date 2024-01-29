@@ -14,17 +14,6 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const ExtraSmall: Story = {
-  args: {
-    size: 'extraSmall',
-    userInfo: {
-      firstName: 'مریم',
-      lastName: 'محمدی',
-      imageUrl: ''
-    }
-  }
-}
-
 export const Small: Story = {
   args: {
     size: 'small',
@@ -55,5 +44,20 @@ export const Large: Story = {
       lastName: 'محمدی',
       imageUrl: ''
     }
+  }
+}
+
+export const Sidebar: Story = {
+  args: {
+    size: 'small',
+    userInfo: {
+      firstName: 'مریم',
+      lastName: 'محمدی',
+      imageUrl: ''
+    },
+    role: 'super-admin',
+    variant: 50,
+    sidebar: true,
+    roleValue: 'مدیر ارشد'
   }
 }

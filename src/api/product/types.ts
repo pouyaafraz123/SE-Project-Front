@@ -45,3 +45,25 @@ export interface IProductTableParams {
   Order?: 'Newest' | 'Cheapest' | 'Discounted'
   Title?: string
 }
+
+export interface IProductDTO {
+  name: string
+  description: string
+  detail: string
+  price: number
+  quantity: number
+  status: 'Ordered' | 'Purchasable' | 'InStock'
+  brandGuid: string
+  categoryGuid: string
+  discountPrice: number | undefined
+  productImages: (
+    | {
+        type: 'Cover'
+        fileId: string
+      }
+    | {
+        type: 'Gallery'
+        fileId: string
+      }
+  )[]
+}

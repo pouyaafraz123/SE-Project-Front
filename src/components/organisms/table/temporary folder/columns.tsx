@@ -1,5 +1,4 @@
-import { createColumnHelper, ColumnDef } from '@tanstack/react-table'
-import { ReactNode } from 'react'
+import { ColumnDef, createColumnHelper } from '@tanstack/react-table'
 import styles from './styles.module.scss'
 import { Avatar } from '@/components/atoms/avatar'
 import { ToggleSwitch } from '@/components/atoms/toggleSwitch'
@@ -36,7 +35,7 @@ export const columnDef: ColumnDef<
     },
     {
       header: 'عکس پروفایل',
-      cell: (props) => <Avatar size='extraSmall' userInfo={props.getValue()} />
+      cell: (props) => <Avatar size='small' userInfo={props.getValue()} />
     }
   ),
   columnHelper.accessor('role', {

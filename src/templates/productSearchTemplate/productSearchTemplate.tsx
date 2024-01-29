@@ -11,12 +11,16 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { FastRadio } from '@components/fastFields'
 import { Typography } from '@components/atoms/typography'
 import clsx from 'clsx'
+import { useUserStore } from '@stores'
+import { UserTypes } from '@constants'
+import { Button } from '@components/atoms/button'
 import classes from './styles.module.scss'
 import {
   IProductSearchFormValues,
   productSearchFormInitialValues
 } from '@/templates/productSearchTemplate/schema.ts'
 import { IProductSearchTemplate } from '@/templates/productSearchTemplate'
+import { path } from '@/routes'
 
 export function ProductSearchTemplate({
   isLoading,
@@ -32,6 +36,7 @@ export function ProductSearchTemplate({
 
   const { search } = useLocation()
   const navigate = useNavigate()
+  const role = useUserStore((state) => state.role)
 
   const searchParams = new URLSearchParams(search)
 
@@ -83,6 +88,21 @@ export function ProductSearchTemplate({
   }, [formik.values.brand.key, formik.values.category.key, formik.values.order])
 
   if (isLoading || !data) return null
+
+  const actions = [UserTypes.MANAGER, UserTypes.STAFF]?.includes(
+    role || UserTypes.CUSTOMER
+  )
+    ? [
+        <div key={'1'}>
+          <Button
+            mode={'main'}
+            onClick={() => navigate(path.common.productForm.link())}
+          >
+            افزودن محصول
+          </Button>
+        </div>
+      ]
+    : undefined
 
   return (
     <div>
@@ -140,6 +160,7 @@ export function ProductSearchTemplate({
         </Grid>
       </div>
       <PageTable
+        actions={actions}
         noDownload
         noPrint
         title={t('product_table')}

@@ -36,5 +36,21 @@ export const path = {
   profileEdit: {
     route: '/profile/edit',
     link: () => path.profileEdit.route
+  },
+  userForm: {
+    route: '/user/create',
+    link: () => path.userForm.route
+  },
+  categoryForm: {
+    route: '/category/create',
+    link: () => path.categoryForm.route
+  },
+  brandForm: {
+    route: '/brand/create',
+    link: () => path.brandForm.route
+  },
+  productForm: {
+    route: '/product/create',
+    link: () => path.productForm.route
   }
 }

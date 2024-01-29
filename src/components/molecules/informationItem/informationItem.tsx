@@ -1,8 +1,10 @@
-import { TInformationItemProps } from '@components/molecules/informationItem'
+import {
+  TInformationItemProps,
+  VInformationItemVariants
+} from '@components/molecules/informationItem'
 import { Avatar } from '@components/atoms/avatar'
 import { Fragment, useMemo } from 'react'
 import { addColon } from '@utils'
-import { VInformationItemVariants } from '@components/molecules/informationItem'
 import { Link } from '@components/atoms/link'
 import clsx from 'clsx'
 import { Typography } from '@components/atoms/typography'
@@ -61,7 +63,7 @@ export function InformationItem(props: TInformationItemProps) {
         <div className={clsx(classes.informationItem__column)}>
           <Avatar
             userInfo={{ firstName, lastName, imageUrl: avatarUrl }}
-            size={'smaller'}
+            size={'small'}
           />
           {link && <Link to={link}>مشاهده پروفایل</Link>}
         </div>

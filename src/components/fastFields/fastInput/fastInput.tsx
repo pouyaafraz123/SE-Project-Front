@@ -9,7 +9,19 @@ import { Extends } from '@/utils'
 
 type types = Extends<
   ParseKeys<'form'>,
-  'first_name' | 'email' | 'search' | 'address' | 'last_name'
+  | 'first_name'
+  | 'email'
+  | 'search'
+  | 'address'
+  | 'last_name'
+  | 'category_name'
+  | 'brand_name'
+  | 'product_name'
+  | 'price'
+  | 'discounted_price'
+  | 'quantity'
+  | 'feature'
+  | 'value'
 >
 
 const iconMap: { [key in types]: iconNameType | IconProps } = {
@@ -17,7 +29,15 @@ const iconMap: { [key in types]: iconNameType | IconProps } = {
   email: 'mailbox',
   search: 'magnifer',
   address: 'map-point',
-  last_name: 'user-rounded'
+  last_name: 'user-rounded',
+  category_name: 'notes',
+  brand_name: 'notes',
+  product_name: 'notes',
+  price: 'dollar-minimalistic',
+  discounted_price: 'dollar-minimalistic',
+  quantity: 'add-square',
+  feature: 'clipboard-text',
+  value: 'database'
 }
 
 interface IProps<T> {
@@ -32,6 +52,7 @@ interface IProps<T> {
   icon?: iconNameType | IconProps
   readonly?: boolean
   onChange?: (val: string) => void
+  inputType?: 'email' | 'number' | 'password' | 'tel' | 'text' | 'search'
 }
 
 export function FastInput<T>(props: IProps<T>) {
@@ -62,6 +83,7 @@ export function FastInput<T>(props: IProps<T>) {
         value={value}
         validation={touched[name] && errors[name] ? 'error' : undefined}
         readOnly={props.readonly}
+        inputType={props?.inputType}
       />
     </Field>
   )

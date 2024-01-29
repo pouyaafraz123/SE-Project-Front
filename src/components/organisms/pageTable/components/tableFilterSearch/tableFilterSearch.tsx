@@ -7,12 +7,13 @@ import classes from '../../styles.module.scss'
 export function TableFilterSearch({
   filterProps,
   searchProps,
-  actions
+  actions,
+  noSearch
 }: ITableFilterSearchProps) {
   return (
     <div className={clsx(classes.pageTable__filterSearch)}>
       {filterProps && <Filter {...filterProps} />}
-      <TableSearch onChange={() => {}} {...searchProps} />
+      {!noSearch && <TableSearch onChange={() => {}} {...searchProps} />}
       {actions}
     </div>
   )

@@ -1,16 +1,19 @@
 import { BasePage } from '@pages/basePage/basePage.tsx'
-import { ProfileEditTemplate } from '@/templates/profileEditTemplate'
 import { usePostProfile, useProfile } from '@api/profile'
 import { useUploadFile } from '@api/file'
 import { notify } from '@components/atoms/notify'
 import { useRef } from 'react'
 import { encodePhone } from '@utils'
+import { useNavigate } from 'react-router-dom'
+import { ProfileEditTemplate } from '@/templates/profileEditTemplate'
 
 export function Component() {
   const profile = useProfile()
 
   const { mutate } = useUploadFile()
   const { mutate: updateProfile } = usePostProfile()
+
+  const navigate = useNavigate()
 
   const updating = useRef(false)
 
@@ -60,6 +63,9 @@ export function Component() {
               {
                 onSuccess: () => {
                   updating.current = false
+                },
+                onError: () => {
+                  updating.current = false
                 }
               }
             )
@@ -81,6 +87,10 @@ export function Component() {
                     },
                     {
                       onSuccess: () => {
+                        updating.current = false
+                        navigate(-1)
+                      },
+                      onError: () => {
                         updating.current = false
                       }
                     }

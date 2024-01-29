@@ -6,10 +6,11 @@ import { iconNameType, IconProps } from '@components/atoms/icons'
 import { Field } from '@/components/fastFields/field/field'
 import { Extends } from '@/utils'
 
-type types = Extends<ParseKeys<'form'>, 'address'>
+type types = Extends<ParseKeys<'form'>, 'address' | 'description'>
 
 const iconMap: { [key in types]: iconNameType | IconProps } = {
-  address: 'map-point'
+  address: 'map-point',
+  description: 'notebook'
 }
 
 interface IProps<T> {

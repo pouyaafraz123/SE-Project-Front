@@ -8,10 +8,12 @@ export function TableHead({
   headingProps,
   tableFilterSearchProps
 }: ITableHeadProps) {
+  console.log(tableFilterSearchProps)
   return (
     <div>
       <TableHeading {...headingProps} />
-      {!headingProps?.noSearch && (
+      {(!tableFilterSearchProps?.noSearch ||
+        tableFilterSearchProps?.actions) && (
         <TableFilterSearch {...tableFilterSearchProps} />
       )}
     </div>

@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { RowData } from '@tanstack/react-table'
 import clsx from 'clsx'
+import { TableNoData } from '@components/atoms/tableNoData'
 import styles from './styles.module.scss'
 
 import { Thead } from './thead/thead'
@@ -31,14 +32,26 @@ export function Table<TData extends RowData>(props: TableProps<TData>) {
   return (
     <div className={clsx([styles['table-container'], tableContainerClassName])}>
       <table className={clsx([styles.table, tableClassName])}>
-        {thead && (
-          <Thead
-            table={table}
-            hasActionCell={hasActionCell}
-            showRow={showRow}
-          />
+        {dataJSON?.length > 0 ? (
+          <>
+            {thead && (
+              <Thead
+                table={table}
+                hasActionCell={hasActionCell}
+                showRow={showRow}
+              />
+            )}
+            <Tbody
+              table={table}
+              hasActionCell={hasActionCell}
+              showRow={showRow}
+            />
+          </>
+        ) : (
+          <div className={'w-100'}>
+            <TableNoData />
+          </div>
         )}
-        <Tbody table={table} hasActionCell={hasActionCell} showRow={showRow} />
       </table>
     </div>
   )

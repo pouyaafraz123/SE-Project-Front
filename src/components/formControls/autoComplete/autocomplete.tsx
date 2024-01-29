@@ -33,6 +33,7 @@ export const AutoComplete = memo(function AutoComplete(
     onBlur,
     ...rest
   } = props
+
   const readOnly = useReadOnly(propsReadOnly)
   const isClosedByUseDismiss = useRef(false)
   const [open, setStateOpen] = useState(false)
@@ -83,10 +84,9 @@ export const AutoComplete = memo(function AutoComplete(
     [role, dismiss, listNav]
   )
 
-  const items = options?.filter((item) =>
-    item.value.toLowerCase().startsWith(inputValue.toLowerCase())
+  const items = options?.filter(
+    (item) => item?.value?.toLowerCase()?.startsWith(inputValue?.toLowerCase())
   )
-
   function inputChangeHandler(value: string) {
     setInputValue(value)
 
