@@ -9,22 +9,24 @@ export function ProductTemplate(props: IProductTemplateProps) {
   return (
     <div>
       <ProductViewer {...product} />
-      <div className={classes.gallery}>
-        <ContainerBox name={'گالری'} link={{ to: '' }}>
-          <div className={classes.container}>
-            {product?.images?.map((image) => {
-              return (
-                <img
-                  key={image}
-                  src={image}
-                  alt={product?.title}
-                  className={classes.gallery__images}
-                />
-              )
-            })}
-          </div>
-        </ContainerBox>
-      </div>
+      {product?.images?.length > 0 && (
+        <div className={classes.gallery}>
+          <ContainerBox name={'گالری'} link={{ to: '' }}>
+            <div className={classes.container}>
+              {product?.images?.map((image) => {
+                return (
+                  <img
+                    key={image}
+                    src={image}
+                    alt={product?.title}
+                    className={classes.gallery__images}
+                  />
+                )
+              })}
+            </div>
+          </ContainerBox>
+        </div>
+      )}
       <div></div>
     </div>
   )
