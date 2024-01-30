@@ -52,5 +52,13 @@ export const path = {
   productForm: {
     route: '/product/create',
     link: () => path.productForm.route
+  },
+  users: {
+    route: '/users',
+    link: () => path.users.route
+  },
+  brands: {
+    route: '/brands',
+    link: () => path.brands.route
   }
 }

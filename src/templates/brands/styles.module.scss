@@ -1,0 +1,22 @@
+@import 'src/styles/functions';
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: radius(lg);
+  border: 1px solid getColor(var(--theme-border-main));
+  padding: space(l1);
+  background-color: getColor(var(--theme-primary-text), 10);
+  cursor: pointer;
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: radius(lg);
+    object-fit: cover;
+    object-position: center;
+  }
+}

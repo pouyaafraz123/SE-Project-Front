@@ -103,5 +103,21 @@ export const commonRoutes: IExtendedRouteObject[] = [
       loader: protectedLoader
     },
     permissions: [UserTypes.STAFF, UserTypes.MANAGER]
+  },
+  {
+    route: {
+      path: path.users.route,
+      lazy: () => import('@pages/userTablePage/userTablePage'),
+      loader: protectedLoader
+    },
+    permissions: [UserTypes.STAFF, UserTypes.MANAGER]
+  },
+  {
+    route: {
+      path: path.brands.route,
+      lazy: () => import('@pages/brandPage/brandPage')
+    },
+    permissions: [UserTypes.MANAGER, UserTypes.CUSTOMER, UserTypes.STAFF],
+    isPublic: true
   }
 ]

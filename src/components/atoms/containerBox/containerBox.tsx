@@ -14,11 +14,11 @@ export function ContainerBox({ name, link, children }: IContainerBoxProps) {
         onClick={() => navigate(link?.to, link?.options)}
         className={clsx(
           classes.containerBox__header,
-          !link && classes.containerBox__headerNoHover
+          !link?.to && classes.containerBox__headerNoHover
         )}
       >
         <Typography variant={'h4'}>{name}</Typography>
-        {link && <Icon name={'arrow-left'} />}
+        {link?.to && <Icon name={'arrow-left'} />}
       </div>
       <div className={clsx(classes.containerBox__content)}>{children}</div>
     </div>

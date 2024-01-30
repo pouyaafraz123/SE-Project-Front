@@ -35,9 +35,9 @@ export function Component() {
           const promise = setUpdatingAndReturnPromise()
           notify.promise({
             promise,
-            pendingMessage: 'در حال ویرایش',
+            pendingMessage: 'در حال ایجاد',
             rejectMessage: 'خطا',
-            resolvedMessage: 'با موفقیت آپدیت شد'
+            resolvedMessage: 'با موفقیت ایجاد شد'
           })
 
           uploadFiles(

@@ -1,0 +1,8 @@
+.blurText {
+  direction: ltr;
+  filter: blur(3px);
+  transition: all 200ms ease-in-out;
+  &:hover {
+    filter: none;
+  }
+}

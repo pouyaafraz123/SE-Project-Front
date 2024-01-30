@@ -1,0 +1,21 @@
+@import 'src/styles/functions';
+
+.gallery {
+  padding: space(l4);
+
+  &__images {
+    border-radius: radius(sm);
+    object-fit: cover;
+    object-position: center;
+    max-height: 20rem;
+    border: 2px solid getColor(var(--theme-border-main));
+  }
+}
+
+.container {
+  padding: space(m1) 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  grid-template-rows: auto;
+  grid-gap: 100px;
+}

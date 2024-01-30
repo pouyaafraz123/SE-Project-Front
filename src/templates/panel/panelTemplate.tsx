@@ -36,6 +36,12 @@ export function PanelTemplate({ id }: IPanelTemplateProps) {
             }}
           />
         )}
+        {role && [UserTypes.MANAGER, UserTypes.STAFF]?.includes(role) && (
+          <PanelCard
+            title={'مدیریت کاربران'}
+            onClick={() => navigate(path.common.users.link())}
+          />
+        )}
         <PanelCard
           title={'خروج از حساب کاربری'}
           onClick={() => {
