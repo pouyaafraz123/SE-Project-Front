@@ -52,6 +52,8 @@ export const useErrorHandler = () => {
           onError(t('apiError.service_unavailable'))
           //   history.push(`${base}503`)
           break
+        case 404:
+          break
 
         /* case 406:
             onError(error.response.data.message!) // back-end guarantees this behavior.

@@ -22,6 +22,7 @@ type types = Extends<
   | 'quantity'
   | 'feature'
   | 'value'
+  | 'panel_name'
 >
 
 const iconMap: { [key in types]: iconNameType | IconProps } = {
