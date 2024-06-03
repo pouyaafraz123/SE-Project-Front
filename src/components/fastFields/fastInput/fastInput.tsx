@@ -38,7 +38,8 @@ const iconMap: { [key in types]: iconNameType | IconProps } = {
   discounted_price: 'dollar-minimalistic',
   quantity: 'add-square',
   feature: 'clipboard-text',
-  value: 'database'
+  value: 'database',
+  panel_name: 'notes'
 }
 
 interface IProps<T> {

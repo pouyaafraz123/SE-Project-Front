@@ -5,6 +5,7 @@ import { useUserStore } from '@stores'
 import { UserTypes } from '@constants'
 import { useFormik } from 'formik'
 import { Form } from '@components/formControls/baseForm'
+import { BarLoader } from 'react-spinners'
 import { IPanelTemplateProps } from '@/templates/panel/types.ts'
 import { path } from '@/routes'
 import { usePanels } from '@/api/panel/getPanel'
@@ -46,46 +47,46 @@ export function PanelTemplate({ id }: IPanelTemplateProps) {
     )
   }
 
-  return (
-    (!isLoadingPanel || role != UserTypes.MANAGER) && (
-      <div>
-        <Grid>
+  return !isLoadingPanel || role != UserTypes.MANAGER ? (
+    <div>
+      <Grid>
+        <PanelCard
+          title={'ویرایش پروفایل'}
+          onClick={() => {
+            navigate(path.common.profileEdit.link())
+          }}
+        />
+        {role === UserTypes.CUSTOMER && (
           <PanelCard
-            title={'ویرایش پروفایل'}
+            title={'سبد خرید'}
             onClick={() => {
-              navigate(path.common.profileEdit.link())
+              navigate(path.common.cart.link())
             }}
           />
-          {role === UserTypes.CUSTOMER && (
-            <PanelCard
-              title={'سبد خرید'}
-              onClick={() => {
-                navigate(path.common.cart.link())
-              }}
-            />
-          )}
-          {role === UserTypes.CUSTOMER && (
-            <PanelCard
-              title={'آدرس ها'}
-              onClick={() => {
-                navigate(path.common.address.link())
-              }}
-            />
-          )}
-          {role && [UserTypes.MANAGER, UserTypes.STAFF]?.includes(role) && (
-            <PanelCard
-              title={'مدیریت کاربران'}
-              onClick={() => navigate(path.common.users.link())}
-            />
-          )}
+        )}
+        {role === UserTypes.CUSTOMER && (
           <PanelCard
-            title={'خروج از حساب کاربری'}
+            title={'آدرس ها'}
             onClick={() => {
-              logout()
+              navigate(path.common.address.link())
             }}
           />
-        </Grid>
-      </div>
-    )
+        )}
+        {role && [UserTypes.MANAGER, UserTypes.STAFF]?.includes(role) && (
+          <PanelCard
+            title={'مدیریت کاربران'}
+            onClick={() => navigate(path.common.users.link())}
+          />
+        )}
+        <PanelCard
+          title={'خروج از حساب کاربری'}
+          onClick={() => {
+            logout()
+          }}
+        />
+      </Grid>
+    </div>
+  ) : (
+    <BarLoader />
   )
 }
