@@ -2,6 +2,7 @@ import { IBasePageProps } from '@pages/basePage/types.ts'
 import { Header } from '@components/molecules/header'
 import clsx from 'clsx'
 import classes from './styles.module.scss'
+import { Footer } from '@/components/organisms/footerSection'
 
 export function BasePage({
   children,
@@ -9,7 +10,7 @@ export function BasePage({
   ...headerProps
 }: IBasePageProps) {
   return (
-    <div>
+    <div className={clsx('w-100', classes.basePage)}>
       <Header {...headerProps} />
       <div
         className={clsx(
@@ -19,6 +20,7 @@ export function BasePage({
       >
         {children}
       </div>
+      <Footer />
     </div>
   )
 }
