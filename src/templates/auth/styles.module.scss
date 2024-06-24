@@ -84,6 +84,17 @@ $animTime: 0.8s;
   }
 }
 
+.menuContainer {
+  border-bottom: 1px solid getColor(var(--theme-primary-main));
+  width: fit-content;
+  padding: 0 space(m1) space(m1);
+}
+
+.menuDropdown {
+  border-color: getColor(var(--theme-primary-main)) !important;
+  border-width: 0px 1px 1px 1px !important;
+}
+
 @keyframes scaleAnim {
   0% {
     transform: scaleX(1);

@@ -37,12 +37,16 @@ export function Signup({ onSignup, isLoading }: ISignupProps) {
           <FastInput formik={formik} name={'email'} type={'email'} />
           <FastPassword formik={formik} name={'password'} />
           <Dropdown anchor={'bottom'}>
-            <div id={'mmm'}>
+            <div id={'mmm'} className={classes.menuContainer}>
               <Typography color={'primary-dark'}>
                 {getUserTypesValue(formik.values.role)}
               </Typography>
             </div>
-            <DropdownMenu anchor={'bottom-start'} toggleId={'mmm'}>
+            <DropdownMenu
+              className={classes.menuDropdown}
+              anchor={'bottom-start'}
+              toggleId={'mmm'}
+            >
               <DropdownItem
                 onClick={() => formik.setFieldValue('role', UserTypes.CUSTOMER)}
               >
