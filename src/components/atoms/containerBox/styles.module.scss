@@ -3,15 +3,19 @@
 
 .containerBox {
   border-radius: radius(md);
-  background-color: getColor(var(--theme-primary-dark), 5);
+  border: 1px solid getColor(var(--theme-primary-dark), 3);
   backdrop-filter: blur(200px);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  max-width: 1250px;
+  width: 100%;
+
+  box-shadow: 1px 1px 5px 1px getColor(var(--theme-primary-dark), 4);
 
   &__header {
     padding: space(m3) space(m4);
-    border-bottom: 2px solid getColor(var(--theme-border-dark));
+    border-bottom: 1px solid getColor(var(--theme-border-dark), 15);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -21,7 +25,7 @@
     border-radius: radius(md) radius(md) 0 0;
 
     &:hover {
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: rgba(0, 0, 0, 0.05);
     }
   }
 

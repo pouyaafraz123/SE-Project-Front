@@ -16,3 +16,9 @@
     color: getColor(var(--theme-primary-dark));
   }
 }
+
+@media only screen and (max-width: 800px) {
+  .navbar {
+    display: none;
+  }
+}

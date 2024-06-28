@@ -2,6 +2,8 @@
 @import 'src/styles/mixins';
 
 .productSlider {
+  max-width: 1250px;
+  width: 100%;
   &__itemContainer {
     border-radius: radius(lg);
     background-position: center;
@@ -12,15 +14,6 @@
     margin: space(m3);
     @include disable-select;
     cursor: pointer;
-  }
-
-  :global .swiper-slide {
-    width: 25% !important;
-    transition: all 0.5s ease-in-out;
-  }
-
-  :global .swiper-slide-active {
-    width: 50% !important;
   }
 
   &__itemBackdrop {
@@ -62,4 +55,35 @@
     font-weight: 1000;
     opacity: 0.5;
   }
+}
+
+.productSliderLg {
+  :global .swiper-slide {
+    width: 25% !important;
+    transition: all 0.5s ease-in-out;
+  }
+
+  :global .swiper-slide-active {
+    width: 50% !important;
+  }
+
+  @media only screen and (max-width: 800px) {
+      display: none;
+  }
+}
+
+.productSliderSm {
+    :global .swiper-slide {
+      width: 50% !important;
+      transition: all 0.5s ease-in-out;
+    }
+  
+    :global .swiper-slide-active {
+      width: 50% !important;
+    }
+
+    @media only screen and (min-width: 800px) {
+        display: none;
+    }
+    
 }

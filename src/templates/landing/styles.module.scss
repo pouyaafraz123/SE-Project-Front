@@ -1,0 +1,15 @@
+@import 'src/styles/functions';
+@import 'src/styles/mixins';
+
+.mainDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem
+}
+
+@media only screen and (max-width: 1300px) {
+    .mainDiv {
+      align-items: start;
+    }
+}

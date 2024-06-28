@@ -20,46 +20,91 @@ export function ProductSlider(props: IProductSliderProps) {
   const { items } = props
 
   return (
-    <div className={clsx(classes.productSlider)}>
-      <Swiper
-        modules={[
-          Autoplay,
-          Keyboard,
-          Mousewheel,
-          Navigation,
-          Pagination,
-          Parallax
-        ]}
-        pagination={{
-          enabled: true
-        }}
-        autoplay={true}
-        loop={true}
-        navigation={{ enabled: true }}
-        slidesPerView={4}
-        parallax={{ enabled: true }}
-        speed={700}
-      >
-        {items?.map((item) => {
-          return (
-            <SwiperSlide key={item.id}>
-              <div
-                style={{ backgroundImage: `url(${item?.img})` }}
-                className={clsx(classes.productSlider__itemContainer)}
-                onClick={() =>
-                  navigate(path.common.productView.link({ id: item?.id }))
-                }
-              >
-                <div className={clsx(classes.productSlider__itemBackdrop)}>
-                  <Typography variant={'h2'} color={'white'}>
-                    {item.title}
-                  </Typography>
+    <>
+      <div className={clsx(classes.productSlider, classes.productSliderLg)}>
+        <Swiper
+          modules={[
+            Autoplay,
+            Keyboard,
+            Mousewheel,
+            Navigation,
+            Pagination,
+            Parallax
+          ]}
+          pagination={{
+            enabled: true
+          }}
+          autoplay={true}
+          loop={true}
+          navigation={{ enabled: true }}
+          slidesPerView={4}
+          parallax={{ enabled: true }}
+          speed={700}
+        >
+          {items?.map((item) => {
+            return (
+              <SwiperSlide key={item.id}>
+                <div
+                  style={{ backgroundImage: `url(${item?.img})` }}
+                  className={clsx(classes.productSlider__itemContainer)}
+                  onClick={() =>
+                    navigate(path.common.productView.link({ id: item?.id }))
+                  }
+                >
+                  <div className={clsx(classes.productSlider__itemBackdrop)}>
+                    <Typography variant={'h2'} color={'white'}>
+                      {item.title}
+                    </Typography>
+                  </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          )
-        })}
-      </Swiper>
-    </div>
+              </SwiperSlide>
+            )
+          })}
+        </Swiper>
+      </div>
+
+      {/* sm */}
+      <div className={clsx(classes.productSlider, classes.productSliderSm)}>
+        <Swiper
+          modules={[
+            Autoplay,
+            Keyboard,
+            Mousewheel,
+            Navigation,
+            Pagination,
+            Parallax
+          ]}
+          pagination={{
+            enabled: true
+          }}
+          autoplay={true}
+          loop={true}
+          navigation={{ enabled: true }}
+          slidesPerView={2}
+          parallax={{ enabled: true }}
+          speed={700}
+        >
+          {items?.map((item) => {
+            return (
+              <SwiperSlide key={item.id}>
+                <div
+                  style={{ backgroundImage: `url(${item?.img})` }}
+                  className={clsx(classes.productSlider__itemContainer)}
+                  onClick={() =>
+                    navigate(path.common.productView.link({ id: item?.id }))
+                  }
+                >
+                  <div className={clsx(classes.productSlider__itemBackdrop)}>
+                    <Typography variant={'h2'} color={'white'}>
+                      {item.title}
+                    </Typography>
+                  </div>
+                </div>
+              </SwiperSlide>
+            )
+          })}
+        </Swiper>
+      </div>
+    </>
   )
 }

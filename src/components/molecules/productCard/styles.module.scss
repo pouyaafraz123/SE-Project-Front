@@ -10,7 +10,7 @@
   min-width: 12rem;
   max-width: 16rem;
   background: getColor(var(--theme-primary-background));
-  box-shadow: 1px 3px 10px 5px getColor(var(--theme-primary-text), 50);
+  box-shadow: 0px 0px 8px 3px getColor(var(--theme-primary-text), 10);
   padding: space(m1);
   width: 16rem;
   cursor: pointer;

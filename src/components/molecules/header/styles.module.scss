@@ -10,8 +10,8 @@
   justify-content: space-between;
   background-color: getColor(var(--theme-secondary-background));
   box-shadow:
-    5px 5px 14px getColor(var(--theme-border-dark), 30),
-    -5px -5px 14px getColor(var(--theme-border-main), 30);
+    2px 2px 7px getColor(var(--theme-border-dark), 20),
+    -2px -2px 7px getColor(var(--theme-border-main), 20);
 
   &__logoPlace {
     display: flex;
