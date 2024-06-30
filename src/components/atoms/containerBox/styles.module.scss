@@ -25,7 +25,7 @@
     border-radius: radius(md) radius(md) 0 0;
 
     &:hover {
-      background-color: rgba(0, 0, 0, 0.05);
+      background-color: getColor(var(--theme-primary-main));
     }
   }
 
