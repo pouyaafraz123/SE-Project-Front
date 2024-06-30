@@ -35,7 +35,7 @@ export function Login({ onLogin, isLoading }: ILoginProps) {
       onSubmit={formik.handleSubmit}
     >
       <div className={clsx(classes.authContainer__login)}>
-        <Typography variant={'h2'}>ورود به حساب کاربری</Typography>
+        <Typography variant={'h2'}>وارد حسابت شو🔑</Typography>
         <Grid>
           <FastInput formik={formik} name={'email'} type={'email'} />
           <FastPassword formik={formik} name={'password'} />

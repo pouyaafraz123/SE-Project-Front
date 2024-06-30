@@ -32,7 +32,7 @@ export function Signup({ onSignup, isLoading }: ISignupProps) {
       onSubmit={formik.handleSubmit}
     >
       <div className={clsx(classes.authContainer__login)}>
-        <Typography variant={'h2'}>ایجاد اکانت رایگان</Typography>
+        <Typography variant={'h2'}>زودتر اکانت بساز🔐</Typography>
         <Grid>
           <FastInput formik={formik} name={'email'} type={'email'} />
           <FastPassword formik={formik} name={'password'} />
