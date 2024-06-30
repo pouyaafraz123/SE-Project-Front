@@ -60,5 +60,9 @@ export const path = {
   brands: {
     route: '/brands',
     link: () => path.brands.route
+  },
+  contactUs: {
+    route: '/contact-us',
+    link: () => path.contactUs.route
   }
 }
