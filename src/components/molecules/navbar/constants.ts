@@ -6,5 +6,5 @@ export const navItems: INavItems[] = [
   { id: '2', title: 'دسته بندی ها', link: path.common.categoryTable.link() },
   { id: '4', title: 'برند ها', link: path.common.brands.link() },
   { id: '3', title: 'محصولات', link: path.common.productSearch.link() },
-  { id: '5', title: 'تماس با ما', link: '/' }
+  { id: '5', title: 'تماس با ما', link: path.common.contactUs.link() }
 ]
