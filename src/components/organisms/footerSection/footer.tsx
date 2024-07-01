@@ -33,7 +33,7 @@ export function Footer() {
             <Link to={path.common.brands.link()}>برند ها</Link>
           </li>
           <li>
-            <Link to='/contact'>تماس با ما</Link>
+            <Link to={path.common.contactUs.link()}>تماس با ما</Link>
           </li>
         </ul>
       </div>
