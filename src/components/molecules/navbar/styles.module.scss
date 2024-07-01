@@ -9,11 +9,11 @@
   gap: space(l1);
 
   &__link {
-    color: getColor(var(--theme-primary-main));
+    color: getColor(var(--theme-primary-text)) !important;
   }
 
   &__linkSelected {
-    color: getColor(var(--theme-primary-dark));
+    color: getColor(var(--theme-primary-dark)) !important;
   }
 }
 
@@ -21,4 +21,8 @@
   .navbar {
     display: none;
   }
+}
+
+.navbar p:hover {
+  color: getColor(var(--theme-primary-main)) !important;
 }
