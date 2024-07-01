@@ -12,10 +12,10 @@
   transition: all 0.3s ease-in-out;
   position: relative;
   overflow: hidden;
-  transform: translateY(0) scale(1);
+  transform: scale(1);
 
   &:hover {
-    transform: translateY(-6px) scale(1.01);
+    transform: scale(1.01);
   }
   // TODO CHECK BEHAVIOR
 
@@ -28,6 +28,7 @@
     border-radius: radius(lg);
     background-position: center;
     background-size: cover;
+    will-change: transform;
     transition: all 0.5s ease-in-out;
   }
   &:hover &__imageContainer {
@@ -49,11 +50,11 @@
     bottom: 0;
   }
   &:hover &__text {
-    animation: animation 1.5s ease-in-out infinite;
+    animation: jumping 1.5s ease-in-out infinite;
   }
 }
 
-@keyframes animation {
+@keyframes jumping {
   0% {
     transform: translateY(0);
   }

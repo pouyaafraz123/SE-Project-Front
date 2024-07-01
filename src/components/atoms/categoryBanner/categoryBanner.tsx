@@ -1,8 +1,8 @@
 import { ICategoryBanner } from '@components/atoms/categoryBanner/types.ts'
 import { Typography } from '@components/atoms/typography'
 import clsx from 'clsx'
-import classes from './styles.module.scss'
 import { useNavigate } from 'react-router-dom'
+import classes from './styles.module.scss'
 import { IOption } from '@/interfaces'
 import { path } from '@/routes'
 
