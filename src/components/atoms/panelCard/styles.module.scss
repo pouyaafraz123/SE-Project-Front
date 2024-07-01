@@ -1,3 +1,4 @@
+// styles.module.scss
 @import 'src/styles/functions';
 @import 'src/styles/mixins';
 
@@ -8,30 +9,44 @@
     padding: space(l1);
     border: 2px solid getColor(var(--theme-border-dark), 20);
     box-shadow:
-      10px 10px 40px getColor(var(--theme-border-dark), 40),
-      -10px -10px 40px getColor(var(--theme-border-dark), 5);
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+      rgba(14, 63, 126, 0.04) 0px 0px 0px 1px,
+      rgba(42, 51, 69, 0.04) 0px 1px 1px -0.5px,
+      rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px,
+      rgba(42, 51, 70, 0.04) 0px 6px 6px -3px,
+      rgba(14, 63, 126, 0.04) 0px 12px 12px -6px,
+      rgba(14, 63, 126, 0.04) 0px 24px 24px -12px;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    transition:
+      box-shadow 0.3s ease-in-out,
+      transform 0.3s ease-in-out;
 
     &:hover {
       box-shadow:
-        10px 10px 40px getColor(var(--theme-border-dark), 50),
-        -10px -10px 40px getColor(var(--theme-border-dark), 10);
+        rgba(14, 63, 126, 0.06) 0px 0px 0px 1px,
+        rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px,
+        rgba(42, 51, 70, 0.04) 0px 2px 2px -1px,
+        rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px,
+        rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px,
+        rgba(42, 51, 70, 0.03) 0px 10px 10px -5px,
+        rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
+      transform: translateY(-5px);
     }
 
     @include disable-select;
   }
 
-  &__cardIcon {
+  &__content {
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    justify-content: center;
+    align-items: center; // Align items horizontally
+    gap: 1rem;
+  }
+
+  &__cardIcon {
+    font-size: 2rem;
   }
 
   &__cardText {
-    padding-bottom: 1rem;
+    text-align: center;
   }
 }
