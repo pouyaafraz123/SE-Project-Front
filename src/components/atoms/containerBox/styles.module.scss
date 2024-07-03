@@ -26,6 +26,10 @@
 
     &:hover {
       background-color: getColor(var(--theme-primary-main));
+      color: #fff;
+      h4 {
+        color: #fff !important;
+      }
     }
   }
 
