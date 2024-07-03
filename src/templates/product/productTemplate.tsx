@@ -2,9 +2,10 @@ import { ProductViewer } from '@components/organisms/productViewer'
 import classes from './styles.module.scss'
 import { IProductTemplateProps } from '@/templates/product/types.ts'
 import { ContainerBox } from '@/components/atoms/containerBox'
+import { CommentSection } from '@/components/organisms/commentSection/commentSection'
 
 export function ProductTemplate(props: IProductTemplateProps) {
-  const { product, comments } = props
+  const { product, comments, onPostComment } = props
 
   return (
     <div>
@@ -27,7 +28,9 @@ export function ProductTemplate(props: IProductTemplateProps) {
           </ContainerBox>
         </div>
       )}
-      <div></div>
+      <div>
+        <CommentSection comments={comments} onSubmit={onPostComment} />
+      </div>
     </div>
   )
 }

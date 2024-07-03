@@ -4,6 +4,7 @@ import { IProductViewParams } from '@routes/commonRoutes/path.ts'
 import { IRouteParams } from '@routes/types.ts'
 import { BasePage } from '@pages/basePage/basePage.tsx'
 import { ProductTemplate } from '@/templates/product'
+import { useComments, usePostComment } from '@/api/comments'
 
 export function Component() {
   const { id } = useParams<IRouteParams<IProductViewParams>>()
@@ -14,7 +15,15 @@ export function Component() {
     },
     enabled: !!id
   })
-
+  const { data: commentsData } = useComments({
+    variables: {
+      id: id!,
+      PageSize: 1000,
+      PageIndex: 1
+    },
+    enabled: !!id
+  })
+  const { mutate } = usePostComment()
   const product = data?.data
 
   return (
@@ -31,7 +40,14 @@ export function Component() {
           rating: product?.rating || 0,
           title: product?.name || ''
         }}
-        comments={[]}
+        comments={commentsData?.data?.data || []}
+        onPostComment={(comment) =>
+          mutate({
+            rating: 0,
+            comment: comment,
+            id: id || ''
+          })
+        }
       />
     </BasePage>
   )
