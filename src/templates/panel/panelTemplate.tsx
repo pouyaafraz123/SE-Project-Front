@@ -78,6 +78,24 @@ export function PanelTemplate({ id }: IPanelTemplateProps) {
             onClick={() => navigate(path.common.users.link())}
           />
         )}
+        {role && [UserTypes.MANAGER, UserTypes.STAFF]?.includes(role) && (
+          <PanelCard
+            title={'ایجاد محصول'}
+            onClick={() => navigate('/product/create')}
+          />
+        )}
+        {role && [UserTypes.MANAGER, UserTypes.STAFF]?.includes(role) && (
+          <PanelCard
+            title={'ایجاد برند'}
+            onClick={() => navigate('/brand/create')}
+          />
+        )}
+        {role && [UserTypes.MANAGER, UserTypes.STAFF]?.includes(role) && (
+          <PanelCard
+            title={'ایجاد دسته بندی'}
+            onClick={() => navigate('/category/create')}
+          />
+        )}
         <PanelCard
           title={'خروج از حساب کاربری'}
           onClick={() => {

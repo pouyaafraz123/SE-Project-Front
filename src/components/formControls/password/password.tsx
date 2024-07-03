@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Input } from '..'
 import { PasswordProps } from '.'
 import { Icon } from '@/components/atoms/icons'
-import { useReadOnly } from '@/hooks'
 
 export function Password(props: PasswordProps) {
   const {
@@ -13,17 +12,13 @@ export function Password(props: PasswordProps) {
     ...rest
   } = props
   const [showPassword, setShowPassword] = useState(false)
-  const readOnly = useReadOnly(propsReadOnly)
-  function iconClickHandler() {
-    setShowPassword(!showPassword)
-  }
 
   return (
     <Input
-      onIconClick={iconClickHandler}
+      onIconClick={() => setShowPassword(!showPassword)}
       icon={showPassword ? EyeClosedIcon : EyeIcon}
       inputType={showPassword ? 'text' : 'password'}
-      readOnly={readOnly}
+      iconType='button'
       {...rest}
     />
   )
