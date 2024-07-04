@@ -3,9 +3,7 @@
 .productCard {
   border-radius: radius(lg);
   overflow: hidden;
-  box-shadow:
-    16px 16px 32px getColor(var(--theme-primary-text), 30),
-    -16px -16px 32px getColor(var(--theme-primary-text), 30);
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
 
   height: 20rem;
   background-position: center center;
