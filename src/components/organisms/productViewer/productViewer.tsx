@@ -82,7 +82,7 @@ export function ProductViewer(props: IProduct) {
             </div>
             <div className={clsx(classes.productViewer__featurePart)}>
               <div className={clsx(classes.productViewer__rating)}>
-                <Typography variant={'h6'}>امتیاز: {rating}</Typography>
+                <Typography variant={'h6'}>⭐امتیاز : {rating}</Typography>
               </div>
               <div className={clsx(classes.productViewer__buyBox)}>
                 <Typography variant={'body'}>{`قیمت: ${convertCurrency(
