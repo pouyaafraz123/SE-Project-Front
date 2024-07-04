@@ -11,7 +11,7 @@ export function FastPassword<T>(props: FastPasswordProps<T>) {
   const _title = t(title || 'password')
   const _placeholder = placeholder || _title
   return (
-    <Field name={name} title={title || 'password'} formik={formik} icon={icon}>
+    <Field name={name} title={title || 'password'} formik={formik} icon='eye'>
       <Password
         id={name.toString()}
         value={value}
