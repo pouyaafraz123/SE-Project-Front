@@ -1,0 +1,49 @@
+@import 'src/styles/functions.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: space(l1);
+}
+
+.commentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: space(m3);
+  width: 100%;
+  padding: space(2m1);
+  background-color: getColor(var(--theme-secondary-background));
+  border-radius: 8px;
+}
+
+.commentContainer__card {
+  display: flex;
+  flex-direction: column;
+  gap: space(m1);
+  padding: space(2m1);
+  background-color: getColor(var(--color-white));
+  border-radius: 8px;
+  box-shadow:
+    rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  }
+}
+
+.commentContainer__cardTop {
+  font-weight: bold;
+  font-size: space(2m1) !important;
+  color: getColor(var(--color-gumbo)) !important;
+}
+
+.commentContainer__cardContent {
+  font-size: space(2m1) !important;
+  color: getColor(var(--color-shadow-green)) !important;
+  line-height: 1.5; // Improved readability
+}
