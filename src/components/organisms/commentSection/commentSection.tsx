@@ -52,9 +52,9 @@ export function CommentSection({ comments, onSubmit }: ICommentSectionProps) {
                     variant='subtitle1'
                     className={classes.commentContainer__cardTop}
                   >
-                    {(comment.firstName || 'علی') +
+                    {(comment.firstName || '') +
                       ' ' +
-                      (comment.lastName || 'کرمی') +
+                      (comment.lastName || '') +
                       ' :'}
                   </Typography>
                   <Typography className={classes.commentContainer__cardContent}>
