@@ -27,10 +27,10 @@ export function Footer() {
             <Link to={path.common.landing.link()}>خانه</Link>
           </li>
           <li>
-            <Link to={path.common.productSearch.link()}>محصولات</Link>
+            <Link to={path.common.aboutUs.link()}>درباره ما</Link>
           </li>
           <li>
-            <Link to={path.common.brands.link()}>برند ها</Link>
+            <Link to={path.common.productSearch.link()}>محصولات</Link>
           </li>
           <li>
             <Link to={path.common.contactUs.link()}>تماس با ما</Link>
