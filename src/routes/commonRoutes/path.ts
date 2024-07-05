@@ -64,5 +64,9 @@ export const path = {
   contactUs: {
     route: '/contact-us',
     link: () => path.contactUs.route
+  },
+  aboutUs: {
+    route: '/about-us',
+    link: () => path.aboutUs.route
   }
 }

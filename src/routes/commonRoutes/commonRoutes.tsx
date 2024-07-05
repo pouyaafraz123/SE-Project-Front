@@ -127,5 +127,13 @@ export const commonRoutes: IExtendedRouteObject[] = [
     },
     permissions: [UserTypes.MANAGER, UserTypes.CUSTOMER, UserTypes.STAFF],
     isPublic: true
+  },
+  {
+    route: {
+      path: path.aboutUs.route,
+      lazy: () => import('@pages/aboutPage/aboutPage')
+    },
+    permissions: [UserTypes.MANAGER, UserTypes.CUSTOMER, UserTypes.STAFF],
+    isPublic: true
   }
 ]
