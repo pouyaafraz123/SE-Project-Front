@@ -57,7 +57,7 @@ export function Component() {
             onSubmit={formik.handleSubmit}
             onCancel={() => navigate(-1)}
           >
-            <h2>افزودن رابط</h2>
+            <h2>افزودن کارکن</h2>
             <FastInput name={'email'} type={'email'} formik={formik} />
           </Form>
         </>
