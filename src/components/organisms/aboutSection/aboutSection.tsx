@@ -46,7 +46,7 @@ export function AboutUs() {
             <p>تیم فرانت</p>
           </div>
           <div className={clsx(classes.aboutUs__team__members__member)}>
-            <img src={frontTeam} alt='Team Member 3' />
+            <img src={backTeam} alt='Team Member 3' />
             <h3>علی کرمی</h3>
             <p>تیم بک</p>
           </div>
