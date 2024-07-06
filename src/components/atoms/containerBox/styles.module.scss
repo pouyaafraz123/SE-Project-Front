@@ -25,7 +25,7 @@
     border-radius: radius(md) radius(md) 0 0;
 
     &:hover {
-      background-color: getColor(var(--theme-primary-main));
+      background-color: getColor(var(--theme-primary-main)) !important;
       color: #fff;
       h4 {
         color: #fff !important;
