@@ -8,6 +8,8 @@ import { useProfile } from '@/api/profile'
 import { Form } from '@/components/formControls/baseForm'
 import { FastInput } from '@/components/fastFields'
 import { usePostPanelMember } from '@/api/member/postMember'
+import { useUserStore } from '@/stores'
+import { UserTypes } from '@/constants'
 export function Component() {
   const navigate = useNavigate()
   const { paginationValues, searchValue, filterValues, tableProps } =
@@ -15,6 +17,7 @@ export function Component() {
   const { currentPage, resultsPerPage } = paginationValues
 
   const { data: profile } = useProfile()
+  const role = useUserStore((state) => state.role)
 
   const { data, isLoading, isFetching } = useUserTable({
     variables: {
@@ -46,15 +49,19 @@ export function Component() {
         isLoading={isLoading}
         isFetching={isFetching}
       />
-      <div style={{ height: '35px' }} />
-      <Form
-        submitBtnTitle={'submit'}
-        onSubmit={formik.handleSubmit}
-        onCancel={() => navigate(-1)}
-      >
-        <h2>افزودن رابط</h2>
-        <FastInput name={'email'} type={'email'} formik={formik} />
-      </Form>
+      {role == UserTypes.MANAGER && (
+        <>
+          <div style={{ height: '35px' }} />
+          <Form
+            submitBtnTitle={'submit'}
+            onSubmit={formik.handleSubmit}
+            onCancel={() => navigate(-1)}
+          >
+            <h2>افزودن رابط</h2>
+            <FastInput name={'email'} type={'email'} formik={formik} />
+          </Form>
+        </>
+      )}
     </BasePage>
   )
 }
