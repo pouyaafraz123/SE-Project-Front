@@ -54,6 +54,8 @@ export const useErrorHandler = () => {
           break
         case 404:
           break
+        case 415:
+          break
 
         /* case 406:
             onError(error.response.data.message!) // back-end guarantees this behavior.

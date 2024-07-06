@@ -9,13 +9,11 @@ import { SelectBoxContainer } from '@components/molecules/selectBox'
 import { PageLayout } from '@components/layout/pageLayout'
 import { Sidebar, sidebarFn } from '@components/organisms/sidebar'
 import { sidebarItems } from '@constants'
-
 import { useUIStore, useUserStore } from '@stores'
 import { useProfile } from '@/api/profile'
 import { IHeaderProps } from '@/components/organisms/sidebar/types'
 import { AlertContainer } from '@/components/molecules/alert'
 import { ModalContainer } from '@/components/modals/baseModal'
-import { Footer } from '@/components/organisms/footerSection'
 
 export function Component() {
   // setting dir and lang of html from i18n

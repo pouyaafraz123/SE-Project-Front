@@ -3,7 +3,7 @@ import { createQuery } from 'react-query-kit'
 import { IUserParams, IUsers } from '@api/users/types.ts'
 import { axiosClient, AxiosFn, IPaginationParams, WithPagination } from '@/api'
 
-type Variables = IUserParams & IPaginationParams
+type Variables = IUserParams & IPaginationParams & { panelGuid: string }
 type Response = AxiosResponse<WithPagination<IUsers>>
 
 const key = 'users-table'
@@ -12,7 +12,7 @@ export const getUserTable: AxiosFn<Variables, Response> = async (
   params,
   signal
 ) => {
-  return await axiosClient.get('/users', { params, signal })
+  return await axiosClient.get('/panels/members', { params, signal })
 }
 
 export const useUserTable = createQuery<Response, Variables, AxiosError>({
